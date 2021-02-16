@@ -49,4 +49,11 @@ Studenti
 	  [ls_pocet_studentu] INT NULL,
 	  [titul] VARCHAR(10) NULL
 
-
+[Stitky
+  	[Id] INT NOT NULL PRIMARY KEY, 
+    [id_predmet] INT NULL, 
+    [id_zamestnanec] INT NULL, 
+    [rocnik] INT NULL, 
+    [druh_stitku] INT NULL, 
+    [hodnota_stitku] INT NULL, 
+    [hodnota_stitku_d] FLOAT NULL
