@@ -16,7 +16,7 @@ namespace AK8PO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Zamestnanci());
+            Application.Run(new Hlavni());
         }
     }
 }
