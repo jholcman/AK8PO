@@ -22,6 +22,10 @@ namespace AK8PO
 
          private void Predmet_Load(object sender, EventArgs e)
         {
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet4.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+           // this.predmetTableAdapter2.Fill(this.databaseUTBDataSet4.Predmet);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet2.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+           // this.predmetTableAdapter1.Fill(this.databaseUTBDataSet2.Predmet);
             LoadForm();
 
         }
@@ -45,11 +49,11 @@ namespace AK8PO
             vstupSeminare.Text = predmetyView.SelectedRows[0].Cells[5].Value.ToString();
             vstupZakonceni.Text = predmetyView.SelectedRows[0].Cells[6].Value.ToString();
             vstupJazyk.Text = predmetyView.SelectedRows[0].Cells[7].Value.ToString();
-            vstupVelikost_tridy.Text = predmetyView.SelectedRows[0].Cells[7].Value.ToString();
-            vstupNazev_predmetu.Text = predmetyView.SelectedRows[0].Cells[8].Value.ToString();
-            vstupPocet_kreditu.Text = predmetyView.SelectedRows[0].Cells[7].Value.ToString();
-            vstupGarant_ustav.Text = predmetyView.SelectedRows[0].Cells[7].Value.ToString();
-            vstupGarant_osoba.Text = predmetyView.SelectedRows[0].Cells[7].Value.ToString();
+            vstupVelikost_tridy.Text = predmetyView.SelectedRows[0].Cells[8].Value.ToString();
+            vstupNazev_predmetu.Text = predmetyView.SelectedRows[0].Cells[9].Value.ToString();
+            vstupPocet_kreditu.Text = predmetyView.SelectedRows[0].Cells[10].Value.ToString();
+            vstupGarant_ustav.Text = predmetyView.SelectedRows[0].Cells[11].Value.ToString();
+            vstupGarant_osoba.Text = predmetyView.SelectedRows[0].Cells[12].Value.ToString();
         }
         private void ResetFormulare(object sender, EventArgs e)
         {
@@ -108,7 +112,7 @@ namespace AK8PO
         {
             if (vstupID.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Predmet SET zkratka=@VstupZkratka, pocet_tydnu=@VstupPocet_tydnu, prednasky=@VstupPrednasky, cviceni=@VstupCviceni, seminare=@VstupSeminare, zakonceni=@VstupZakonceni, jazyk=@VstupJazyk, velikost_tridy=@VstupVelikost_tridy, nazev_predmetu=@VstupNazev_predmetu, pocet_kreditu=@VstupPocet_kreditu, garant_ustav=@VstupGarant_ustav, garant_osoba=@VstupGarant_osoba", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Predmet (zkratka, pocet_tydnu, prednasky, cviceni, seminare, zakonceni, jazyk, velikost_tridy, nazev_predmetu, pocet_kreditu, garant_ustav, garant_osoba) VALUES (@VstupZkratka, @VstupPocet_tydnu, @VstupPrednasky, @VstupCviceni, @VstupSeminare, @VstupZakonceni, @VstupJazyk, @VstupVelikost_tridy, @VstupNazev_predmetu, @VstupPocet_kreditu, @VstupGarant_ustav, @VstupGarant_osoba)", con);
 
                 cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
                 cmd.Parameters.AddWithValue("@VstupPocet_tydnu", int.Parse(vstupPocet_tydnu.Text));

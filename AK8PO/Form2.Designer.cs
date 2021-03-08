@@ -33,15 +33,6 @@ namespace AK8PO
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.studentiView = new System.Windows.Forms.DataGridView();
-            this.databaseUTBDataSet3 = new AK8PO.DatabaseUTBDataSet3();
-            this.databaseUTBDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clear_tlacitko = new System.Windows.Forms.Button();
-            this.delete_tlacitko = new System.Windows.Forms.Button();
-            this.new_tlacitko = new System.Windows.Forms.Button();
-            this.update_tlacitko = new System.Windows.Forms.Button();
-            this.databaseUTBDataSet = new AK8PO.DatabaseUTBDataSet();
-            this.studentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentiTableAdapter = new AK8PO.DatabaseUTBDataSetTableAdapters.StudentiTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rocnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +42,15 @@ namespace AK8PO
             this.typstudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazevstudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseUTBDataSet = new AK8PO.DatabaseUTBDataSet();
+            this.databaseUTBDataSet3 = new AK8PO.DatabaseUTBDataSet3();
+            this.databaseUTBDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clear_tlacitko = new System.Windows.Forms.Button();
+            this.delete_tlacitko = new System.Windows.Forms.Button();
+            this.new_tlacitko = new System.Windows.Forms.Button();
+            this.update_tlacitko = new System.Windows.Forms.Button();
+            this.studentiTableAdapter = new AK8PO.DatabaseUTBDataSetTableAdapters.StudentiTableAdapter();
             this.vstupID = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.vstupNazev_studia = new System.Windows.Forms.TextBox();
@@ -70,10 +70,10 @@ namespace AK8PO
             this.vstupTyp_studia = new System.Windows.Forms.ComboBox();
             this.vstupJazyk = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentiView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -121,74 +121,6 @@ namespace AK8PO
             this.studentiView.Size = new System.Drawing.Size(623, 669);
             this.studentiView.TabIndex = 33;
             this.studentiView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VyberZaznamu_CellClick);
-            // 
-            // databaseUTBDataSet3
-            // 
-            this.databaseUTBDataSet3.DataSetName = "DatabaseUTBDataSet3";
-            this.databaseUTBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // databaseUTBDataSet3BindingSource
-            // 
-            this.databaseUTBDataSet3BindingSource.DataSource = this.databaseUTBDataSet3;
-            this.databaseUTBDataSet3BindingSource.Position = 0;
-            // 
-            // clear_tlacitko
-            // 
-            this.clear_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.clear_tlacitko.Location = new System.Drawing.Point(929, 695);
-            this.clear_tlacitko.Name = "clear_tlacitko";
-            this.clear_tlacitko.Size = new System.Drawing.Size(233, 45);
-            this.clear_tlacitko.TabIndex = 40;
-            this.clear_tlacitko.Text = "Vymazat obsah záznamu";
-            this.clear_tlacitko.UseVisualStyleBackColor = true;
-            this.clear_tlacitko.Click += new System.EventHandler(this.ResetFormulare);
-            // 
-            // delete_tlacitko
-            // 
-            this.delete_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.delete_tlacitko.Location = new System.Drawing.Point(663, 695);
-            this.delete_tlacitko.Name = "delete_tlacitko";
-            this.delete_tlacitko.Size = new System.Drawing.Size(233, 45);
-            this.delete_tlacitko.TabIndex = 39;
-            this.delete_tlacitko.Text = "Smazat záznam";
-            this.delete_tlacitko.UseVisualStyleBackColor = true;
-            this.delete_tlacitko.Click += new System.EventHandler(this.SmazatZaznam);
-            // 
-            // new_tlacitko
-            // 
-            this.new_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.new_tlacitko.Location = new System.Drawing.Point(929, 632);
-            this.new_tlacitko.Name = "new_tlacitko";
-            this.new_tlacitko.Size = new System.Drawing.Size(233, 45);
-            this.new_tlacitko.TabIndex = 38;
-            this.new_tlacitko.Text = "Zapsat nový záznam";
-            this.new_tlacitko.UseVisualStyleBackColor = true;
-            this.new_tlacitko.Click += new System.EventHandler(this.NovyZaznam);
-            // 
-            // update_tlacitko
-            // 
-            this.update_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.update_tlacitko.Location = new System.Drawing.Point(662, 632);
-            this.update_tlacitko.Name = "update_tlacitko";
-            this.update_tlacitko.Size = new System.Drawing.Size(233, 45);
-            this.update_tlacitko.TabIndex = 37;
-            this.update_tlacitko.Text = "Zapsat změny";
-            this.update_tlacitko.UseVisualStyleBackColor = true;
-            this.update_tlacitko.Click += new System.EventHandler(this.ZapsatZmeny);
-            // 
-            // databaseUTBDataSet
-            // 
-            this.databaseUTBDataSet.DataSetName = "DatabaseUTBDataSet";
-            this.databaseUTBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentiBindingSource
-            // 
-            this.studentiBindingSource.DataMember = "Studenti";
-            this.studentiBindingSource.DataSource = this.databaseUTBDataSet;
-            // 
-            // studentiTableAdapter
-            // 
-            this.studentiTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -252,6 +184,74 @@ namespace AK8PO
             this.nazevstudiaDataGridViewTextBoxColumn.HeaderText = "nazev_studia";
             this.nazevstudiaDataGridViewTextBoxColumn.Name = "nazevstudiaDataGridViewTextBoxColumn";
             this.nazevstudiaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // studentiBindingSource
+            // 
+            this.studentiBindingSource.DataMember = "Studenti";
+            this.studentiBindingSource.DataSource = this.databaseUTBDataSet;
+            // 
+            // databaseUTBDataSet
+            // 
+            this.databaseUTBDataSet.DataSetName = "DatabaseUTBDataSet";
+            this.databaseUTBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // databaseUTBDataSet3
+            // 
+            this.databaseUTBDataSet3.DataSetName = "DatabaseUTBDataSet3";
+            this.databaseUTBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // databaseUTBDataSet3BindingSource
+            // 
+            this.databaseUTBDataSet3BindingSource.DataSource = this.databaseUTBDataSet3;
+            this.databaseUTBDataSet3BindingSource.Position = 0;
+            // 
+            // clear_tlacitko
+            // 
+            this.clear_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.clear_tlacitko.Location = new System.Drawing.Point(929, 695);
+            this.clear_tlacitko.Name = "clear_tlacitko";
+            this.clear_tlacitko.Size = new System.Drawing.Size(233, 45);
+            this.clear_tlacitko.TabIndex = 40;
+            this.clear_tlacitko.Text = "Vymazat obsah záznamu";
+            this.clear_tlacitko.UseVisualStyleBackColor = true;
+            this.clear_tlacitko.Click += new System.EventHandler(this.ResetFormulare);
+            // 
+            // delete_tlacitko
+            // 
+            this.delete_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.delete_tlacitko.Location = new System.Drawing.Point(663, 695);
+            this.delete_tlacitko.Name = "delete_tlacitko";
+            this.delete_tlacitko.Size = new System.Drawing.Size(233, 45);
+            this.delete_tlacitko.TabIndex = 39;
+            this.delete_tlacitko.Text = "Smazat záznam";
+            this.delete_tlacitko.UseVisualStyleBackColor = true;
+            this.delete_tlacitko.Click += new System.EventHandler(this.SmazatZaznam);
+            // 
+            // new_tlacitko
+            // 
+            this.new_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.new_tlacitko.Location = new System.Drawing.Point(929, 632);
+            this.new_tlacitko.Name = "new_tlacitko";
+            this.new_tlacitko.Size = new System.Drawing.Size(233, 45);
+            this.new_tlacitko.TabIndex = 38;
+            this.new_tlacitko.Text = "Zapsat nový záznam";
+            this.new_tlacitko.UseVisualStyleBackColor = true;
+            this.new_tlacitko.Click += new System.EventHandler(this.NovyZaznam);
+            // 
+            // update_tlacitko
+            // 
+            this.update_tlacitko.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.update_tlacitko.Location = new System.Drawing.Point(662, 632);
+            this.update_tlacitko.Name = "update_tlacitko";
+            this.update_tlacitko.Size = new System.Drawing.Size(233, 45);
+            this.update_tlacitko.TabIndex = 37;
+            this.update_tlacitko.Text = "Zapsat změny";
+            this.update_tlacitko.UseVisualStyleBackColor = true;
+            this.update_tlacitko.Click += new System.EventHandler(this.ZapsatZmeny);
+            // 
+            // studentiTableAdapter
+            // 
+            this.studentiTableAdapter.ClearBeforeFill = true;
             // 
             // vstupID
             // 
@@ -434,7 +434,7 @@ namespace AK8PO
             this.vstupTyp_studia.Items.AddRange(new object[] {
             "Bc.",
             "Mgr.",
-            "Ing."});
+            "Ph.D."});
             this.vstupTyp_studia.Location = new System.Drawing.Point(784, 310);
             this.vstupTyp_studia.Name = "vstupTyp_studia";
             this.vstupTyp_studia.Size = new System.Drawing.Size(101, 24);
@@ -490,10 +490,10 @@ namespace AK8PO
             this.Text = "Studenti a obory";
             this.Load += new System.EventHandler(this.Studenti_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.studentiView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

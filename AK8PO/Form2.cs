@@ -26,7 +26,7 @@ namespace AK8PO
 
         private void LoadForm()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * from Studenti", con);
+            SqlCommand cmd = new SqlCommand("SELECT * from Studenti ORDER BY zkratka ASC,rocnik ASC,semestr DESC", con);
             DataTable dt = new DataTable();
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -110,7 +110,7 @@ namespace AK8PO
 
                 cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
                 cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.Text);
+                cmd.Parameters.AddWithValue("@VstupRocnik", int.Parse(vstupRocnik.Text));
                 cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.Text);
                 cmd.Parameters.AddWithValue("@VstupPocetStudentu", int.Parse(vstupPocetStudentu.Text));
                 cmd.Parameters.AddWithValue("@VstupForma_studia", vstupForma_studia.Text);
@@ -133,11 +133,11 @@ namespace AK8PO
 
         private void NovyZaznam(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO Studenti SET zkratka=@VstupZkratka, rocnik=@VstupRocnik, semestr=@VstupSemestr, pocet_studentu=@VstupPocetStudentu, forma_studia=@VstupForma_studia, typ_studia=@VstupTyp_studia, jazyk=@VstupJazyk, nazev_studia=@VstupNazev_studia", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Studenti (zkratka, rocnik, semestr, pocet_studentu, forma_studia, typ_studia, jazyk, nazev_studia) VALUES (@VstupZkratka, @VstupRocnik, @VstupSemestr, @VstupPocetStudentu, @VstupForma_studia, @VstupTyp_studia, @VstupJazyk, @VstupNazev_studia)", con);
 
             //cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
             cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-            cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.Text);
+            cmd.Parameters.AddWithValue("@VstupRocnik", int.Parse(vstupRocnik.Text));
             cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.Text);
             cmd.Parameters.AddWithValue("@VstupPocetStudentu", int.Parse(vstupPocetStudentu.Text));
             cmd.Parameters.AddWithValue("@VstupForma_studia", vstupForma_studia.Text);

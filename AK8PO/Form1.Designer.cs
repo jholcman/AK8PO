@@ -50,12 +50,12 @@ namespace AK8PO
             this.label9 = new System.Windows.Forms.Label();
             this.vstupEmail_pracovni = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.vstupBodyBezAngl = new System.Windows.Forms.TextBox();
+            this.vstupBodyBezAng = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.vstupUvazek = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.vstupBodySAngl = new System.Windows.Forms.TextBox();
+            this.vstupBodySAng = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.vstupID = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -279,14 +279,14 @@ namespace AK8PO
             this.label10.Text = "E-mail pracovní";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // vstupBodyBezAngl
+            // vstupBodyBezAng
             // 
-            this.vstupBodyBezAngl.Enabled = false;
-            this.vstupBodyBezAngl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupBodyBezAngl.Location = new System.Drawing.Point(794, 522);
-            this.vstupBodyBezAngl.Name = "vstupBodyBezAngl";
-            this.vstupBodyBezAngl.Size = new System.Drawing.Size(380, 22);
-            this.vstupBodyBezAngl.TabIndex = 26;
+            this.vstupBodyBezAng.Enabled = false;
+            this.vstupBodyBezAng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupBodyBezAng.Location = new System.Drawing.Point(794, 522);
+            this.vstupBodyBezAng.Name = "vstupBodyBezAng";
+            this.vstupBodyBezAng.Size = new System.Drawing.Size(121, 22);
+            this.vstupBodyBezAng.TabIndex = 26;
             // 
             // label11
             // 
@@ -330,14 +330,14 @@ namespace AK8PO
             this.label13.Text = "Úvazek (0 - 1)";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // vstupBodySAngl
+            // vstupBodySAng
             // 
-            this.vstupBodySAngl.Enabled = false;
-            this.vstupBodySAngl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupBodySAngl.Location = new System.Drawing.Point(794, 555);
-            this.vstupBodySAngl.Name = "vstupBodySAngl";
-            this.vstupBodySAngl.Size = new System.Drawing.Size(380, 22);
-            this.vstupBodySAngl.TabIndex = 28;
+            this.vstupBodySAng.Enabled = false;
+            this.vstupBodySAng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupBodySAng.Location = new System.Drawing.Point(794, 555);
+            this.vstupBodySAng.Name = "vstupBodySAng";
+            this.vstupBodySAng.Size = new System.Drawing.Size(121, 22);
+            this.vstupBodySAng.TabIndex = 28;
             // 
             // label14
             // 
@@ -378,6 +378,7 @@ namespace AK8PO
             "Ne",
             "Ano"});
             this.vstupDoktorant.Location = new System.Drawing.Point(794, 490);
+            this.vstupDoktorant.MaxDropDownItems = 2;
             this.vstupDoktorant.Name = "vstupDoktorant";
             this.vstupDoktorant.Size = new System.Drawing.Size(121, 24);
             this.vstupDoktorant.TabIndex = 31;
@@ -581,9 +582,9 @@ namespace AK8PO
             this.Controls.Add(this.vstupDoktorant);
             this.Controls.Add(this.vstupID);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.vstupBodySAngl);
+            this.Controls.Add(this.vstupBodySAng);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.vstupBodyBezAngl);
+            this.Controls.Add(this.vstupBodyBezAng);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.vstupUvazek);
@@ -642,12 +643,12 @@ namespace AK8PO
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox vstupEmail_pracovni;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox vstupBodyBezAngl;
+        private System.Windows.Forms.TextBox vstupBodyBezAng;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox vstupUvazek;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox vstupBodySAngl;
+        private System.Windows.Forms.TextBox vstupBodySAng;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox vstupID;
         private System.Windows.Forms.Label label15;
