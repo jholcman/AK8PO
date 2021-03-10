@@ -69,5 +69,16 @@ namespace AK8PO
             this.Show();
 
         }
+
+        private void Stitky_Click(object sender, EventArgs e)
+        {
+            Stitky stitky = new Stitky();
+            this.Hide();
+            stitky.ShowDialog();
+
+            this.Show();
+
+
+        }
     }
 }

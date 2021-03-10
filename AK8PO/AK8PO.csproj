@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="DatabaseUTBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,6 +142,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stitky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stitky.Designer.cs">
+      <DependentUpon>Stitky.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +175,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Stitky.resx">
+      <DependentUpon>Stitky.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DatabaseUTBDataSet.xsc">
       <DependentUpon>DatabaseUTBDataSet.xsd</DependentUpon>
     </None>

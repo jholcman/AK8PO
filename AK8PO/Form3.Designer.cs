@@ -49,6 +49,21 @@ namespace AK8PO
             this.new_tlacitko = new System.Windows.Forms.Button();
             this.update_tlacitko = new System.Windows.Forms.Button();
             this.predmetyView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.počettydnuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prednaskyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cviceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seminareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zakonceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.velikosttridyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazevpredmetuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.početkredituDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.garantustavDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.garantosobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.predmetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseUTBDataSet4 = new AK8PO.DatabaseUTBDataSet4();
             this.predmetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseUTBDataSet_Predmet = new AK8PO.DatabaseUTBDataSet_Predmet();
             this.predmetTableAdapter = new AK8PO.DatabaseUTBDataSet_PredmetTableAdapters.PredmetTableAdapter();
@@ -69,29 +84,14 @@ namespace AK8PO
             this.databaseUTBDataSet2 = new AK8PO.DatabaseUTBDataSet2();
             this.predmetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.predmetTableAdapter1 = new AK8PO.DatabaseUTBDataSet2TableAdapters.PredmetTableAdapter();
-            this.databaseUTBDataSet4 = new AK8PO.DatabaseUTBDataSet4();
-            this.predmetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.predmetTableAdapter2 = new AK8PO.DatabaseUTBDataSet4TableAdapters.PredmetTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.počettydnuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prednaskyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cviceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seminareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zakonceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.velikosttridyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazevpredmetuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.početkredituDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.garantustavDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.garantosobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.predmetyView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet_Predmet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -117,6 +117,7 @@ namespace AK8PO
             // 
             // vstupJazyk
             // 
+            this.vstupJazyk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.vstupJazyk.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupJazyk.FormattingEnabled = true;
             this.vstupJazyk.Items.AddRange(new object[] {
@@ -314,193 +315,6 @@ namespace AK8PO
             this.predmetyView.TabIndex = 64;
             this.predmetyView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VyberZaznamu_CellClick);
             // 
-            // predmetBindingSource
-            // 
-            this.predmetBindingSource.DataMember = "Predmet";
-            this.predmetBindingSource.DataSource = this.databaseUTBDataSet_Predmet;
-            // 
-            // databaseUTBDataSet_Predmet
-            // 
-            this.databaseUTBDataSet_Predmet.DataSetName = "DatabaseUTBDataSet_Predmet";
-            this.databaseUTBDataSet_Predmet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // predmetTableAdapter
-            // 
-            this.predmetTableAdapter.ClearBeforeFill = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(689, 300);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 16);
-            this.label8.TabIndex = 88;
-            this.label8.Text = "Hodin seminářů";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(702, 264);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 16);
-            this.label11.TabIndex = 87;
-            this.label11.Text = "Hodin cvičení";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(660, 336);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(131, 16);
-            this.label12.TabIndex = 89;
-            this.label12.Text = "Zakončení předmětu";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // vstupPocet_tydnu
-            // 
-            this.vstupPocet_tydnu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupPocet_tydnu.Location = new System.Drawing.Point(802, 187);
-            this.vstupPocet_tydnu.MaxLength = 4;
-            this.vstupPocet_tydnu.Name = "vstupPocet_tydnu";
-            this.vstupPocet_tydnu.Size = new System.Drawing.Size(101, 22);
-            this.vstupPocet_tydnu.TabIndex = 90;
-            // 
-            // vstupPrednasky
-            // 
-            this.vstupPrednasky.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupPrednasky.Location = new System.Drawing.Point(802, 223);
-            this.vstupPrednasky.MaxLength = 4;
-            this.vstupPrednasky.Name = "vstupPrednasky";
-            this.vstupPrednasky.Size = new System.Drawing.Size(101, 22);
-            this.vstupPrednasky.TabIndex = 91;
-            // 
-            // vstupSeminare
-            // 
-            this.vstupSeminare.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupSeminare.Location = new System.Drawing.Point(802, 295);
-            this.vstupSeminare.MaxLength = 4;
-            this.vstupSeminare.Name = "vstupSeminare";
-            this.vstupSeminare.Size = new System.Drawing.Size(101, 22);
-            this.vstupSeminare.TabIndex = 93;
-            // 
-            // vstupCviceni
-            // 
-            this.vstupCviceni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupCviceni.Location = new System.Drawing.Point(802, 259);
-            this.vstupCviceni.MaxLength = 4;
-            this.vstupCviceni.Name = "vstupCviceni";
-            this.vstupCviceni.Size = new System.Drawing.Size(101, 22);
-            this.vstupCviceni.TabIndex = 92;
-            // 
-            // vstupZakonceni
-            // 
-            this.vstupZakonceni.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupZakonceni.FormattingEnabled = true;
-            this.vstupZakonceni.Items.AddRange(new object[] {
-            "z, zk",
-            "kl. z",
-            "z",
-            "zk",
-            "kol.",
-            "z"});
-            this.vstupZakonceni.Location = new System.Drawing.Point(802, 331);
-            this.vstupZakonceni.Name = "vstupZakonceni";
-            this.vstupZakonceni.Size = new System.Drawing.Size(101, 24);
-            this.vstupZakonceni.TabIndex = 94;
-            // 
-            // vstupPocet_kreditu
-            // 
-            this.vstupPocet_kreditu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupPocet_kreditu.Location = new System.Drawing.Point(802, 479);
-            this.vstupPocet_kreditu.MaxLength = 4;
-            this.vstupPocet_kreditu.Name = "vstupPocet_kreditu";
-            this.vstupPocet_kreditu.Size = new System.Drawing.Size(101, 22);
-            this.vstupPocet_kreditu.TabIndex = 96;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(705, 480);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 16);
-            this.label13.TabIndex = 95;
-            this.label13.Text = "Počet kreditů";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // vstupGarant_ustav
-            // 
-            this.vstupGarant_ustav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupGarant_ustav.Location = new System.Drawing.Point(801, 542);
-            this.vstupGarant_ustav.MaxLength = 20;
-            this.vstupGarant_ustav.Name = "vstupGarant_ustav";
-            this.vstupGarant_ustav.Size = new System.Drawing.Size(102, 22);
-            this.vstupGarant_ustav.TabIndex = 98;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(685, 543);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 16);
-            this.label5.TabIndex = 97;
-            this.label5.Text = "Garantující ústav";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // vstupGarant_osoba
-            // 
-            this.vstupGarant_osoba.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupGarant_osoba.Location = new System.Drawing.Point(801, 573);
-            this.vstupGarant_osoba.MaxLength = 100;
-            this.vstupGarant_osoba.Name = "vstupGarant_osoba";
-            this.vstupGarant_osoba.Size = new System.Drawing.Size(361, 22);
-            this.vstupGarant_osoba.TabIndex = 100;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(683, 574);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 16);
-            this.label6.TabIndex = 99;
-            this.label6.Text = "Garant předmětu";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // databaseUTBDataSet2
-            // 
-            this.databaseUTBDataSet2.DataSetName = "DatabaseUTBDataSet2";
-            this.databaseUTBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // predmetBindingSource1
-            // 
-            this.predmetBindingSource1.DataMember = "Predmet";
-            this.predmetBindingSource1.DataSource = this.databaseUTBDataSet2;
-            // 
-            // predmetTableAdapter1
-            // 
-            this.predmetTableAdapter1.ClearBeforeFill = true;
-            // 
-            // databaseUTBDataSet4
-            // 
-            this.databaseUTBDataSet4.DataSetName = "DatabaseUTBDataSet4";
-            this.databaseUTBDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // predmetBindingSource2
-            // 
-            this.predmetBindingSource2.DataMember = "Predmet";
-            this.predmetBindingSource2.DataSource = this.databaseUTBDataSet4;
-            // 
-            // predmetTableAdapter2
-            // 
-            this.predmetTableAdapter2.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -592,6 +406,191 @@ namespace AK8PO
             this.garantosobaDataGridViewTextBoxColumn.Name = "garantosobaDataGridViewTextBoxColumn";
             this.garantosobaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // predmetBindingSource2
+            // 
+            this.predmetBindingSource2.DataMember = "Predmet";
+            this.predmetBindingSource2.DataSource = this.databaseUTBDataSet4;
+            // 
+            // databaseUTBDataSet4
+            // 
+            this.databaseUTBDataSet4.DataSetName = "DatabaseUTBDataSet4";
+            this.databaseUTBDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // predmetBindingSource
+            // 
+            this.predmetBindingSource.DataMember = "Predmet";
+            this.predmetBindingSource.DataSource = this.databaseUTBDataSet_Predmet;
+            // 
+            // databaseUTBDataSet_Predmet
+            // 
+            this.databaseUTBDataSet_Predmet.DataSetName = "DatabaseUTBDataSet_Predmet";
+            this.databaseUTBDataSet_Predmet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // predmetTableAdapter
+            // 
+            this.predmetTableAdapter.ClearBeforeFill = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(689, 300);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(102, 16);
+            this.label8.TabIndex = 88;
+            this.label8.Text = "Hodin seminářů";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(702, 264);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 16);
+            this.label11.TabIndex = 87;
+            this.label11.Text = "Hodin cvičení";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(660, 336);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(131, 16);
+            this.label12.TabIndex = 89;
+            this.label12.Text = "Zakončení předmětu";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // vstupPocet_tydnu
+            // 
+            this.vstupPocet_tydnu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupPocet_tydnu.Location = new System.Drawing.Point(802, 187);
+            this.vstupPocet_tydnu.MaxLength = 4;
+            this.vstupPocet_tydnu.Name = "vstupPocet_tydnu";
+            this.vstupPocet_tydnu.Size = new System.Drawing.Size(101, 22);
+            this.vstupPocet_tydnu.TabIndex = 90;
+            // 
+            // vstupPrednasky
+            // 
+            this.vstupPrednasky.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupPrednasky.Location = new System.Drawing.Point(802, 223);
+            this.vstupPrednasky.MaxLength = 4;
+            this.vstupPrednasky.Name = "vstupPrednasky";
+            this.vstupPrednasky.Size = new System.Drawing.Size(101, 22);
+            this.vstupPrednasky.TabIndex = 91;
+            // 
+            // vstupSeminare
+            // 
+            this.vstupSeminare.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupSeminare.Location = new System.Drawing.Point(802, 295);
+            this.vstupSeminare.MaxLength = 4;
+            this.vstupSeminare.Name = "vstupSeminare";
+            this.vstupSeminare.Size = new System.Drawing.Size(101, 22);
+            this.vstupSeminare.TabIndex = 93;
+            // 
+            // vstupCviceni
+            // 
+            this.vstupCviceni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupCviceni.Location = new System.Drawing.Point(802, 259);
+            this.vstupCviceni.MaxLength = 4;
+            this.vstupCviceni.Name = "vstupCviceni";
+            this.vstupCviceni.Size = new System.Drawing.Size(101, 22);
+            this.vstupCviceni.TabIndex = 92;
+            // 
+            // vstupZakonceni
+            // 
+            this.vstupZakonceni.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.vstupZakonceni.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupZakonceni.FormattingEnabled = true;
+            this.vstupZakonceni.Items.AddRange(new object[] {
+            "z",
+            "zk",
+            "kz"});
+            this.vstupZakonceni.Location = new System.Drawing.Point(802, 331);
+            this.vstupZakonceni.Name = "vstupZakonceni";
+            this.vstupZakonceni.Size = new System.Drawing.Size(101, 24);
+            this.vstupZakonceni.TabIndex = 94;
+            // 
+            // vstupPocet_kreditu
+            // 
+            this.vstupPocet_kreditu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupPocet_kreditu.Location = new System.Drawing.Point(802, 479);
+            this.vstupPocet_kreditu.MaxLength = 4;
+            this.vstupPocet_kreditu.Name = "vstupPocet_kreditu";
+            this.vstupPocet_kreditu.Size = new System.Drawing.Size(101, 22);
+            this.vstupPocet_kreditu.TabIndex = 96;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(705, 480);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 16);
+            this.label13.TabIndex = 95;
+            this.label13.Text = "Počet kreditů";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // vstupGarant_ustav
+            // 
+            this.vstupGarant_ustav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupGarant_ustav.Location = new System.Drawing.Point(801, 542);
+            this.vstupGarant_ustav.MaxLength = 20;
+            this.vstupGarant_ustav.Name = "vstupGarant_ustav";
+            this.vstupGarant_ustav.Size = new System.Drawing.Size(102, 22);
+            this.vstupGarant_ustav.TabIndex = 98;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(685, 543);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 16);
+            this.label5.TabIndex = 97;
+            this.label5.Text = "Garantující ústav";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // vstupGarant_osoba
+            // 
+            this.vstupGarant_osoba.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupGarant_osoba.Location = new System.Drawing.Point(801, 573);
+            this.vstupGarant_osoba.MaxLength = 100;
+            this.vstupGarant_osoba.Name = "vstupGarant_osoba";
+            this.vstupGarant_osoba.Size = new System.Drawing.Size(361, 22);
+            this.vstupGarant_osoba.TabIndex = 100;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(683, 574);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 16);
+            this.label6.TabIndex = 99;
+            this.label6.Text = "Garant předmětu";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // databaseUTBDataSet2
+            // 
+            this.databaseUTBDataSet2.DataSetName = "DatabaseUTBDataSet2";
+            this.databaseUTBDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // predmetBindingSource1
+            // 
+            this.predmetBindingSource1.DataMember = "Predmet";
+            this.predmetBindingSource1.DataSource = this.databaseUTBDataSet2;
+            // 
+            // predmetTableAdapter1
+            // 
+            this.predmetTableAdapter1.ClearBeforeFill = true;
+            // 
+            // predmetTableAdapter2
+            // 
+            this.predmetTableAdapter2.ClearBeforeFill = true;
+            // 
             // Predmet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,12 +634,12 @@ namespace AK8PO
             this.Text = "Vyučovací předměty";
             this.Load += new System.EventHandler(this.Predmet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.predmetyView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet_Predmet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
