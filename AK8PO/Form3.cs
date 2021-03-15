@@ -19,9 +19,11 @@ namespace AK8PO
         public Predmet()
         {
             InitializeComponent();
+            StringLibrary.Generuj(vstupZakonceni, StringLibrary.ZakonceniRetezec(), 0);
+            StringLibrary.Generuj(vstupJazyk, StringLibrary.JazykRetezec(), 0);
         }
 
-         private void Predmet_Load(object sender, EventArgs e)
+        private void Predmet_Load(object sender, EventArgs e)
         {
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet4.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
            // this.predmetTableAdapter2.Fill(this.databaseUTBDataSet4.Predmet);
@@ -68,8 +70,8 @@ namespace AK8PO
             vstupPrednasky.Clear();
             vstupCviceni.Clear();
             vstupSeminare.Clear();
-            vstupZakonceni.Text = "zk";
-            vstupJazyk.Text = "CZ";
+            vstupZakonceni.SelectedIndex = 0;
+            vstupJazyk.SelectedIndex = 0;
             vstupVelikost_tridy.Clear();
             vstupNazev_predmetu.Clear();
             vstupPocet_kreditu.Clear();

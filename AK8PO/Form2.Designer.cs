@@ -389,6 +389,7 @@ namespace AK8PO
             // 
             // vstupRocnik
             // 
+            this.vstupRocnik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.vstupRocnik.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupRocnik.FormattingEnabled = true;
             this.vstupRocnik.Items.AddRange(new object[] {
@@ -404,11 +405,9 @@ namespace AK8PO
             // 
             // vstupSemestr
             // 
+            this.vstupSemestr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.vstupSemestr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupSemestr.FormattingEnabled = true;
-            this.vstupSemestr.Items.AddRange(new object[] {
-            "ZS",
-            "LS"});
             this.vstupSemestr.Location = new System.Drawing.Point(784, 207);
             this.vstupSemestr.Name = "vstupSemestr";
             this.vstupSemestr.Size = new System.Drawing.Size(101, 24);
@@ -416,12 +415,9 @@ namespace AK8PO
             // 
             // vstupForma_studia
             // 
+            this.vstupForma_studia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.vstupForma_studia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupForma_studia.FormattingEnabled = true;
-            this.vstupForma_studia.Items.AddRange(new object[] {
-            "P",
-            "K",
-            "PH"});
             this.vstupForma_studia.Location = new System.Drawing.Point(784, 275);
             this.vstupForma_studia.Name = "vstupForma_studia";
             this.vstupForma_studia.Size = new System.Drawing.Size(101, 24);
@@ -429,12 +425,9 @@ namespace AK8PO
             // 
             // vstupTyp_studia
             // 
+            this.vstupTyp_studia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.vstupTyp_studia.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupTyp_studia.FormattingEnabled = true;
-            this.vstupTyp_studia.Items.AddRange(new object[] {
-            "Bc.",
-            "Mgr.",
-            "Ph.D."});
             this.vstupTyp_studia.Location = new System.Drawing.Point(784, 310);
             this.vstupTyp_studia.Name = "vstupTyp_studia";
             this.vstupTyp_studia.Size = new System.Drawing.Size(101, 24);
@@ -442,12 +435,9 @@ namespace AK8PO
             // 
             // vstupJazyk
             // 
+            this.vstupJazyk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.vstupJazyk.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupJazyk.FormattingEnabled = true;
-            this.vstupJazyk.Items.AddRange(new object[] {
-            "CZ",
-            "ENG",
-            "DE"});
             this.vstupJazyk.Location = new System.Drawing.Point(784, 345);
             this.vstupJazyk.Name = "vstupJazyk";
             this.vstupJazyk.Size = new System.Drawing.Size(101, 24);
@@ -488,7 +478,7 @@ namespace AK8PO
             this.Name = "Studenti";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Studenti a obory";
-            this.Load += new System.EventHandler(this.Studenti_Load_1);
+            this.Load += new System.EventHandler(this.Studenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentiView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).EndInit();

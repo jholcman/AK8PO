@@ -19,7 +19,13 @@ namespace AK8PO
         public Studenti()
         {
             InitializeComponent();
-        }
+
+            vstupRocnik.SelectedIndex = 0;
+            StringLibrary.Generuj(vstupSemestr, StringLibrary.SemestrRetezec(), 0);
+            StringLibrary.Generuj(vstupForma_studia, StringLibrary.FormaStudiaRetezec(), 0);
+            StringLibrary.Generuj(vstupTyp_studia, StringLibrary.TypStudiaRetezec(), 0);
+            StringLibrary.Generuj(vstupJazyk, StringLibrary.JazykRetezec(), 0);
+         }
         private void Studenti_Load(object sender, EventArgs e)
         {
             LoadForm();
@@ -35,13 +41,6 @@ namespace AK8PO
             con.Close();
             studentiView.DataSource = dt;
         }
-        private void Studenti_Load_1(object sender, EventArgs e)
-        {
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet.Studenti'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.studentiTableAdapter.Fill(this.databaseUTBDataSet.Studenti);
-
-        }
-
         private void VyberZaznamu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             vstupID.Text = studentiView.SelectedRows[0].Cells[0].Value.ToString();
@@ -64,12 +63,12 @@ namespace AK8PO
         {
             vstupID.Clear();
             vstupZkratka.Clear();
-            vstupRocnik.Text = "1";
-            vstupSemestr.Text = "ZS";
+            vstupRocnik.SelectedIndex = 0;
+            vstupSemestr.SelectedIndex = 0;
             vstupPocetStudentu.Clear();
-            vstupForma_studia.Text = "P";
-            vstupTyp_studia.Text = "Bc.";
-            vstupJazyk.Text = "CZ";
+            vstupForma_studia.SelectedIndex = 0;
+            vstupTyp_studia.SelectedIndex = 0;
+            vstupJazyk.SelectedIndex = 0;
             vstupNazev_studia.Clear();
         }
 

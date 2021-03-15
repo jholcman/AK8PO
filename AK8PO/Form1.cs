@@ -12,12 +12,13 @@ namespace AK8PO
         public Zamestnanci()
         {
             InitializeComponent();
-
-         }
+            vstupDoktorant.SelectedIndex = 0;
+        }
 
         private void Zamestnanci_Load(object sender, EventArgs e)
         {
              LoadForm();
+
         }
 
         private void LoadForm()
@@ -66,7 +67,7 @@ namespace AK8PO
             vstupEmail_soukromy.Clear();
             vstupKancelar.Clear();
             vstupUvazek.Clear();
-            vstupDoktorant.Text = "Ne";
+            vstupDoktorant.SelectedIndex = 0;
             vstupBodyBezAng.Clear();
             vstupBodySAng.Clear();
         }

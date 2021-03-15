@@ -372,6 +372,7 @@ namespace AK8PO
             // 
             // vstupDoktorant
             // 
+            this.vstupDoktorant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.vstupDoktorant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vstupDoktorant.FormattingEnabled = true;
             this.vstupDoktorant.Items.AddRange(new object[] {
