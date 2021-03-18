@@ -74,6 +74,51 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseUTBDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseUTBDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet18.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUTBDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,72 +144,101 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseUTBDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseUTBDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet81.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet81.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSetTables.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSetTables.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUTBDataSet_Predmet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseUTBDataSet_Predmet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="1_Zamestnanci.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="1_Zamestnanci.Designer.cs">
+      <DependentUpon>1_Zamestnanci.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="2_Studenti.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="2_Studenti.Designer.cs">
+      <DependentUpon>2_Studenti.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="3_Predmety.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="3_Predmety.Designer.cs">
+      <DependentUpon>3_Predmety.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="4_Rozvrhy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="4_Rozvrhy.Designer.cs">
+      <DependentUpon>4_Rozvrhy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs">
+    <Compile Include="Form5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Global.Designer.cs">
-      <DependentUpon>Global.cs</DependentUpon>
+    <Compile Include="Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hlavni.cs">
+    <Compile Include="99_Global.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hlavni.Designer.cs">
-      <DependentUpon>Hlavni.cs</DependentUpon>
+    <Compile Include="99_Global.Designer.cs">
+      <DependentUpon>99_Global.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0_Hlavni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="0_Hlavni.Designer.cs">
+      <DependentUpon>0_Hlavni.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stitky.cs">
+    <Compile Include="5_Stitky.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stitky.Designer.cs">
-      <DependentUpon>Stitky.cs</DependentUpon>
+    <Compile Include="5_Stitky.Designer.cs">
+      <DependentUpon>5_Stitky.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="1_Zamestnanci.resx">
+      <DependentUpon>1_Zamestnanci.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="2_Studenti.resx">
+      <DependentUpon>2_Studenti.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="3_Predmety.resx">
+      <DependentUpon>3_Predmety.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="4_Rozvrhy.resx">
+      <DependentUpon>4_Rozvrhy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Global.resx">
-      <DependentUpon>Global.cs</DependentUpon>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hlavni.resx">
-      <DependentUpon>Hlavni.cs</DependentUpon>
+    <EmbeddedResource Include="99_Global.resx">
+      <DependentUpon>99_Global.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="0_Hlavni.resx">
+      <DependentUpon>0_Hlavni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,8 +249,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Stitky.resx">
-      <DependentUpon>Stitky.cs</DependentUpon>
+    <EmbeddedResource Include="5_Stitky.resx">
+      <DependentUpon>5_Stitky.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DatabaseUTBDataSet.xsc">
       <DependentUpon>DatabaseUTBDataSet.xsd</DependentUpon>
@@ -199,6 +273,105 @@
     </None>
     <None Include="DatabaseUTBDataSet1.xss">
       <DependentUpon>DatabaseUTBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet10.xsc">
+      <DependentUpon>DatabaseUTBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet10.xss">
+      <DependentUpon>DatabaseUTBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet11.xsc">
+      <DependentUpon>DatabaseUTBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet11.xss">
+      <DependentUpon>DatabaseUTBDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet12.xsc">
+      <DependentUpon>DatabaseUTBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet12.xss">
+      <DependentUpon>DatabaseUTBDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet13.xsc">
+      <DependentUpon>DatabaseUTBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet13.xss">
+      <DependentUpon>DatabaseUTBDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet14.xsc">
+      <DependentUpon>DatabaseUTBDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet14.xss">
+      <DependentUpon>DatabaseUTBDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet15.xsc">
+      <DependentUpon>DatabaseUTBDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet15.xss">
+      <DependentUpon>DatabaseUTBDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet16.xsc">
+      <DependentUpon>DatabaseUTBDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet16.xss">
+      <DependentUpon>DatabaseUTBDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet17.xsc">
+      <DependentUpon>DatabaseUTBDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet17.xss">
+      <DependentUpon>DatabaseUTBDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet18.xsc">
+      <DependentUpon>DatabaseUTBDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet18.xss">
+      <DependentUpon>DatabaseUTBDataSet18.xsd</DependentUpon>
     </None>
     <None Include="DatabaseUTBDataSet2.xsc">
       <DependentUpon>DatabaseUTBDataSet2.xsd</DependentUpon>
@@ -254,6 +427,50 @@
     </None>
     <None Include="DatabaseUTBDataSet6.xss">
       <DependentUpon>DatabaseUTBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet7.xsc">
+      <DependentUpon>DatabaseUTBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet7.xss">
+      <DependentUpon>DatabaseUTBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet81.xsc">
+      <DependentUpon>DatabaseUTBDataSet81.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet81.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet81.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet81.xss">
+      <DependentUpon>DatabaseUTBDataSet81.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet9.xsc">
+      <DependentUpon>DatabaseUTBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet9.xss">
+      <DependentUpon>DatabaseUTBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSetTables.xsc">
+      <DependentUpon>DatabaseUTBDataSetTables.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSetTables.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSetTables.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSetTables.xss">
+      <DependentUpon>DatabaseUTBDataSetTables.xsd</DependentUpon>
     </None>
     <None Include="DatabaseUTBDataSet_Predmet.xsc">
       <DependentUpon>DatabaseUTBDataSet_Predmet.xsd</DependentUpon>

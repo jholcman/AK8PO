@@ -75,28 +75,44 @@ namespace AK8PO
         private void NovyZaznam(object sender, EventArgs e)
         {
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Zamestnanci (prijmeni, jmeno, titul_pred, titul_za, telefon_pracovni, telefon_soukromy, email_pracovni, email_soukromy, kancelar, uvazek, doktorant, pracovni_body_bez_ang, pracovni_body_s_ang) Values (@VstupPrijmeni, @VstupJmeno, @VstupTitul_pred, @VstupTitul_za, @VstupTelefon_pracovni, @VstupTelefon_soukromy, @VstupEmail_pracovni, @VstupEmail_soukromy, @VstupKancelar, @VstupUvazek, @VstupDoktorant, @VstupBodyBezAng, @VstupBodySAng)", con);
-
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open(); 
+            cmd.CommandText = "SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=@VstupPrijmeni AND jmeno=@VstupJmeno)";
             cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
             cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
-            cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
-            cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
-            cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);
-            cmd.Parameters.AddWithValue("@VstupTelefon_soukromy", vstupTelefon_soukromy.Text);
-            cmd.Parameters.AddWithValue("@VstupEmail_pracovni", vstupEmail_pracovni.Text);
-            cmd.Parameters.AddWithValue("@VstupEmail_soukromy", vstupEmail_soukromy.Text);
-            cmd.Parameters.AddWithValue("@VstupKancelar", vstupKancelar.Text);
-            cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(float.Parse(vstupUvazek.Text),2));
-            cmd.Parameters.AddWithValue("@VstupDoktorant", vstupDoktorant.Text);
-            cmd.Parameters.AddWithValue("@VstupBodyBezAng", vstupBodyBezAng.Text);
-            cmd.Parameters.AddWithValue("@VstupBodySAng", vstupBodySAng.Text);
 
-            con.Open();
-            cmd.ExecuteNonQuery();
+            int pocetZaznamu = (int)cmd.ExecuteScalar();
+             if (pocetZaznamu == 0)
+            {
+                cmd.CommandText = "INSERT INTO Zamestnanci (prijmeni, jmeno, titul_pred, titul_za, telefon_pracovni, telefon_soukromy, email_pracovni, email_soukromy, kancelar, uvazek, doktorant, pracovni_body_bez_ang, pracovni_body_s_ang) Values (@VstupPrijmeni, @VstupJmeno, @VstupTitul_pred, @VstupTitul_za, @VstupTelefon_pracovni, @VstupTelefon_soukromy, @VstupEmail_pracovni, @VstupEmail_soukromy, @VstupKancelar, @VstupUvazek, @VstupDoktorant, @VstupBodyBezAng, @VstupBodySAng)";
+
+                //cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
+                //cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
+                cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
+                cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
+                cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);
+                cmd.Parameters.AddWithValue("@VstupTelefon_soukromy", vstupTelefon_soukromy.Text);
+                cmd.Parameters.AddWithValue("@VstupEmail_pracovni", vstupEmail_pracovni.Text);
+                cmd.Parameters.AddWithValue("@VstupEmail_soukromy", vstupEmail_soukromy.Text);
+                cmd.Parameters.AddWithValue("@VstupKancelar", vstupKancelar.Text);
+                cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(float.Parse(vstupUvazek.Text), 2));
+                cmd.Parameters.AddWithValue("@VstupDoktorant", vstupDoktorant.Text);
+                cmd.Parameters.AddWithValue("@VstupBodyBezAng", vstupBodyBezAng.Text);
+                cmd.Parameters.AddWithValue("@VstupBodySAng", vstupBodySAng.Text);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Záznam byl přidán", "Záznam byl přidán", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ResetForm();
+                LoadForm();
+            }
+            else
+            {
+                MessageBox.Show("Tento zaměstnanec již existuje, záznam nebyl přidán!", "Zadat jiné jméno?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             con.Close();
-            MessageBox.Show("Záznam byl přidán", "Záznam byl přidán", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            ResetForm();
-            LoadForm();
+
         }
 
         private void SmazatZaznam(object sender, EventArgs e)
@@ -133,29 +149,45 @@ namespace AK8PO
         {
             if (vstupID.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Zamestnanci SET prijmeni=@VstupPrijmeni, jmeno=@VstupJmeno, titul_pred=@VstupTitul_pred, titul_za=@VstupTitul_za, telefon_pracovni=@VstupTelefon_pracovni, telefon_soukromy=@VstupTelefon_soukromy, email_pracovni=@VstupEmail_pracovni, email_soukromy=@VstupEmail_soukromy, kancelar=@VstupKancelar, uvazek=@VstupUvazek, doktorant=@VstupDoktorant, pracovni_body_bez_ang=@VstupBodyBezAng, pracovni_body_s_ang=@VstupBodySAng WHERE Id = @VstupID", con);
 
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandText = "SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=@VstupPrijmeni AND jmeno=@VstupJmeno AND Id<>@VstupID)";
                 cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
                 cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
                 cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
-                cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
-                cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
-                cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);
-                cmd.Parameters.AddWithValue("@VstupTelefon_soukromy", vstupTelefon_soukromy.Text);
-                cmd.Parameters.AddWithValue("@VstupEmail_pracovni", vstupEmail_pracovni.Text);
-                cmd.Parameters.AddWithValue("@VstupEmail_soukromy", vstupEmail_soukromy.Text);
-                cmd.Parameters.AddWithValue("@VstupKancelar", vstupKancelar.Text);
-                cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(float.Parse(vstupUvazek.Text),2));
-                cmd.Parameters.AddWithValue("@VstupDoktorant", vstupDoktorant.Text);
-                cmd.Parameters.AddWithValue("@VstupBodyBezAng", vstupBodyBezAng.Text);
-                cmd.Parameters.AddWithValue("@VstupBodySAng", vstupBodySAng.Text);
 
-                con.Open();
-                cmd.ExecuteNonQuery();
+                int pocetZaznamu = (int)cmd.ExecuteScalar();
+                if (pocetZaznamu == 0)
+                {
+                    cmd.CommandText = "UPDATE Zamestnanci SET prijmeni=@VstupPrijmeni, jmeno=@VstupJmeno, titul_pred=@VstupTitul_pred, titul_za=@VstupTitul_za, telefon_pracovni=@VstupTelefon_pracovni, telefon_soukromy=@VstupTelefon_soukromy, email_pracovni=@VstupEmail_pracovni, email_soukromy=@VstupEmail_soukromy, kancelar=@VstupKancelar, uvazek=@VstupUvazek, doktorant=@VstupDoktorant, pracovni_body_bez_ang=@VstupBodyBezAng, pracovni_body_s_ang=@VstupBodySAng WHERE Id = @VstupID";
+
+                    //cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
+                    //cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
+                    cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
+                    cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
+                    cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);
+                    cmd.Parameters.AddWithValue("@VstupTelefon_soukromy", vstupTelefon_soukromy.Text);
+                    cmd.Parameters.AddWithValue("@VstupEmail_pracovni", vstupEmail_pracovni.Text);
+                    cmd.Parameters.AddWithValue("@VstupEmail_soukromy", vstupEmail_soukromy.Text);
+                    cmd.Parameters.AddWithValue("@VstupKancelar", vstupKancelar.Text);
+                    cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(float.Parse(vstupUvazek.Text), 2));
+                    cmd.Parameters.AddWithValue("@VstupDoktorant", vstupDoktorant.Text);
+                    cmd.Parameters.AddWithValue("@VstupBodyBezAng", vstupBodyBezAng.Text);
+                    cmd.Parameters.AddWithValue("@VstupBodySAng", vstupBodySAng.Text);
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Záznam byl opraven", "Záznam byl opraven", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ResetForm();
+                    LoadForm();
+                }
+                else
+                {
+                    MessageBox.Show("Zaměstnanec s tímto jménem již existuje, záznam nebyl opraven!", "Zadat jiné jméno?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 con.Close();
-                MessageBox.Show("Záznam byl opraven", "Záznam byl opraven", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ResetForm();
-                LoadForm();
             }
             else
             {

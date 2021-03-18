@@ -409,6 +409,7 @@ namespace AK8PO
             this.zamestnanciView.Location = new System.Drawing.Point(20, 74);
             this.zamestnanciView.Name = "zamestnanciView";
             this.zamestnanciView.ReadOnly = true;
+            this.zamestnanciView.RowHeadersVisible = false;
             this.zamestnanciView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.zamestnanciView.Size = new System.Drawing.Size(623, 669);
             this.zamestnanciView.TabIndex = 32;

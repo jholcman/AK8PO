@@ -80,5 +80,16 @@ namespace AK8PO
 
 
         }
+
+        private void Test_Click(object sender, EventArgs e)
+        {
+
+            Form5 test = new Form5();
+            this.Hide();
+            test.ShowDialog();
+
+            this.Show();
+
+        }
     }
 }

@@ -35,6 +35,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.test = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -51,7 +53,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(485, 25);
+            this.button2.Location = new System.Drawing.Point(225, 87);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(233, 45);
             this.button2.TabIndex = 4;
@@ -62,7 +64,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(485, 98);
+            this.button3.Location = new System.Drawing.Point(485, 87);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(233, 45);
             this.button3.TabIndex = 5;
@@ -73,7 +75,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(485, 180);
+            this.button4.Location = new System.Drawing.Point(225, 155);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(233, 45);
             this.button4.TabIndex = 6;
@@ -84,7 +86,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.Location = new System.Drawing.Point(485, 263);
+            this.button5.Location = new System.Drawing.Point(485, 155);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(233, 45);
             this.button5.TabIndex = 7;
@@ -95,7 +97,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button6.Location = new System.Drawing.Point(485, 346);
+            this.button6.Location = new System.Drawing.Point(907, 87);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(233, 45);
             this.button6.TabIndex = 8;
@@ -106,7 +108,7 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button7.Location = new System.Drawing.Point(485, 434);
+            this.button7.Location = new System.Drawing.Point(336, 264);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(233, 45);
             this.button7.TabIndex = 9;
@@ -114,11 +116,34 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.Stitky_Click);
             // 
+            // test
+            // 
+            this.test.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.test.Location = new System.Drawing.Point(858, 454);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(233, 45);
+            this.test.TabIndex = 10;
+            this.test.Text = "Test";
+            this.test.UseVisualStyleBackColor = true;
+            this.test.Click += new System.EventHandler(this.Test_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(181, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(560, 29);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Zpracování pracovních štítků zaměstnanců UTB";
+            // 
             // Hlavni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -132,6 +157,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hlavni";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,5 +170,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button test;
+        private System.Windows.Forms.Label label1;
     }
 }

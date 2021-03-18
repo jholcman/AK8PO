@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace UtilityLibraries
@@ -9,36 +11,21 @@ namespace UtilityLibraries
         {
             return @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = 'D:\UTB\1. ročník LS\AK8PO - Pokročilé programování\Projek\AK8PO\AK8PO\DatabaseUTB.mdf'; Integrated Security = True";
         }
-        public static String[] JazykRetezec()
+
+        public static void GenerujIdCombo(ComboBox c, string tableName, string columnName, int selectedValue)
         {
-            string[] jazyky = { "CZ", "ANG", "NEM" };
-            return jazyky;
-        }
-        public static String[] FormaStudiaRetezec()
-        {
-            string[] formaStudia = { "P", "K", "PH" };
-            return formaStudia;
-        }
-        public static String[] TypStudiaRetezec()
-        {
-            string[] typStudia = { "Bc.", "Mgr.", "Ph.D." };
-            return typStudia;
-        }
-        public static String[] SemestrRetezec()
-        {
-            string[] semestrStudia = { "ZS", "LS" };
-            return semestrStudia;
-        }
-        public static String[] ZakonceniRetezec()
-        {
-            string[] zakonceniStudia = { "z", "zk", "kz" };
-            return zakonceniStudia;
-        }
-        public static void Generuj(ComboBox c, string[] s, int i)
-        {
-            c.Items.Clear();
-            c.Items.AddRange(s);
-            c.SelectedIndex = i;
-        }
+
+            SqlConnection con = new SqlConnection(StringLibrary.DatabazeRetezec());
+            SqlCommand cmd = new SqlCommand("SELECT * from " + tableName + " ORDER BY Id ASC", con);
+            DataTable dt = new DataTable();
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            dt.Load(sdr);
+            con.Close();
+            c.DataSource = dt;
+            c.DisplayMember = columnName;
+            c.ValueMember = "Id";
+            c.SelectedValue = selectedValue;
+         }
     }
 }

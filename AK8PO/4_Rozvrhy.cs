@@ -21,7 +21,17 @@ namespace AK8PO
         }
         private void Rozvrhy_Load(object sender, EventArgs e)
         {
- 
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet18.Jazyk'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.jazykTableAdapter.Fill(this.databaseUTBDataSet18.Jazyk);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet17.Typ'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.typTableAdapter.Fill(this.databaseUTBDataSet17.Typ);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet16.Forma'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.formaTableAdapter.Fill(this.databaseUTBDataSet16.Forma);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet15.Semestr'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.semestrTableAdapter.Fill(this.databaseUTBDataSet15.Semestr);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet14.Rocnik'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.rocnikTableAdapter.Fill(this.databaseUTBDataSet14.Rocnik);
+
             LoadSkupinka();
             LoadPredmet();
         }
@@ -153,7 +163,7 @@ namespace AK8PO
             idStudent = int.Parse(dataSkupinka.SelectedRows[0].Cells[0].Value.ToString());
             skupinkaId.Text = idStudent.ToString();
 
-            SqlCommand cmd = new SqlCommand("SELECT Rozvrh.Id,Rozvrh.Id_predmet,Predmet.zkratka FROM Rozvrh LEFT JOIN Predmet On Rozvrh.Id_predmet=Predmet.Id WHERE Rozvrh.Id_studenti=@IdStudent", con);
+            SqlCommand cmd = new SqlCommand("SELECT Rozvrh.Id,Rozvrh.Id_predmet,Predmet.zkratka FROM Rozvrh LEFT JOIN Predmet On Rozvrh.Id_predmet=Predmet.Id WHERE Rozvrh.Id_studenti=@IdStudent ORDER BY Predmet.zkratka", con);
             cmd.Parameters.AddWithValue("@IdStudent", idStudent);
 
             DataTable dt = new DataTable();

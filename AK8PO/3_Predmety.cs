@@ -19,17 +19,17 @@ namespace AK8PO
         public Predmet()
         {
             InitializeComponent();
-            StringLibrary.Generuj(vstupZakonceni, StringLibrary.ZakonceniRetezec(), 0);
-            StringLibrary.Generuj(vstupJazyk, StringLibrary.JazykRetezec(), 0);
+            StringLibrary.GenerujIdCombo(vstupZakonceni, "Zakonceni", "Zakonceni_text", 1);
+            StringLibrary.GenerujIdCombo(vstupJazyk, "Jazyk", "Jazyk_text", 1);
         }
 
         private void Predmet_Load(object sender, EventArgs e)
         {
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet4.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-           // this.predmetTableAdapter2.Fill(this.databaseUTBDataSet4.Predmet);
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet2.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-           // this.predmetTableAdapter1.Fill(this.databaseUTBDataSet2.Predmet);
-            LoadForm();
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet13.Zakonceni'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.zakonceniTableAdapter.Fill(this.databaseUTBDataSet13.Zakonceni);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet12.Jazyk'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.jazykTableAdapter.Fill(this.databaseUTBDataSet12.Jazyk);
+             LoadForm();
 
         }
         private void LoadForm()
@@ -50,8 +50,8 @@ namespace AK8PO
             vstupPrednasky.Text = predmetyView.SelectedRows[0].Cells[3].Value.ToString();
             vstupCviceni.Text = predmetyView.SelectedRows[0].Cells[4].Value.ToString();
             vstupSeminare.Text = predmetyView.SelectedRows[0].Cells[5].Value.ToString();
-            vstupZakonceni.Text = predmetyView.SelectedRows[0].Cells[6].Value.ToString();
-            vstupJazyk.Text = predmetyView.SelectedRows[0].Cells[7].Value.ToString();
+            vstupZakonceni.SelectedValue = int.Parse(predmetyView.SelectedRows[0].Cells[6].Value.ToString());
+            vstupJazyk.SelectedValue = int.Parse(predmetyView.SelectedRows[0].Cells[7].Value.ToString());
             vstupVelikost_tridy.Text = predmetyView.SelectedRows[0].Cells[8].Value.ToString();
             vstupNazev_predmetu.Text = predmetyView.SelectedRows[0].Cells[9].Value.ToString();
             vstupPocet_kreditu.Text = predmetyView.SelectedRows[0].Cells[10].Value.ToString();
@@ -70,8 +70,8 @@ namespace AK8PO
             vstupPrednasky.Clear();
             vstupCviceni.Clear();
             vstupSeminare.Clear();
-            vstupZakonceni.SelectedIndex = 0;
-            vstupJazyk.SelectedIndex = 0;
+            vstupZakonceni.SelectedValue = 1;
+            vstupJazyk.SelectedValue = 1;
             vstupVelikost_tridy.Clear();
             vstupNazev_predmetu.Clear();
             vstupPocet_kreditu.Clear();
@@ -90,8 +90,8 @@ namespace AK8PO
                 cmd.Parameters.AddWithValue("@VstupPrednasky", int.Parse(vstupPrednasky.Text));
                 cmd.Parameters.AddWithValue("@VstupCviceni", int.Parse(vstupCviceni.Text));
                 cmd.Parameters.AddWithValue("@VstupSeminare", int.Parse(vstupSeminare.Text));
-                cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.Text);
-                cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.Text);
+                cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
+                cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupVelikost_tridy", int.Parse(vstupVelikost_tridy.Text));
                 cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
                 cmd.Parameters.AddWithValue("@VstupPocet_kreditu", int.Parse(vstupPocet_kreditu.Text));
@@ -122,8 +122,8 @@ namespace AK8PO
                 cmd.Parameters.AddWithValue("@VstupPrednasky", int.Parse(vstupPrednasky.Text));
                 cmd.Parameters.AddWithValue("@VstupCviceni", int.Parse(vstupCviceni.Text));
                 cmd.Parameters.AddWithValue("@VstupSeminare", int.Parse(vstupSeminare.Text));
-                cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.Text);
-                cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.Text);
+                cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
+                cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupVelikost_tridy", int.Parse(vstupVelikost_tridy.Text));
                 cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
                 cmd.Parameters.AddWithValue("@VstupPocet_kreditu", int.Parse(vstupPocet_kreditu.Text));

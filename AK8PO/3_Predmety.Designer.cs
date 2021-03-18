@@ -49,19 +49,6 @@ namespace AK8PO
             this.new_tlacitko = new System.Windows.Forms.Button();
             this.update_tlacitko = new System.Windows.Forms.Button();
             this.predmetyView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.počettydnuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prednaskyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cviceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seminareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zakonceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.velikosttridyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazevpredmetuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.početkredituDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.garantustavDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.garantosobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.predmetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.databaseUTBDataSet4 = new AK8PO.DatabaseUTBDataSet4();
             this.predmetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -85,6 +72,25 @@ namespace AK8PO
             this.predmetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.predmetTableAdapter1 = new AK8PO.DatabaseUTBDataSet2TableAdapters.PredmetTableAdapter();
             this.predmetTableAdapter2 = new AK8PO.DatabaseUTBDataSet4TableAdapters.PredmetTableAdapter();
+            this.databaseUTBDataSet12 = new AK8PO.DatabaseUTBDataSet12();
+            this.jazykBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jazykTableAdapter = new AK8PO.DatabaseUTBDataSet12TableAdapters.JazykTableAdapter();
+            this.databaseUTBDataSet13 = new AK8PO.DatabaseUTBDataSet13();
+            this.zakonceniBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zakonceniTableAdapter = new AK8PO.DatabaseUTBDataSet13TableAdapters.ZakonceniTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.počettydnuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prednaskyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cviceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seminareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zakonceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.velikosttridyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazevpredmetuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.početkredituDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.garantustavDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.garantosobaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.predmetyView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).BeginInit();
@@ -92,6 +98,10 @@ namespace AK8PO
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet_Predmet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zakonceniBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -311,101 +321,11 @@ namespace AK8PO
             this.predmetyView.Location = new System.Drawing.Point(17, 80);
             this.predmetyView.Name = "predmetyView";
             this.predmetyView.ReadOnly = true;
+            this.predmetyView.RowHeadersVisible = false;
             this.predmetyView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.predmetyView.Size = new System.Drawing.Size(623, 669);
             this.predmetyView.TabIndex = 64;
             this.predmetyView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VyberZaznamu_CellClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zkratkaDataGridViewTextBoxColumn
-            // 
-            this.zkratkaDataGridViewTextBoxColumn.DataPropertyName = "zkratka";
-            this.zkratkaDataGridViewTextBoxColumn.HeaderText = "zkratka";
-            this.zkratkaDataGridViewTextBoxColumn.Name = "zkratkaDataGridViewTextBoxColumn";
-            this.zkratkaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // počettydnuDataGridViewTextBoxColumn
-            // 
-            this.počettydnuDataGridViewTextBoxColumn.DataPropertyName = "počet_tydnu";
-            this.počettydnuDataGridViewTextBoxColumn.HeaderText = "počet_tydnu";
-            this.počettydnuDataGridViewTextBoxColumn.Name = "počettydnuDataGridViewTextBoxColumn";
-            this.počettydnuDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prednaskyDataGridViewTextBoxColumn
-            // 
-            this.prednaskyDataGridViewTextBoxColumn.DataPropertyName = "prednasky";
-            this.prednaskyDataGridViewTextBoxColumn.HeaderText = "prednasky";
-            this.prednaskyDataGridViewTextBoxColumn.Name = "prednaskyDataGridViewTextBoxColumn";
-            this.prednaskyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cviceniDataGridViewTextBoxColumn
-            // 
-            this.cviceniDataGridViewTextBoxColumn.DataPropertyName = "cviceni";
-            this.cviceniDataGridViewTextBoxColumn.HeaderText = "cviceni";
-            this.cviceniDataGridViewTextBoxColumn.Name = "cviceniDataGridViewTextBoxColumn";
-            this.cviceniDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // seminareDataGridViewTextBoxColumn
-            // 
-            this.seminareDataGridViewTextBoxColumn.DataPropertyName = "seminare";
-            this.seminareDataGridViewTextBoxColumn.HeaderText = "seminare";
-            this.seminareDataGridViewTextBoxColumn.Name = "seminareDataGridViewTextBoxColumn";
-            this.seminareDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // zakonceniDataGridViewTextBoxColumn
-            // 
-            this.zakonceniDataGridViewTextBoxColumn.DataPropertyName = "zakonceni";
-            this.zakonceniDataGridViewTextBoxColumn.HeaderText = "zakonceni";
-            this.zakonceniDataGridViewTextBoxColumn.Name = "zakonceniDataGridViewTextBoxColumn";
-            this.zakonceniDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // jazykDataGridViewTextBoxColumn
-            // 
-            this.jazykDataGridViewTextBoxColumn.DataPropertyName = "jazyk";
-            this.jazykDataGridViewTextBoxColumn.HeaderText = "jazyk";
-            this.jazykDataGridViewTextBoxColumn.Name = "jazykDataGridViewTextBoxColumn";
-            this.jazykDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // velikosttridyDataGridViewTextBoxColumn
-            // 
-            this.velikosttridyDataGridViewTextBoxColumn.DataPropertyName = "velikost_tridy";
-            this.velikosttridyDataGridViewTextBoxColumn.HeaderText = "velikost_tridy";
-            this.velikosttridyDataGridViewTextBoxColumn.Name = "velikosttridyDataGridViewTextBoxColumn";
-            this.velikosttridyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nazevpredmetuDataGridViewTextBoxColumn
-            // 
-            this.nazevpredmetuDataGridViewTextBoxColumn.DataPropertyName = "nazev_predmetu";
-            this.nazevpredmetuDataGridViewTextBoxColumn.HeaderText = "nazev_predmetu";
-            this.nazevpredmetuDataGridViewTextBoxColumn.Name = "nazevpredmetuDataGridViewTextBoxColumn";
-            this.nazevpredmetuDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // početkredituDataGridViewTextBoxColumn
-            // 
-            this.početkredituDataGridViewTextBoxColumn.DataPropertyName = "počet_kreditu";
-            this.početkredituDataGridViewTextBoxColumn.HeaderText = "počet_kreditu";
-            this.početkredituDataGridViewTextBoxColumn.Name = "početkredituDataGridViewTextBoxColumn";
-            this.početkredituDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // garantustavDataGridViewTextBoxColumn
-            // 
-            this.garantustavDataGridViewTextBoxColumn.DataPropertyName = "garant_ustav";
-            this.garantustavDataGridViewTextBoxColumn.HeaderText = "garant_ustav";
-            this.garantustavDataGridViewTextBoxColumn.Name = "garantustavDataGridViewTextBoxColumn";
-            this.garantustavDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // garantosobaDataGridViewTextBoxColumn
-            // 
-            this.garantosobaDataGridViewTextBoxColumn.DataPropertyName = "garant_osoba";
-            this.garantosobaDataGridViewTextBoxColumn.HeaderText = "garant_osoba";
-            this.garantosobaDataGridViewTextBoxColumn.Name = "garantosobaDataGridViewTextBoxColumn";
-            this.garantosobaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // predmetBindingSource2
             // 
@@ -593,6 +513,139 @@ namespace AK8PO
             // 
             this.predmetTableAdapter2.ClearBeforeFill = true;
             // 
+            // databaseUTBDataSet12
+            // 
+            this.databaseUTBDataSet12.DataSetName = "DatabaseUTBDataSet12";
+            this.databaseUTBDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jazykBindingSource
+            // 
+            this.jazykBindingSource.DataMember = "Jazyk";
+            this.jazykBindingSource.DataSource = this.databaseUTBDataSet12;
+            // 
+            // jazykTableAdapter
+            // 
+            this.jazykTableAdapter.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet13
+            // 
+            this.databaseUTBDataSet13.DataSetName = "DatabaseUTBDataSet13";
+            this.databaseUTBDataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // zakonceniBindingSource
+            // 
+            this.zakonceniBindingSource.DataMember = "Zakonceni";
+            this.zakonceniBindingSource.DataSource = this.databaseUTBDataSet13;
+            // 
+            // zakonceniTableAdapter
+            // 
+            this.zakonceniTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // zkratkaDataGridViewTextBoxColumn
+            // 
+            this.zkratkaDataGridViewTextBoxColumn.DataPropertyName = "zkratka";
+            this.zkratkaDataGridViewTextBoxColumn.HeaderText = "Zkratka";
+            this.zkratkaDataGridViewTextBoxColumn.Name = "zkratkaDataGridViewTextBoxColumn";
+            this.zkratkaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // počettydnuDataGridViewTextBoxColumn
+            // 
+            this.počettydnuDataGridViewTextBoxColumn.DataPropertyName = "počet_tydnu";
+            this.počettydnuDataGridViewTextBoxColumn.HeaderText = "Počet týdnů";
+            this.počettydnuDataGridViewTextBoxColumn.Name = "počettydnuDataGridViewTextBoxColumn";
+            this.počettydnuDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prednaskyDataGridViewTextBoxColumn
+            // 
+            this.prednaskyDataGridViewTextBoxColumn.DataPropertyName = "prednasky";
+            this.prednaskyDataGridViewTextBoxColumn.HeaderText = "Přednášky";
+            this.prednaskyDataGridViewTextBoxColumn.Name = "prednaskyDataGridViewTextBoxColumn";
+            this.prednaskyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cviceniDataGridViewTextBoxColumn
+            // 
+            this.cviceniDataGridViewTextBoxColumn.DataPropertyName = "cviceni";
+            this.cviceniDataGridViewTextBoxColumn.HeaderText = "Cvičení";
+            this.cviceniDataGridViewTextBoxColumn.Name = "cviceniDataGridViewTextBoxColumn";
+            this.cviceniDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // seminareDataGridViewTextBoxColumn
+            // 
+            this.seminareDataGridViewTextBoxColumn.DataPropertyName = "seminare";
+            this.seminareDataGridViewTextBoxColumn.HeaderText = "Semináře";
+            this.seminareDataGridViewTextBoxColumn.Name = "seminareDataGridViewTextBoxColumn";
+            this.seminareDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // zakonceniDataGridViewTextBoxColumn
+            // 
+            this.zakonceniDataGridViewTextBoxColumn.DataPropertyName = "zakonceni";
+            this.zakonceniDataGridViewTextBoxColumn.DataSource = this.zakonceniBindingSource;
+            this.zakonceniDataGridViewTextBoxColumn.DisplayMember = "Zakonceni_text";
+            this.zakonceniDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.zakonceniDataGridViewTextBoxColumn.HeaderText = "Zakončení";
+            this.zakonceniDataGridViewTextBoxColumn.Name = "zakonceniDataGridViewTextBoxColumn";
+            this.zakonceniDataGridViewTextBoxColumn.ReadOnly = true;
+            this.zakonceniDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.zakonceniDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.zakonceniDataGridViewTextBoxColumn.ValueMember = "Id";
+            // 
+            // jazykDataGridViewTextBoxColumn
+            // 
+            this.jazykDataGridViewTextBoxColumn.DataPropertyName = "jazyk";
+            this.jazykDataGridViewTextBoxColumn.DataSource = this.jazykBindingSource;
+            this.jazykDataGridViewTextBoxColumn.DisplayMember = "Jazyk_text";
+            this.jazykDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.jazykDataGridViewTextBoxColumn.HeaderText = "Jazyk";
+            this.jazykDataGridViewTextBoxColumn.Name = "jazykDataGridViewTextBoxColumn";
+            this.jazykDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jazykDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jazykDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.jazykDataGridViewTextBoxColumn.ValueMember = "Id";
+            // 
+            // velikosttridyDataGridViewTextBoxColumn
+            // 
+            this.velikosttridyDataGridViewTextBoxColumn.DataPropertyName = "velikost_tridy";
+            this.velikosttridyDataGridViewTextBoxColumn.HeaderText = "Velikost třídy";
+            this.velikosttridyDataGridViewTextBoxColumn.Name = "velikosttridyDataGridViewTextBoxColumn";
+            this.velikosttridyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nazevpredmetuDataGridViewTextBoxColumn
+            // 
+            this.nazevpredmetuDataGridViewTextBoxColumn.DataPropertyName = "nazev_predmetu";
+            this.nazevpredmetuDataGridViewTextBoxColumn.HeaderText = "Plný název předmětu";
+            this.nazevpredmetuDataGridViewTextBoxColumn.Name = "nazevpredmetuDataGridViewTextBoxColumn";
+            this.nazevpredmetuDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // početkredituDataGridViewTextBoxColumn
+            // 
+            this.početkredituDataGridViewTextBoxColumn.DataPropertyName = "počet_kreditu";
+            this.početkredituDataGridViewTextBoxColumn.HeaderText = "Počet kreditů";
+            this.početkredituDataGridViewTextBoxColumn.Name = "početkredituDataGridViewTextBoxColumn";
+            this.početkredituDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // garantustavDataGridViewTextBoxColumn
+            // 
+            this.garantustavDataGridViewTextBoxColumn.DataPropertyName = "garant_ustav";
+            this.garantustavDataGridViewTextBoxColumn.HeaderText = "Garant - ústav";
+            this.garantustavDataGridViewTextBoxColumn.Name = "garantustavDataGridViewTextBoxColumn";
+            this.garantustavDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // garantosobaDataGridViewTextBoxColumn
+            // 
+            this.garantosobaDataGridViewTextBoxColumn.DataPropertyName = "garant_osoba";
+            this.garantosobaDataGridViewTextBoxColumn.HeaderText = "Garant - osoba";
+            this.garantosobaDataGridViewTextBoxColumn.Name = "garantosobaDataGridViewTextBoxColumn";
+            this.garantosobaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // Predmet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,6 +695,10 @@ namespace AK8PO
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet_Predmet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zakonceniBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,14 +748,20 @@ namespace AK8PO
         private DatabaseUTBDataSet4 databaseUTBDataSet4;
         private System.Windows.Forms.BindingSource predmetBindingSource2;
         private DatabaseUTBDataSet4TableAdapters.PredmetTableAdapter predmetTableAdapter2;
+        private DatabaseUTBDataSet12 databaseUTBDataSet12;
+        private System.Windows.Forms.BindingSource jazykBindingSource;
+        private DatabaseUTBDataSet12TableAdapters.JazykTableAdapter jazykTableAdapter;
+        private DatabaseUTBDataSet13 databaseUTBDataSet13;
+        private System.Windows.Forms.BindingSource zakonceniBindingSource;
+        private DatabaseUTBDataSet13TableAdapters.ZakonceniTableAdapter zakonceniTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zkratkaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn počettydnuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prednaskyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cviceniDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seminareDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zakonceniDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jazykDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn zakonceniDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn jazykDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn velikosttridyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazevpredmetuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn početkredituDataGridViewTextBoxColumn;

@@ -33,17 +33,16 @@ namespace AK8PO
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.studentiView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rocnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.semestrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pocetstudentuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formastudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typstudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazevstudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rocnikBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseUTBDataSetTables = new AK8PO.DatabaseUTBDataSetTables();
+            this.semestrBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.formaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseUTBDataSetTablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jazykBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseUTBDataSet = new AK8PO.DatabaseUTBDataSet();
+            this.rocnikBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseUTBDataSet3 = new AK8PO.DatabaseUTBDataSet3();
             this.databaseUTBDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clear_tlacitko = new System.Windows.Forms.Button();
@@ -69,11 +68,60 @@ namespace AK8PO
             this.vstupForma_studia = new System.Windows.Forms.ComboBox();
             this.vstupTyp_studia = new System.Windows.Forms.ComboBox();
             this.vstupJazyk = new System.Windows.Forms.ComboBox();
+            this.jazykTableAdapter = new AK8PO.DatabaseUTBDataSetTablesTableAdapters.JazykTableAdapter();
+            this.typTableAdapter = new AK8PO.DatabaseUTBDataSetTablesTableAdapters.TypTableAdapter();
+            this.formaTableAdapter = new AK8PO.DatabaseUTBDataSetTablesTableAdapters.FormaTableAdapter();
+            this.semestrTableAdapter = new AK8PO.DatabaseUTBDataSetTablesTableAdapters.SemestrTableAdapter();
+            this.rocnikBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.rocnikTableAdapter = new AK8PO.DatabaseUTBDataSetTablesTableAdapters.RocnikTableAdapter();
+            this.databaseUTBDataSet7 = new AK8PO.DatabaseUTBDataSet7();
+            this.rocnikBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.rocnikTableAdapter1 = new AK8PO.DatabaseUTBDataSet7TableAdapters.RocnikTableAdapter();
+            this.databaseUTBDataSet8 = new AK8PO.DatabaseUTBDataSet8();
+            this.semestrBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.semestrTableAdapter1 = new AK8PO.DatabaseUTBDataSet8TableAdapters.SemestrTableAdapter();
+            this.databaseUTBDataSet9 = new AK8PO.DatabaseUTBDataSet9();
+            this.formaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.formaTableAdapter1 = new AK8PO.DatabaseUTBDataSet9TableAdapters.FormaTableAdapter();
+            this.databaseUTBDataSet10 = new AK8PO.DatabaseUTBDataSet10();
+            this.typBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.typTableAdapter1 = new AK8PO.DatabaseUTBDataSet10TableAdapters.TypTableAdapter();
+            this.databaseUTBDataSet11 = new AK8PO.DatabaseUTBDataSet11();
+            this.jazykBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.jazykTableAdapter1 = new AK8PO.DatabaseUTBDataSet11TableAdapters.JazykTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rocnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.semestrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pocetstudentuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formastudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.typstudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.nazevstudiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.studentiView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSetTables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semestrBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSetTablesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semestrBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -115,75 +163,49 @@ namespace AK8PO
             this.nazevstudiaDataGridViewTextBoxColumn});
             this.studentiView.DataSource = this.studentiBindingSource;
             this.studentiView.Location = new System.Drawing.Point(17, 71);
+            this.studentiView.MultiSelect = false;
             this.studentiView.Name = "studentiView";
             this.studentiView.ReadOnly = true;
+            this.studentiView.RowHeadersVisible = false;
             this.studentiView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentiView.Size = new System.Drawing.Size(623, 669);
             this.studentiView.TabIndex = 33;
             this.studentiView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VyberZaznamu_CellClick);
             // 
-            // idDataGridViewTextBoxColumn
+            // rocnikBindingSource2
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rocnikBindingSource2.DataMember = "Rocnik";
+            this.rocnikBindingSource2.DataSource = this.databaseUTBDataSetTables;
             // 
-            // zkratkaDataGridViewTextBoxColumn
+            // databaseUTBDataSetTables
             // 
-            this.zkratkaDataGridViewTextBoxColumn.DataPropertyName = "zkratka";
-            this.zkratkaDataGridViewTextBoxColumn.HeaderText = "zkratka";
-            this.zkratkaDataGridViewTextBoxColumn.Name = "zkratkaDataGridViewTextBoxColumn";
-            this.zkratkaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseUTBDataSetTables.DataSetName = "DatabaseUTBDataSetTables";
+            this.databaseUTBDataSetTables.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // rocnikDataGridViewTextBoxColumn
+            // semestrBindingSource
             // 
-            this.rocnikDataGridViewTextBoxColumn.DataPropertyName = "rocnik";
-            this.rocnikDataGridViewTextBoxColumn.HeaderText = "rocnik";
-            this.rocnikDataGridViewTextBoxColumn.Name = "rocnikDataGridViewTextBoxColumn";
-            this.rocnikDataGridViewTextBoxColumn.ReadOnly = true;
+            this.semestrBindingSource.DataMember = "Semestr";
+            this.semestrBindingSource.DataSource = this.databaseUTBDataSetTables;
             // 
-            // semestrDataGridViewTextBoxColumn
+            // formaBindingSource
             // 
-            this.semestrDataGridViewTextBoxColumn.DataPropertyName = "semestr";
-            this.semestrDataGridViewTextBoxColumn.HeaderText = "semestr";
-            this.semestrDataGridViewTextBoxColumn.Name = "semestrDataGridViewTextBoxColumn";
-            this.semestrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.formaBindingSource.DataMember = "Forma";
+            this.formaBindingSource.DataSource = this.databaseUTBDataSetTables;
             // 
-            // pocetstudentuDataGridViewTextBoxColumn
+            // typBindingSource
             // 
-            this.pocetstudentuDataGridViewTextBoxColumn.DataPropertyName = "pocet_studentu";
-            this.pocetstudentuDataGridViewTextBoxColumn.HeaderText = "pocet_studentu";
-            this.pocetstudentuDataGridViewTextBoxColumn.Name = "pocetstudentuDataGridViewTextBoxColumn";
-            this.pocetstudentuDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typBindingSource.DataMember = "Typ";
+            this.typBindingSource.DataSource = this.databaseUTBDataSetTablesBindingSource;
             // 
-            // formastudiaDataGridViewTextBoxColumn
+            // databaseUTBDataSetTablesBindingSource
             // 
-            this.formastudiaDataGridViewTextBoxColumn.DataPropertyName = "forma_studia";
-            this.formastudiaDataGridViewTextBoxColumn.HeaderText = "forma_studia";
-            this.formastudiaDataGridViewTextBoxColumn.Name = "formastudiaDataGridViewTextBoxColumn";
-            this.formastudiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseUTBDataSetTablesBindingSource.DataSource = this.databaseUTBDataSetTables;
+            this.databaseUTBDataSetTablesBindingSource.Position = 0;
             // 
-            // typstudiaDataGridViewTextBoxColumn
+            // jazykBindingSource
             // 
-            this.typstudiaDataGridViewTextBoxColumn.DataPropertyName = "typ_studia";
-            this.typstudiaDataGridViewTextBoxColumn.HeaderText = "typ_studia";
-            this.typstudiaDataGridViewTextBoxColumn.Name = "typstudiaDataGridViewTextBoxColumn";
-            this.typstudiaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // jazykDataGridViewTextBoxColumn
-            // 
-            this.jazykDataGridViewTextBoxColumn.DataPropertyName = "jazyk";
-            this.jazykDataGridViewTextBoxColumn.HeaderText = "jazyk";
-            this.jazykDataGridViewTextBoxColumn.Name = "jazykDataGridViewTextBoxColumn";
-            this.jazykDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nazevstudiaDataGridViewTextBoxColumn
-            // 
-            this.nazevstudiaDataGridViewTextBoxColumn.DataPropertyName = "nazev_studia";
-            this.nazevstudiaDataGridViewTextBoxColumn.HeaderText = "nazev_studia";
-            this.nazevstudiaDataGridViewTextBoxColumn.Name = "nazevstudiaDataGridViewTextBoxColumn";
-            this.nazevstudiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jazykBindingSource.DataMember = "Jazyk";
+            this.jazykBindingSource.DataSource = this.databaseUTBDataSetTables;
             // 
             // studentiBindingSource
             // 
@@ -443,6 +465,202 @@ namespace AK8PO
             this.vstupJazyk.Size = new System.Drawing.Size(101, 24);
             this.vstupJazyk.TabIndex = 63;
             // 
+            // jazykTableAdapter
+            // 
+            this.jazykTableAdapter.ClearBeforeFill = true;
+            // 
+            // typTableAdapter
+            // 
+            this.typTableAdapter.ClearBeforeFill = true;
+            // 
+            // formaTableAdapter
+            // 
+            this.formaTableAdapter.ClearBeforeFill = true;
+            // 
+            // semestrTableAdapter
+            // 
+            this.semestrTableAdapter.ClearBeforeFill = true;
+            // 
+            // rocnikBindingSource1
+            // 
+            this.rocnikBindingSource1.DataMember = "Rocnik";
+            this.rocnikBindingSource1.DataSource = this.databaseUTBDataSetTables;
+            // 
+            // rocnikTableAdapter
+            // 
+            this.rocnikTableAdapter.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet7
+            // 
+            this.databaseUTBDataSet7.DataSetName = "DatabaseUTBDataSet7";
+            this.databaseUTBDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rocnikBindingSource3
+            // 
+            this.rocnikBindingSource3.DataMember = "Rocnik";
+            this.rocnikBindingSource3.DataSource = this.databaseUTBDataSet7;
+            // 
+            // rocnikTableAdapter1
+            // 
+            this.rocnikTableAdapter1.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet8
+            // 
+            this.databaseUTBDataSet8.DataSetName = "DatabaseUTBDataSet8";
+            this.databaseUTBDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // semestrBindingSource1
+            // 
+            this.semestrBindingSource1.DataMember = "Semestr";
+            this.semestrBindingSource1.DataSource = this.databaseUTBDataSet8;
+            // 
+            // semestrTableAdapter1
+            // 
+            this.semestrTableAdapter1.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet9
+            // 
+            this.databaseUTBDataSet9.DataSetName = "DatabaseUTBDataSet9";
+            this.databaseUTBDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // formaBindingSource1
+            // 
+            this.formaBindingSource1.DataMember = "Forma";
+            this.formaBindingSource1.DataSource = this.databaseUTBDataSet9;
+            // 
+            // formaTableAdapter1
+            // 
+            this.formaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet10
+            // 
+            this.databaseUTBDataSet10.DataSetName = "DatabaseUTBDataSet10";
+            this.databaseUTBDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // typBindingSource1
+            // 
+            this.typBindingSource1.DataMember = "Typ";
+            this.typBindingSource1.DataSource = this.databaseUTBDataSet10;
+            // 
+            // typTableAdapter1
+            // 
+            this.typTableAdapter1.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet11
+            // 
+            this.databaseUTBDataSet11.DataSetName = "DatabaseUTBDataSet11";
+            this.databaseUTBDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // jazykBindingSource1
+            // 
+            this.jazykBindingSource1.DataMember = "Jazyk";
+            this.jazykBindingSource1.DataSource = this.databaseUTBDataSet11;
+            // 
+            // jazykTableAdapter1
+            // 
+            this.jazykTableAdapter1.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // zkratkaDataGridViewTextBoxColumn
+            // 
+            this.zkratkaDataGridViewTextBoxColumn.DataPropertyName = "zkratka";
+            this.zkratkaDataGridViewTextBoxColumn.HeaderText = "Zkratka";
+            this.zkratkaDataGridViewTextBoxColumn.Name = "zkratkaDataGridViewTextBoxColumn";
+            this.zkratkaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rocnikDataGridViewTextBoxColumn
+            // 
+            this.rocnikDataGridViewTextBoxColumn.DataPropertyName = "rocnik";
+            this.rocnikDataGridViewTextBoxColumn.DataSource = this.rocnikBindingSource3;
+            this.rocnikDataGridViewTextBoxColumn.DisplayMember = "Rocnik_text";
+            this.rocnikDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.rocnikDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.rocnikDataGridViewTextBoxColumn.HeaderText = "Ročník";
+            this.rocnikDataGridViewTextBoxColumn.Name = "rocnikDataGridViewTextBoxColumn";
+            this.rocnikDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rocnikDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.rocnikDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.rocnikDataGridViewTextBoxColumn.ValueMember = "Id";
+            this.rocnikDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // semestrDataGridViewTextBoxColumn
+            // 
+            this.semestrDataGridViewTextBoxColumn.DataPropertyName = "semestr";
+            this.semestrDataGridViewTextBoxColumn.DataSource = this.semestrBindingSource1;
+            this.semestrDataGridViewTextBoxColumn.DisplayMember = "Semestr_text";
+            this.semestrDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.semestrDataGridViewTextBoxColumn.HeaderText = "Semestr";
+            this.semestrDataGridViewTextBoxColumn.Name = "semestrDataGridViewTextBoxColumn";
+            this.semestrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.semestrDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.semestrDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.semestrDataGridViewTextBoxColumn.ValueMember = "Id";
+            // 
+            // pocetstudentuDataGridViewTextBoxColumn
+            // 
+            this.pocetstudentuDataGridViewTextBoxColumn.DataPropertyName = "pocet_studentu";
+            this.pocetstudentuDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.pocetstudentuDataGridViewTextBoxColumn.HeaderText = "Počet studentů";
+            this.pocetstudentuDataGridViewTextBoxColumn.Name = "pocetstudentuDataGridViewTextBoxColumn";
+            this.pocetstudentuDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pocetstudentuDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // formastudiaDataGridViewTextBoxColumn
+            // 
+            this.formastudiaDataGridViewTextBoxColumn.DataPropertyName = "forma_studia";
+            this.formastudiaDataGridViewTextBoxColumn.DataSource = this.formaBindingSource1;
+            this.formastudiaDataGridViewTextBoxColumn.DisplayMember = "Forma_text";
+            this.formastudiaDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.formastudiaDataGridViewTextBoxColumn.HeaderText = "Forma";
+            this.formastudiaDataGridViewTextBoxColumn.Name = "formastudiaDataGridViewTextBoxColumn";
+            this.formastudiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.formastudiaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.formastudiaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.formastudiaDataGridViewTextBoxColumn.ValueMember = "Id";
+            // 
+            // typstudiaDataGridViewTextBoxColumn
+            // 
+            this.typstudiaDataGridViewTextBoxColumn.DataPropertyName = "typ_studia";
+            this.typstudiaDataGridViewTextBoxColumn.DataSource = this.typBindingSource1;
+            this.typstudiaDataGridViewTextBoxColumn.DisplayMember = "Typ_text";
+            this.typstudiaDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.typstudiaDataGridViewTextBoxColumn.HeaderText = "Typ";
+            this.typstudiaDataGridViewTextBoxColumn.Name = "typstudiaDataGridViewTextBoxColumn";
+            this.typstudiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typstudiaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.typstudiaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.typstudiaDataGridViewTextBoxColumn.ValueMember = "Id";
+            // 
+            // jazykDataGridViewTextBoxColumn
+            // 
+            this.jazykDataGridViewTextBoxColumn.DataPropertyName = "jazyk";
+            this.jazykDataGridViewTextBoxColumn.DataSource = this.jazykBindingSource1;
+            this.jazykDataGridViewTextBoxColumn.DisplayMember = "Jazyk_text";
+            this.jazykDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.jazykDataGridViewTextBoxColumn.HeaderText = "Jazyk";
+            this.jazykDataGridViewTextBoxColumn.Name = "jazykDataGridViewTextBoxColumn";
+            this.jazykDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jazykDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.jazykDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.jazykDataGridViewTextBoxColumn.ValueMember = "Id";
+            // 
+            // nazevstudiaDataGridViewTextBoxColumn
+            // 
+            this.nazevstudiaDataGridViewTextBoxColumn.DataPropertyName = "nazev_studia";
+            this.nazevstudiaDataGridViewTextBoxColumn.FillWeight = 200F;
+            this.nazevstudiaDataGridViewTextBoxColumn.HeaderText = "Plný název studia";
+            this.nazevstudiaDataGridViewTextBoxColumn.Name = "nazevstudiaDataGridViewTextBoxColumn";
+            this.nazevstudiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nazevstudiaDataGridViewTextBoxColumn.Width = 200;
+            // 
             // Studenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -480,10 +698,29 @@ namespace AK8PO
             this.Text = "Studenti a obory";
             this.Load += new System.EventHandler(this.Studenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentiView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSetTables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semestrBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSetTablesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semestrBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,15 +740,6 @@ namespace AK8PO
         private DatabaseUTBDataSet databaseUTBDataSet;
         private System.Windows.Forms.BindingSource studentiBindingSource;
         private DatabaseUTBDataSetTableAdapters.StudentiTableAdapter studentiTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zkratkaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rocnikDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn semestrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pocetstudentuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formastudiaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typstudiaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jazykDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazevstudiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox vstupID;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox vstupNazev_studia;
@@ -530,5 +758,43 @@ namespace AK8PO
         private System.Windows.Forms.ComboBox vstupForma_studia;
         private System.Windows.Forms.ComboBox vstupTyp_studia;
         private System.Windows.Forms.ComboBox vstupJazyk;
+        private System.Windows.Forms.BindingSource rocnikBindingSource;
+        private DatabaseUTBDataSetTables databaseUTBDataSetTables;
+        private System.Windows.Forms.BindingSource jazykBindingSource;
+        private DatabaseUTBDataSetTablesTableAdapters.JazykTableAdapter jazykTableAdapter;
+        private System.Windows.Forms.BindingSource databaseUTBDataSetTablesBindingSource;
+        private System.Windows.Forms.BindingSource typBindingSource;
+        private DatabaseUTBDataSetTablesTableAdapters.TypTableAdapter typTableAdapter;
+        private System.Windows.Forms.BindingSource formaBindingSource;
+        private DatabaseUTBDataSetTablesTableAdapters.FormaTableAdapter formaTableAdapter;
+        private System.Windows.Forms.BindingSource semestrBindingSource;
+        private DatabaseUTBDataSetTablesTableAdapters.SemestrTableAdapter semestrTableAdapter;
+        private System.Windows.Forms.BindingSource rocnikBindingSource1;
+        private DatabaseUTBDataSetTablesTableAdapters.RocnikTableAdapter rocnikTableAdapter;
+        private System.Windows.Forms.BindingSource rocnikBindingSource2;
+        private DatabaseUTBDataSet7 databaseUTBDataSet7;
+        private System.Windows.Forms.BindingSource rocnikBindingSource3;
+        private DatabaseUTBDataSet7TableAdapters.RocnikTableAdapter rocnikTableAdapter1;
+        private DatabaseUTBDataSet8 databaseUTBDataSet8;
+        private System.Windows.Forms.BindingSource semestrBindingSource1;
+        private DatabaseUTBDataSet8TableAdapters.SemestrTableAdapter semestrTableAdapter1;
+        private DatabaseUTBDataSet9 databaseUTBDataSet9;
+        private System.Windows.Forms.BindingSource formaBindingSource1;
+        private DatabaseUTBDataSet9TableAdapters.FormaTableAdapter formaTableAdapter1;
+        private DatabaseUTBDataSet10 databaseUTBDataSet10;
+        private System.Windows.Forms.BindingSource typBindingSource1;
+        private DatabaseUTBDataSet10TableAdapters.TypTableAdapter typTableAdapter1;
+        private DatabaseUTBDataSet11 databaseUTBDataSet11;
+        private System.Windows.Forms.BindingSource jazykBindingSource1;
+        private DatabaseUTBDataSet11TableAdapters.JazykTableAdapter jazykTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zkratkaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn rocnikDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn semestrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pocetstudentuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn formastudiaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn typstudiaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn jazykDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazevstudiaDataGridViewTextBoxColumn;
     }
 }
