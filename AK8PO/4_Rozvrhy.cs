@@ -143,7 +143,7 @@ namespace AK8PO
                     //cmd.Parameters.AddWithValue("@IdStudent", idStudent);
                     //cmd.Parameters.AddWithValue("@IdPredmet", idPredmet);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Tento Předmět byl přidán!", "Vše OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Tento Předmět byl přidán!", "Vše OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
