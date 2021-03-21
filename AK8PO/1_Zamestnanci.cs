@@ -87,8 +87,8 @@ namespace AK8PO
             {
                 cmd.CommandText = "INSERT INTO Zamestnanci (prijmeni, jmeno, titul_pred, titul_za, telefon_pracovni, telefon_soukromy, email_pracovni, email_soukromy, kancelar, uvazek, doktorant, pracovni_body_bez_ang, pracovni_body_s_ang) Values (@VstupPrijmeni, @VstupJmeno, @VstupTitul_pred, @VstupTitul_za, @VstupTelefon_pracovni, @VstupTelefon_soukromy, @VstupEmail_pracovni, @VstupEmail_soukromy, @VstupKancelar, @VstupUvazek, @VstupDoktorant, @VstupBodyBezAng, @VstupBodySAng)";
 
-                //cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
-                //cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
+                cmd.Parameters["@VstupPrijmeni"].Value = vstupPrijmeni.Text;
+                cmd.Parameters["@VstupJmeno"].Value = vstupJmeno.Text;
                 cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
                 cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
                 cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);

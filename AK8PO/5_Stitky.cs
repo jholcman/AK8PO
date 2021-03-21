@@ -10,89 +10,110 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using UtilityLibraries;
 
+
 namespace AK8PO
 {
 
     public partial class Stitky : Form
     {
-        SqlConnection con = new SqlConnection(StringLibrary.DatabazeRetezec());
         public Stitky()
         {
             InitializeComponent();
         }
 
-        private void Stitky_Load(object sender, EventArgs e)
+        public void Stitky_Load(object sender, EventArgs e)
         {
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet23.Jazyk'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.jazykTableAdapter.Fill(this.databaseUTBDataSet23.Jazyk);
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet22.TypStitku'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.typStitkuTableAdapter.Fill(this.databaseUTBDataSet22.TypStitku);
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet21.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.predmetTableAdapter.Fill(this.databaseUTBDataSet21.Predmet);
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet20.Zamestnanci'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.zamestnanciTableAdapter.Fill(this.databaseUTBDataSet20.Zamestnanci);
-            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet19.Stitky'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.stitkyTableAdapter.Fill(this.databaseUTBDataSet19.Stitky);
+
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet27.Jazyk'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.jazykTableAdapter.Fill(this.databaseUTBDataSet27.Jazyk);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet26.TypStitku'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.typStitkuTableAdapter.Fill(this.databaseUTBDataSet26.TypStitku);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet25.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.predmetTableAdapter.Fill(this.databaseUTBDataSet25.Predmet);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet24.Stitky'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.stitkyTableAdapter.Fill(this.databaseUTBDataSet24.Stitky);
 
             StringLibrary.GenerujIdComboStitekJmeno(comboZamestnanec, 0);
             StringLibrary.GenerujIdComboStitekPredmet(comboPredmet, 0);
-            LoadForm();
+            AktualizujTable();
         }
 
-        private void LoadForm()
+        private void AktualizujTable()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * from Stitky ORDER BY id_zamestnanec,id_predmet,typ_stitku,pocet_studentu ASC", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            dataStitky.DataSource = dt;
+            string dotaz = "SELECT s.Id, s.stitek_cislo, ISNULL(z.prijmeni + ' ' + z.jmeno, 'Neprirazen') as vyucujici, ISNULL(p.zkratka, 'Nezadán') AS zkratka, ISNULL(t.Typ_stitku_text, 'Nezadan') AS typ_stitku, s.pocet_studentu, s.pocet_hodin, s.pocet_tydnu, ISNULL(j.Jazyk_text, 'Nezadan') AS jazyk, ISNULL(s.pocet_bodu, 0) AS pocet_bodu, s.poznamka FROM Stitky AS s LEFT JOIN Zamestnanci AS z ON s.id_zamestnanec = z.Id LEFT JOIN Predmet AS p ON s.id_predmet = p.Id LEFT JOIN TypStitku AS t ON s.typ_stitku = t.Id LEFT JOIN Jazyk AS j ON s.jazyk = j.Id ORDER BY vyucujici,zkratka,typ_stitku,stitek_cislo ASC";
+            dataStitky.DataSource = StringLibrary.NactiDataTabulku(dotaz);
         }
         private void ZpetNaHlavni(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void vyberZamestnance(object sender, EventArgs e)
+        public void VyberZamestnance(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open();
-
-            int a = (int)comboZamestnanec.SelectedValue;
-            if (a > 0) { 
-                cmd.CommandText = "SELECT COUNT(*) FROM Stitky WHERE id_zamestnanec=@idZamestnanec";
-                cmd.Parameters.AddWithValue("@idZamestnanec", a);
-                int pocetZaznamu = (int)cmd.ExecuteScalar();
-                pocetStitkuZamestnanec.Text = pocetZaznamu.ToString();
-            }
-            else
-            {
-                pocetStitkuZamestnanec.Text = "----";
-            }
-            con.Close();
+ 
+            int zam = (int)comboZamestnanec.SelectedValue;
+            int pre;
+            if (comboPredmet.SelectedValue == null) { pre = 0; } else { pre = (int)comboPredmet.SelectedValue; }
+            
+            string dotaz = StringLibrary.GenerujDotaz(zam, pre);
+            dataStitky.DataSource = StringLibrary.NactiDataTabulku(dotaz);
+            StringLibrary.BarvaNeprirazenych(dataStitky, Color.Yellow);
         }
 
-        private void vyberPredmet(object sender, EventArgs e)
+        public void VyberPredmet(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open();
+           
 
             int a = (int)comboPredmet.SelectedValue;
             if (a > 0)
             {
-                cmd.CommandText = "SELECT COUNT(*) FROM Stitky WHERE id_predmet=@idPredmet";
-                cmd.Parameters.AddWithValue("@idPredmet", a);
-                int pocetZaznamu = (int)cmd.ExecuteScalar();
-                pocetStitkuPredmet.Text = pocetZaznamu.ToString();
+                int pocetZaznamu = StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Stitky WHERE id_predmet=" + a.ToString());
+                if (pocetZaznamu > 0)
+                {
+                    generujStitkyButton.Visible = false;
+                    generujStitkyPopis.Visible = false;
+
+                }
+                else
+                {
+                    generujStitkyButton.Visible = true;
+                    generujStitkyPopis.Visible = true;
+
+                }
             }
             else
             {
-                pocetStitkuPredmet.Text = "----";
+                generujStitkyButton.Visible = false;
+                generujStitkyPopis.Visible = false;
             }
-            con.Close();
+
+            int zam = (int)comboZamestnanec.SelectedValue;
+            int pre = (int)comboPredmet.SelectedValue;
+            string dotaz = StringLibrary.GenerujDotaz(zam, pre);
+            dataStitky.DataSource = StringLibrary.NactiDataTabulku(dotaz);
+            StringLibrary.BarvaNeprirazenych(dataStitky, Color.Yellow);
+        }
+
+        private void GenerujStitkyPredmet(object sender, EventArgs e)
+        {
+            int idPredmet = (int)comboPredmet.SelectedValue;
+            int idZamestnanec = (int)comboZamestnanec.SelectedValue;
+ 
+            StringLibrary.GenerujStitky(idPredmet, idZamestnanec);
+
+            int zam = (int)comboZamestnanec.SelectedValue;
+            int pre = (int)comboPredmet.SelectedValue;
+            string dotaz = StringLibrary.GenerujDotaz(zam, pre);
+            dataStitky.DataSource = StringLibrary.NactiDataTabulku(dotaz);
+
+            generujStitkyButton.Visible = false;
+            generujStitkyPopis.Visible = false;
+            StringLibrary.BarvaNeprirazenych(dataStitky, Color.Yellow);
+        }
+
+        private void ZmenaObsahu(object sender, EventArgs e)
+        {
+            StringLibrary.BarvaNeprirazenych(dataStitky, Color.Yellow);
         }
     }
 }

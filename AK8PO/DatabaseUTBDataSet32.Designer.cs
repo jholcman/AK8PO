@@ -20,9 +20,9 @@ namespace AK8PO {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseUTBDataSet19")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseUTBDataSet32")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DatabaseUTBDataSet19 : global::System.Data.DataSet {
+    public partial class DatabaseUTBDataSet32 : global::System.Data.DataSet {
         
         private StitkyDataTable tableStitky;
         
@@ -30,7 +30,7 @@ namespace AK8PO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DatabaseUTBDataSet19() {
+        public DatabaseUTBDataSet32() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace AK8PO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DatabaseUTBDataSet19(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DatabaseUTBDataSet32(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DatabaseUTBDataSet19 cln = ((DatabaseUTBDataSet19)(base.Clone()));
+            DatabaseUTBDataSet32 cln = ((DatabaseUTBDataSet32)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DatabaseUTBDataSet19";
+            this.DataSetName = "DatabaseUTBDataSet32";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DatabaseUTBDataSet19.xsd";
+            this.Namespace = "http://tempuri.org/DatabaseUTBDataSet32.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableStitky = new StitkyDataTable();
@@ -225,7 +225,7 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DatabaseUTBDataSet19 ds = new DatabaseUTBDataSet19();
+            DatabaseUTBDataSet32 ds = new DatabaseUTBDataSet32();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -283,17 +283,17 @@ namespace AK8PO {
             
             private global::System.Data.DataColumn columnstitek_cislo;
             
-            private global::System.Data.DataColumn columnid_zamestnanec;
-            
-            private global::System.Data.DataColumn columnid_predmet;
-            
-            private global::System.Data.DataColumn columntyp_stitku;
-            
             private global::System.Data.DataColumn columnpocet_studentu;
             
             private global::System.Data.DataColumn columnpocet_hodin;
             
             private global::System.Data.DataColumn columnpocet_tydnu;
+            
+            private global::System.Data.DataColumn columnvyucujici;
+            
+            private global::System.Data.DataColumn columnzkratka;
+            
+            private global::System.Data.DataColumn columntyp_stitku;
             
             private global::System.Data.DataColumn columnjazyk;
             
@@ -352,30 +352,6 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn id_zamestnanecColumn {
-                get {
-                    return this.columnid_zamestnanec;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn id_predmetColumn {
-                get {
-                    return this.columnid_predmet;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn typ_stitkuColumn {
-                get {
-                    return this.columntyp_stitku;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn pocet_studentuColumn {
                 get {
                     return this.columnpocet_studentu;
@@ -395,6 +371,30 @@ namespace AK8PO {
             public global::System.Data.DataColumn pocet_tydnuColumn {
                 get {
                     return this.columnpocet_tydnu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vyucujiciColumn {
+                get {
+                    return this.columnvyucujici;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn zkratkaColumn {
+                get {
+                    return this.columnzkratka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn typ_stitkuColumn {
+                get {
+                    return this.columntyp_stitku;
                 }
             }
             
@@ -459,17 +459,17 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public StitkyRow AddStitkyRow(int stitek_cislo, int id_zamestnanec, int id_predmet, int typ_stitku, int pocet_studentu, int pocet_hodin, int pocet_tydnu, int jazyk, double pocet_bodu, string poznamka) {
+            public StitkyRow AddStitkyRow(int stitek_cislo, int pocet_studentu, int pocet_hodin, int pocet_tydnu, string vyucujici, string zkratka, string typ_stitku, string jazyk, double pocet_bodu, string poznamka) {
                 StitkyRow rowStitkyRow = ((StitkyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         stitek_cislo,
-                        id_zamestnanec,
-                        id_predmet,
-                        typ_stitku,
                         pocet_studentu,
                         pocet_hodin,
                         pocet_tydnu,
+                        vyucujici,
+                        zkratka,
+                        typ_stitku,
                         jazyk,
                         pocet_bodu,
                         poznamka};
@@ -504,12 +504,12 @@ namespace AK8PO {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnstitek_cislo = base.Columns["stitek_cislo"];
-                this.columnid_zamestnanec = base.Columns["id_zamestnanec"];
-                this.columnid_predmet = base.Columns["id_predmet"];
-                this.columntyp_stitku = base.Columns["typ_stitku"];
                 this.columnpocet_studentu = base.Columns["pocet_studentu"];
                 this.columnpocet_hodin = base.Columns["pocet_hodin"];
                 this.columnpocet_tydnu = base.Columns["pocet_tydnu"];
+                this.columnvyucujici = base.Columns["vyucujici"];
+                this.columnzkratka = base.Columns["zkratka"];
+                this.columntyp_stitku = base.Columns["typ_stitku"];
                 this.columnjazyk = base.Columns["jazyk"];
                 this.columnpocet_bodu = base.Columns["pocet_bodu"];
                 this.columnpoznamka = base.Columns["poznamka"];
@@ -522,19 +522,19 @@ namespace AK8PO {
                 base.Columns.Add(this.columnId);
                 this.columnstitek_cislo = new global::System.Data.DataColumn("stitek_cislo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstitek_cislo);
-                this.columnid_zamestnanec = new global::System.Data.DataColumn("id_zamestnanec", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_zamestnanec);
-                this.columnid_predmet = new global::System.Data.DataColumn("id_predmet", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_predmet);
-                this.columntyp_stitku = new global::System.Data.DataColumn("typ_stitku", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntyp_stitku);
                 this.columnpocet_studentu = new global::System.Data.DataColumn("pocet_studentu", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpocet_studentu);
                 this.columnpocet_hodin = new global::System.Data.DataColumn("pocet_hodin", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpocet_hodin);
                 this.columnpocet_tydnu = new global::System.Data.DataColumn("pocet_tydnu", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpocet_tydnu);
-                this.columnjazyk = new global::System.Data.DataColumn("jazyk", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnvyucujici = new global::System.Data.DataColumn("vyucujici", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvyucujici);
+                this.columnzkratka = new global::System.Data.DataColumn("zkratka", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzkratka);
+                this.columntyp_stitku = new global::System.Data.DataColumn("typ_stitku", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntyp_stitku);
+                this.columnjazyk = new global::System.Data.DataColumn("jazyk", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnjazyk);
                 this.columnpocet_bodu = new global::System.Data.DataColumn("pocet_bodu", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpocet_bodu);
@@ -548,6 +548,15 @@ namespace AK8PO {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
+                this.columnvyucujici.ReadOnly = true;
+                this.columnvyucujici.MaxLength = 201;
+                this.columnzkratka.ReadOnly = true;
+                this.columnzkratka.MaxLength = 20;
+                this.columntyp_stitku.ReadOnly = true;
+                this.columntyp_stitku.MaxLength = 30;
+                this.columnjazyk.ReadOnly = true;
+                this.columnjazyk.MaxLength = 10;
+                this.columnpocet_bodu.ReadOnly = true;
                 this.columnpoznamka.MaxLength = 50;
             }
             
@@ -616,7 +625,7 @@ namespace AK8PO {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DatabaseUTBDataSet19 ds = new DatabaseUTBDataSet19();
+                DatabaseUTBDataSet32 ds = new DatabaseUTBDataSet32();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -718,54 +727,6 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id_zamestnanec {
-                get {
-                    try {
-                        return ((int)(this[this.tableStitky.id_zamestnanecColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec id_zamestnanec v tabulce Stitky je rovna hodnotě DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStitky.id_zamestnanecColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id_predmet {
-                get {
-                    try {
-                        return ((int)(this[this.tableStitky.id_predmetColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec id_predmet v tabulce Stitky je rovna hodnotě DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStitky.id_predmetColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int typ_stitku {
-                get {
-                    try {
-                        return ((int)(this[this.tableStitky.typ_stitkuColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec typ_stitku v tabulce Stitky je rovna hodnotě DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStitky.typ_stitkuColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int pocet_studentu {
                 get {
                     try {
@@ -814,10 +775,58 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int jazyk {
+            public string vyucujici {
                 get {
                     try {
-                        return ((int)(this[this.tableStitky.jazykColumn]));
+                        return ((string)(this[this.tableStitky.vyucujiciColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec vyucujici v tabulce Stitky je rovna hodnotě DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStitky.vyucujiciColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string zkratka {
+                get {
+                    try {
+                        return ((string)(this[this.tableStitky.zkratkaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec zkratka v tabulce Stitky je rovna hodnotě DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStitky.zkratkaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string typ_stitku {
+                get {
+                    try {
+                        return ((string)(this[this.tableStitky.typ_stitkuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec typ_stitku v tabulce Stitky je rovna hodnotě DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStitky.typ_stitkuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string jazyk {
+                get {
+                    try {
+                        return ((string)(this[this.tableStitky.jazykColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Hodnota pro sloupec jazyk v tabulce Stitky je rovna hodnotě DBNull.", e);
@@ -874,42 +883,6 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isid_zamestnanecNull() {
-                return this.IsNull(this.tableStitky.id_zamestnanecColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setid_zamestnanecNull() {
-                this[this.tableStitky.id_zamestnanecColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isid_predmetNull() {
-                return this.IsNull(this.tableStitky.id_predmetColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setid_predmetNull() {
-                this[this.tableStitky.id_predmetColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Istyp_stitkuNull() {
-                return this.IsNull(this.tableStitky.typ_stitkuColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Settyp_stitkuNull() {
-                this[this.tableStitky.typ_stitkuColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Ispocet_studentuNull() {
                 return this.IsNull(this.tableStitky.pocet_studentuColumn);
             }
@@ -942,6 +915,42 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setpocet_tydnuNull() {
                 this[this.tableStitky.pocet_tydnuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsvyucujiciNull() {
+                return this.IsNull(this.tableStitky.vyucujiciColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetvyucujiciNull() {
+                this[this.tableStitky.vyucujiciColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IszkratkaNull() {
+                return this.IsNull(this.tableStitky.zkratkaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetzkratkaNull() {
+                this[this.tableStitky.zkratkaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istyp_stitkuNull() {
+                return this.IsNull(this.tableStitky.typ_stitkuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settyp_stitkuNull() {
+                this[this.tableStitky.typ_stitkuColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1016,7 +1025,7 @@ namespace AK8PO {
         }
     }
 }
-namespace AK8PO.DatabaseUTBDataSet19TableAdapters {
+namespace AK8PO.DatabaseUTBDataSet32TableAdapters {
     
     
     /// <summary>
@@ -1142,12 +1151,12 @@ namespace AK8PO.DatabaseUTBDataSet19TableAdapters {
             tableMapping.DataSetTable = "Stitky";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("stitek_cislo", "stitek_cislo");
-            tableMapping.ColumnMappings.Add("id_zamestnanec", "id_zamestnanec");
-            tableMapping.ColumnMappings.Add("id_predmet", "id_predmet");
-            tableMapping.ColumnMappings.Add("typ_stitku", "typ_stitku");
             tableMapping.ColumnMappings.Add("pocet_studentu", "pocet_studentu");
             tableMapping.ColumnMappings.Add("pocet_hodin", "pocet_hodin");
             tableMapping.ColumnMappings.Add("pocet_tydnu", "pocet_tydnu");
+            tableMapping.ColumnMappings.Add("vyucujici", "vyucujici");
+            tableMapping.ColumnMappings.Add("zkratka", "zkratka");
+            tableMapping.ColumnMappings.Add("typ_stitku", "typ_stitku");
             tableMapping.ColumnMappings.Add("jazyk", "jazyk");
             tableMapping.ColumnMappings.Add("pocet_bodu", "pocet_bodu");
             tableMapping.ColumnMappings.Add("poznamka", "poznamka");
@@ -1244,8 +1253,13 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, " +
-                "pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka FROM dbo.Stitky";
+            this._commandCollection[0].CommandText = @"SELECT        s.Id, s.stitek_cislo, ISNULL(z.prijmeni + ' ' + z.jmeno, 'Nezadan') AS vyucujici, ISNULL(p.zkratka, 'Nezadan') AS zkratka, ISNULL(t.Typ_stitku_text, 'Nezadan') AS typ_stitku, s.pocet_studentu, s.pocet_hodin, s.pocet_tydnu, 
+                         ISNULL(j.Jazyk_text, 'Nezadan') AS jazyk, ISNULL(s.pocet_bodu, 0) AS pocet_bodu, s.poznamka
+FROM            Stitky AS s LEFT OUTER JOIN
+                         Zamestnanci AS z ON s.id_zamestnanec = z.Id LEFT OUTER JOIN
+                         Predmet AS p ON s.id_predmet = p.Id LEFT OUTER JOIN
+                         TypStitku AS t ON s.typ_stitku = t.Id LEFT OUTER JOIN
+                         Jazyk AS j ON s.jazyk = j.Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1253,7 +1267,7 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseUTBDataSet19.StitkyDataTable dataTable) {
+        public virtual int Fill(DatabaseUTBDataSet32.StitkyDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1266,9 +1280,9 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseUTBDataSet19.StitkyDataTable GetData() {
+        public virtual DatabaseUTBDataSet32.StitkyDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseUTBDataSet19.StitkyDataTable dataTable = new DatabaseUTBDataSet19.StitkyDataTable();
+            DatabaseUTBDataSet32.StitkyDataTable dataTable = new DatabaseUTBDataSet32.StitkyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1276,14 +1290,14 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseUTBDataSet19.StitkyDataTable dataTable) {
+        public virtual int Update(DatabaseUTBDataSet32.StitkyDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseUTBDataSet19 dataSet) {
+        public virtual int Update(DatabaseUTBDataSet32 dataSet) {
             return this.Adapter.Update(dataSet, "Stitky");
         }
         
@@ -1791,7 +1805,7 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DatabaseUTBDataSet19 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DatabaseUTBDataSet32 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._stitkyTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Stitky.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1810,7 +1824,7 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DatabaseUTBDataSet19 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DatabaseUTBDataSet32 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._stitkyTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Stitky.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1828,7 +1842,7 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DatabaseUTBDataSet19 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DatabaseUTBDataSet32 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._stitkyTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Stitky.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1870,7 +1884,7 @@ SELECT Id, stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu,
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DatabaseUTBDataSet19 dataSet) {
+        public virtual int UpdateAll(DatabaseUTBDataSet32 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

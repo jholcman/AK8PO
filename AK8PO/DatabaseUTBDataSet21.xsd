@@ -55,7 +55,7 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, počet_kreditu FROM Predmet 
               <Mapping SourceColumn="zkratka" DataSetColumn="zkratka" />
               <Mapping SourceColumn="velikost_tridy" DataSetColumn="velikost_tridy" />
               <Mapping SourceColumn="nazev_predmetu" DataSetColumn="nazev_predmetu" />
-              <Mapping SourceColumn="počet_kreditu" DataSetColumn="počet_kreditu" />
+              <Mapping SourceColumn="pocet_kreditu" DataSetColumn="pocet_kreditu" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -86,7 +86,7 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, počet_kreditu FROM Predmet 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="počet_kreditu" msprop:Generator_ColumnVarNameInTable="columnpočet_kreditu" msprop:Generator_ColumnPropNameInRow="počet_kreditu" msprop:Generator_ColumnPropNameInTable="počet_kredituColumn" msprop:Generator_UserColumnName="počet_kreditu" type="xs:int" />
+              <xs:element name="pocet_kreditu" msprop:Generator_ColumnVarNameInTable="columnpocet_kreditu" msprop:Generator_ColumnPropNameInRow="pocet_kreditu" msprop:Generator_ColumnPropNameInTable="pocet_kredituColumn" msprop:Generator_UserColumnName="pocet_kreditu" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

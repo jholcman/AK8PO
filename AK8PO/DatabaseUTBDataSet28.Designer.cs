@@ -20,17 +20,17 @@ namespace AK8PO {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseUTBDataSet21")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseUTBDataSet28")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DatabaseUTBDataSet21 : global::System.Data.DataSet {
+    public partial class DatabaseUTBDataSet28 : global::System.Data.DataSet {
         
-        private PredmetDataTable tablePredmet;
+        private StitkyDataTable tableStitky;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DatabaseUTBDataSet21() {
+        public DatabaseUTBDataSet28() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace AK8PO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DatabaseUTBDataSet21(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DatabaseUTBDataSet28(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace AK8PO {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Predmet"] != null)) {
-                    base.Tables.Add(new PredmetDataTable(ds.Tables["Predmet"]));
+                if ((ds.Tables["Stitky"] != null)) {
+                    base.Tables.Add(new StitkyDataTable(ds.Tables["Stitky"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace AK8PO {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PredmetDataTable Predmet {
+        public StitkyDataTable Stitky {
             get {
-                return this.tablePredmet;
+                return this.tableStitky;
             }
         }
         
@@ -127,7 +127,7 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DatabaseUTBDataSet21 cln = ((DatabaseUTBDataSet21)(base.Clone()));
+            DatabaseUTBDataSet28 cln = ((DatabaseUTBDataSet28)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace AK8PO {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Predmet"] != null)) {
-                    base.Tables.Add(new PredmetDataTable(ds.Tables["Predmet"]));
+                if ((ds.Tables["Stitky"] != null)) {
+                    base.Tables.Add(new StitkyDataTable(ds.Tables["Stitky"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePredmet = ((PredmetDataTable)(base.Tables["Predmet"]));
+            this.tableStitky = ((StitkyDataTable)(base.Tables["Stitky"]));
             if ((initTable == true)) {
-                if ((this.tablePredmet != null)) {
-                    this.tablePredmet.InitVars();
+                if ((this.tableStitky != null)) {
+                    this.tableStitky.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DatabaseUTBDataSet21";
+            this.DataSetName = "DatabaseUTBDataSet28";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DatabaseUTBDataSet21.xsd";
+            this.Namespace = "http://tempuri.org/DatabaseUTBDataSet28.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePredmet = new PredmetDataTable();
-            base.Tables.Add(this.tablePredmet);
+            this.tableStitky = new StitkyDataTable();
+            base.Tables.Add(this.tableStitky);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializePredmet() {
+        private bool ShouldSerializeStitky() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DatabaseUTBDataSet21 ds = new DatabaseUTBDataSet21();
+            DatabaseUTBDataSet28 ds = new DatabaseUTBDataSet28();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,29 +270,27 @@ namespace AK8PO {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void PredmetRowChangeEventHandler(object sender, PredmetRowChangeEvent e);
+        public delegate void StitkyRowChangeEventHandler(object sender, StitkyRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PredmetDataTable : global::System.Data.TypedTableBase<PredmetRow> {
+        public partial class StitkyDataTable : global::System.Data.TypedTableBase<StitkyRow> {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnzkratka;
+            private global::System.Data.DataColumn columnid_zamestnanec;
             
-            private global::System.Data.DataColumn columnvelikost_tridy;
+            private global::System.Data.DataColumn columnid_predmet;
             
-            private global::System.Data.DataColumn columnnazev_predmetu;
-            
-            private global::System.Data.DataColumn columnpocet_kreditu;
+            private global::System.Data.DataColumn columntyp_stitku;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetDataTable() {
-                this.TableName = "Predmet";
+            public StitkyDataTable() {
+                this.TableName = "Stitky";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +298,7 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PredmetDataTable(global::System.Data.DataTable table) {
+            internal StitkyDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +315,7 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected PredmetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected StitkyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -332,33 +330,25 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn zkratkaColumn {
+            public global::System.Data.DataColumn id_zamestnanecColumn {
                 get {
-                    return this.columnzkratka;
+                    return this.columnid_zamestnanec;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn velikost_tridyColumn {
+            public global::System.Data.DataColumn id_predmetColumn {
                 get {
-                    return this.columnvelikost_tridy;
+                    return this.columnid_predmet;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nazev_predmetuColumn {
+            public global::System.Data.DataColumn typ_stitkuColumn {
                 get {
-                    return this.columnnazev_predmetu;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn pocet_kredituColumn {
-                get {
-                    return this.columnpocet_kreditu;
+                    return this.columntyp_stitku;
                 }
             }
             
@@ -373,56 +363,55 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow this[int index] {
+            public StitkyRow this[int index] {
                 get {
-                    return ((PredmetRow)(this.Rows[index]));
+                    return ((StitkyRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowChanging;
+            public event StitkyRowChangeEventHandler StitkyRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowChanged;
+            public event StitkyRowChangeEventHandler StitkyRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowDeleting;
+            public event StitkyRowChangeEventHandler StitkyRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowDeleted;
+            public event StitkyRowChangeEventHandler StitkyRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddPredmetRow(PredmetRow row) {
+            public void AddStitkyRow(StitkyRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow AddPredmetRow(int Id, string zkratka, int velikost_tridy, string nazev_predmetu, int pocet_kreditu) {
-                PredmetRow rowPredmetRow = ((PredmetRow)(this.NewRow()));
+            public StitkyRow AddStitkyRow(int id_zamestnanec, int id_predmet, int typ_stitku) {
+                StitkyRow rowStitkyRow = ((StitkyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
-                        zkratka,
-                        velikost_tridy,
-                        nazev_predmetu,
-                        pocet_kreditu};
-                rowPredmetRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPredmetRow);
-                return rowPredmetRow;
+                        null,
+                        id_zamestnanec,
+                        id_predmet,
+                        typ_stitku};
+                rowStitkyRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStitkyRow);
+                return rowStitkyRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow FindById(int Id) {
-                return ((PredmetRow)(this.Rows.Find(new object[] {
+            public StitkyRow FindById(int Id) {
+                return ((StitkyRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PredmetDataTable cln = ((PredmetDataTable)(base.Clone()));
+                StitkyDataTable cln = ((StitkyDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -430,17 +419,16 @@ namespace AK8PO {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PredmetDataTable();
+                return new StitkyDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnzkratka = base.Columns["zkratka"];
-                this.columnvelikost_tridy = base.Columns["velikost_tridy"];
-                this.columnnazev_predmetu = base.Columns["nazev_predmetu"];
-                this.columnpocet_kreditu = base.Columns["pocet_kreditu"];
+                this.columnid_zamestnanec = base.Columns["id_zamestnanec"];
+                this.columnid_predmet = base.Columns["id_predmet"];
+                this.columntyp_stitku = base.Columns["typ_stitku"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -448,49 +436,46 @@ namespace AK8PO {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnzkratka = new global::System.Data.DataColumn("zkratka", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnzkratka);
-                this.columnvelikost_tridy = new global::System.Data.DataColumn("velikost_tridy", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvelikost_tridy);
-                this.columnnazev_predmetu = new global::System.Data.DataColumn("nazev_predmetu", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnazev_predmetu);
-                this.columnpocet_kreditu = new global::System.Data.DataColumn("pocet_kreditu", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpocet_kreditu);
+                this.columnid_zamestnanec = new global::System.Data.DataColumn("id_zamestnanec", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_zamestnanec);
+                this.columnid_predmet = new global::System.Data.DataColumn("id_predmet", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_predmet);
+                this.columntyp_stitku = new global::System.Data.DataColumn("typ_stitku", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntyp_stitku);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnzkratka.AllowDBNull = false;
-                this.columnzkratka.MaxLength = 20;
-                this.columnvelikost_tridy.AllowDBNull = false;
-                this.columnnazev_predmetu.MaxLength = 100;
-                this.columnpocet_kreditu.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow NewPredmetRow() {
-                return ((PredmetRow)(this.NewRow()));
+            public StitkyRow NewStitkyRow() {
+                return ((StitkyRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PredmetRow(builder);
+                return new StitkyRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PredmetRow);
+                return typeof(StitkyRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PredmetRowChanged != null)) {
-                    this.PredmetRowChanged(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.StitkyRowChanged != null)) {
+                    this.StitkyRowChanged(this, new StitkyRowChangeEvent(((StitkyRow)(e.Row)), e.Action));
                 }
             }
             
@@ -498,8 +483,8 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PredmetRowChanging != null)) {
-                    this.PredmetRowChanging(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.StitkyRowChanging != null)) {
+                    this.StitkyRowChanging(this, new StitkyRowChangeEvent(((StitkyRow)(e.Row)), e.Action));
                 }
             }
             
@@ -507,8 +492,8 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PredmetRowDeleted != null)) {
-                    this.PredmetRowDeleted(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.StitkyRowDeleted != null)) {
+                    this.StitkyRowDeleted(this, new StitkyRowChangeEvent(((StitkyRow)(e.Row)), e.Action));
                 }
             }
             
@@ -516,14 +501,14 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PredmetRowDeleting != null)) {
-                    this.PredmetRowDeleting(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.StitkyRowDeleting != null)) {
+                    this.StitkyRowDeleting(this, new StitkyRowChangeEvent(((StitkyRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovePredmetRow(PredmetRow row) {
+            public void RemoveStitkyRow(StitkyRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -532,7 +517,7 @@ namespace AK8PO {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DatabaseUTBDataSet21 ds = new DatabaseUTBDataSet21();
+                DatabaseUTBDataSet28 ds = new DatabaseUTBDataSet28();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -550,7 +535,7 @@ namespace AK8PO {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PredmetDataTable";
+                attribute2.FixedValue = "StitkyDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -594,87 +579,110 @@ namespace AK8PO {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PredmetRow : global::System.Data.DataRow {
+        public partial class StitkyRow : global::System.Data.DataRow {
             
-            private PredmetDataTable tablePredmet;
+            private StitkyDataTable tableStitky;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PredmetRow(global::System.Data.DataRowBuilder rb) : 
+            internal StitkyRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePredmet = ((PredmetDataTable)(this.Table));
+                this.tableStitky = ((StitkyDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tablePredmet.IdColumn]));
+                    return ((int)(this[this.tableStitky.IdColumn]));
                 }
                 set {
-                    this[this.tablePredmet.IdColumn] = value;
+                    this[this.tableStitky.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string zkratka {
-                get {
-                    return ((string)(this[this.tablePredmet.zkratkaColumn]));
-                }
-                set {
-                    this[this.tablePredmet.zkratkaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int velikost_tridy {
-                get {
-                    return ((int)(this[this.tablePredmet.velikost_tridyColumn]));
-                }
-                set {
-                    this[this.tablePredmet.velikost_tridyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string nazev_predmetu {
+            public int id_zamestnanec {
                 get {
                     try {
-                        return ((string)(this[this.tablePredmet.nazev_predmetuColumn]));
+                        return ((int)(this[this.tableStitky.id_zamestnanecColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec nazev_predmetu v tabulce Predmet je rovna hodnotě DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec id_zamestnanec v tabulce Stitky je rovna hodnotě DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePredmet.nazev_predmetuColumn] = value;
+                    this[this.tableStitky.id_zamestnanecColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int pocet_kreditu {
+            public int id_predmet {
                 get {
-                    return ((int)(this[this.tablePredmet.pocet_kredituColumn]));
+                    try {
+                        return ((int)(this[this.tableStitky.id_predmetColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec id_predmet v tabulce Stitky je rovna hodnotě DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablePredmet.pocet_kredituColumn] = value;
+                    this[this.tableStitky.id_predmetColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isnazev_predmetuNull() {
-                return this.IsNull(this.tablePredmet.nazev_predmetuColumn);
+            public int typ_stitku {
+                get {
+                    try {
+                        return ((int)(this[this.tableStitky.typ_stitkuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec typ_stitku v tabulce Stitky je rovna hodnotě DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStitky.typ_stitkuColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setnazev_predmetuNull() {
-                this[this.tablePredmet.nazev_predmetuColumn] = global::System.Convert.DBNull;
+            public bool Isid_zamestnanecNull() {
+                return this.IsNull(this.tableStitky.id_zamestnanecColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setid_zamestnanecNull() {
+                this[this.tableStitky.id_zamestnanecColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isid_predmetNull() {
+                return this.IsNull(this.tableStitky.id_predmetColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setid_predmetNull() {
+                this[this.tableStitky.id_predmetColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istyp_stitkuNull() {
+                return this.IsNull(this.tableStitky.typ_stitkuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settyp_stitkuNull() {
+                this[this.tableStitky.typ_stitkuColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -682,22 +690,22 @@ namespace AK8PO {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class PredmetRowChangeEvent : global::System.EventArgs {
+        public class StitkyRowChangeEvent : global::System.EventArgs {
             
-            private PredmetRow eventRow;
+            private StitkyRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRowChangeEvent(PredmetRow row, global::System.Data.DataRowAction action) {
+            public StitkyRowChangeEvent(StitkyRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow Row {
+            public StitkyRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -713,7 +721,7 @@ namespace AK8PO {
         }
     }
 }
-namespace AK8PO.DatabaseUTBDataSet21TableAdapters {
+namespace AK8PO.DatabaseUTBDataSet28TableAdapters {
     
     
     /// <summary>
@@ -725,7 +733,7 @@ namespace AK8PO.DatabaseUTBDataSet21TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PredmetTableAdapter : global::System.ComponentModel.Component {
+    public partial class StitkyTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -739,7 +747,7 @@ namespace AK8PO.DatabaseUTBDataSet21TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public PredmetTableAdapter() {
+        public StitkyTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -836,39 +844,48 @@ namespace AK8PO.DatabaseUTBDataSet21TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Predmet";
+            tableMapping.DataSetTable = "Stitky";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("zkratka", "zkratka");
-            tableMapping.ColumnMappings.Add("velikost_tridy", "velikost_tridy");
-            tableMapping.ColumnMappings.Add("nazev_predmetu", "nazev_predmetu");
-            tableMapping.ColumnMappings.Add("pocet_kreditu", "pocet_kreditu");
+            tableMapping.ColumnMappings.Add("id_zamestnanec", "id_zamestnanec");
+            tableMapping.ColumnMappings.Add("id_predmet", "id_predmet");
+            tableMapping.ColumnMappings.Add("typ_stitku", "typ_stitku");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Predmet] WHERE (([Id] = @Original_Id) AND ([zkratka] = @Original_zkratka) AND ([velikost_tridy] = @Original_velikost_tridy) AND ((@IsNull_nazev_predmetu = 1 AND [nazev_predmetu] IS NULL) OR ([nazev_predmetu] = @Original_nazev_predmetu)) AND ([pocet_kreditu] = @Original_pocet_kreditu))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Stitky] WHERE (([Id] = @Original_Id) AND ((@IsNull_id_zamestnanec = 1 AND [id_zamestnanec] IS NULL) OR ([id_zamestnanec] = @Original_id_zamestnanec)) AND ((@IsNull_id_predmet = 1 AND [id_predmet] IS NULL) OR ([id_predmet] = @Original_id_predmet)) AND ((@IsNull_typ_stitku = 1 AND [typ_stitku] IS NULL) OR ([typ_stitku] = @Original_typ_stitku)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zkratka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zkratka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_velikost_tridy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "velikost_tridy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nazev_predmetu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nazev_predmetu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nazev_predmetu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nazev_predmetu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pocet_kreditu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pocet_kreditu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_zamestnanec", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_zamestnanec", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_zamestnanec", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_zamestnanec", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_predmet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_predmet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_predmet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_predmet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_typ_stitku", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typ_stitku", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_typ_stitku", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typ_stitku", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Stitky] ([id_zamestnanec], [id_predmet], [typ_stitku]) VALUES " +
+                "(@id_zamestnanec, @id_predmet, @typ_stitku);\r\nSELECT Id, id_zamestnanec, id_pred" +
+                "met, typ_stitku FROM Stitky WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_zamestnanec", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_zamestnanec", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_predmet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_predmet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typ_stitku", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typ_stitku", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Predmet] SET [Id] = @Id, [zkratka] = @zkratka, [velikost_tridy] = @velikost_tridy, [nazev_predmetu] = @nazev_predmetu, [pocet_kreditu] = @pocet_kreditu WHERE (([Id] = @Original_Id) AND ([zkratka] = @Original_zkratka) AND ([velikost_tridy] = @Original_velikost_tridy) AND ((@IsNull_nazev_predmetu = 1 AND [nazev_predmetu] IS NULL) OR ([nazev_predmetu] = @Original_nazev_predmetu)) AND ([pocet_kreditu] = @Original_pocet_kreditu));
-SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Stitky] SET [id_zamestnanec] = @id_zamestnanec, [id_predmet] = @id_predmet, [typ_stitku] = @typ_stitku WHERE (([Id] = @Original_Id) AND ((@IsNull_id_zamestnanec = 1 AND [id_zamestnanec] IS NULL) OR ([id_zamestnanec] = @Original_id_zamestnanec)) AND ((@IsNull_id_predmet = 1 AND [id_predmet] IS NULL) OR ([id_predmet] = @Original_id_predmet)) AND ((@IsNull_typ_stitku = 1 AND [typ_stitku] IS NULL) OR ([typ_stitku] = @Original_typ_stitku)));
+SELECT Id, id_zamestnanec, id_predmet, typ_stitku FROM Stitky WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zkratka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zkratka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@velikost_tridy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "velikost_tridy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nazev_predmetu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nazev_predmetu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pocet_kreditu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pocet_kreditu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_zamestnanec", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_zamestnanec", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_predmet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_predmet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@typ_stitku", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typ_stitku", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zkratka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zkratka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_velikost_tridy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "velikost_tridy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_nazev_predmetu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nazev_predmetu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_nazev_predmetu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "nazev_predmetu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pocet_kreditu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pocet_kreditu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_zamestnanec", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_zamestnanec", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_zamestnanec", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_zamestnanec", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_predmet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_predmet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_predmet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_predmet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_typ_stitku", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typ_stitku", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_typ_stitku", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "typ_stitku", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -884,8 +901,7 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM dbo.Predme" +
-                "t";
+            this._commandCollection[0].CommandText = "SELECT Id, id_zamestnanec, id_predmet, typ_stitku FROM dbo.Stitky";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -893,7 +909,7 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseUTBDataSet21.PredmetDataTable dataTable) {
+        public virtual int Fill(DatabaseUTBDataSet28.StitkyDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -906,9 +922,9 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseUTBDataSet21.PredmetDataTable GetData() {
+        public virtual DatabaseUTBDataSet28.StitkyDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseUTBDataSet21.PredmetDataTable dataTable = new DatabaseUTBDataSet21.PredmetDataTable();
+            DatabaseUTBDataSet28.StitkyDataTable dataTable = new DatabaseUTBDataSet28.StitkyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -916,15 +932,15 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseUTBDataSet21.PredmetDataTable dataTable) {
+        public virtual int Update(DatabaseUTBDataSet28.StitkyDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseUTBDataSet21 dataSet) {
-            return this.Adapter.Update(dataSet, "Predmet");
+        public virtual int Update(DatabaseUTBDataSet28 dataSet) {
+            return this.Adapter.Update(dataSet, "Stitky");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -946,24 +962,32 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_zkratka, int Original_velikost_tridy, string Original_nazev_predmetu, int Original_pocet_kreditu) {
+        public virtual int Delete(int Original_Id, global::System.Nullable<int> Original_id_zamestnanec, global::System.Nullable<int> Original_id_predmet, global::System.Nullable<int> Original_typ_stitku) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_zkratka == null)) {
-                throw new global::System.ArgumentNullException("Original_zkratka");
+            if ((Original_id_zamestnanec.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_zamestnanec.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_zkratka));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_velikost_tridy));
-            if ((Original_nazev_predmetu == null)) {
+            if ((Original_id_predmet.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_id_predmet.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_nazev_predmetu));
+            if ((Original_typ_stitku.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_typ_stitku.Value));
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_pocet_kreditu));
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -983,40 +1007,91 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> id_zamestnanec, global::System.Nullable<int> id_predmet, global::System.Nullable<int> typ_stitku) {
+            if ((id_zamestnanec.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_zamestnanec.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((id_predmet.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_predmet.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((typ_stitku.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(typ_stitku.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, string zkratka, int velikost_tridy, string nazev_predmetu, int pocet_kreditu, int Original_Id, string Original_zkratka, int Original_velikost_tridy, string Original_nazev_predmetu, int Original_pocet_kreditu) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
-            if ((zkratka == null)) {
-                throw new global::System.ArgumentNullException("zkratka");
+        public virtual int Update(global::System.Nullable<int> id_zamestnanec, global::System.Nullable<int> id_predmet, global::System.Nullable<int> typ_stitku, int Original_Id, global::System.Nullable<int> Original_id_zamestnanec, global::System.Nullable<int> Original_id_predmet, global::System.Nullable<int> Original_typ_stitku, int Id) {
+            if ((id_zamestnanec.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_zamestnanec.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(zkratka));
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(velikost_tridy));
-            if ((nazev_predmetu == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(nazev_predmetu));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(pocet_kreditu));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
-            if ((Original_zkratka == null)) {
-                throw new global::System.ArgumentNullException("Original_zkratka");
+            if ((id_predmet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_predmet.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_zkratka));
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_velikost_tridy));
-            if ((Original_nazev_predmetu == null)) {
+            if ((typ_stitku.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(typ_stitku.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
+            if ((Original_id_zamestnanec.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_zamestnanec.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_id_predmet.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_id_predmet.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_typ_stitku.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_typ_stitku.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_nazev_predmetu));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_pocet_kreditu));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1037,8 +1112,8 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string zkratka, int velikost_tridy, string nazev_predmetu, int pocet_kreditu, int Original_Id, string Original_zkratka, int Original_velikost_tridy, string Original_nazev_predmetu, int Original_pocet_kreditu) {
-            return this.Update(Original_Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu, Original_Id, Original_zkratka, Original_velikost_tridy, Original_nazev_predmetu, Original_pocet_kreditu);
+        public virtual int Update(global::System.Nullable<int> id_zamestnanec, global::System.Nullable<int> id_predmet, global::System.Nullable<int> typ_stitku, int Original_Id, global::System.Nullable<int> Original_id_zamestnanec, global::System.Nullable<int> Original_id_predmet, global::System.Nullable<int> Original_typ_stitku) {
+            return this.Update(id_zamestnanec, id_predmet, typ_stitku, Original_Id, Original_id_zamestnanec, Original_id_predmet, Original_typ_stitku, Original_Id);
         }
     }
     
@@ -1054,7 +1129,7 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         
         private UpdateOrderOption _updateOrder;
         
-        private PredmetTableAdapter _predmetTableAdapter;
+        private StitkyTableAdapter _stitkyTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1076,12 +1151,12 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PredmetTableAdapter PredmetTableAdapter {
+        public StitkyTableAdapter StitkyTableAdapter {
             get {
-                return this._predmetTableAdapter;
+                return this._stitkyTableAdapter;
             }
             set {
-                this._predmetTableAdapter = value;
+                this._stitkyTableAdapter = value;
             }
         }
         
@@ -1104,9 +1179,9 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._predmetTableAdapter != null) 
-                            && (this._predmetTableAdapter.Connection != null))) {
-                    return this._predmetTableAdapter.Connection;
+                if (((this._stitkyTableAdapter != null) 
+                            && (this._stitkyTableAdapter.Connection != null))) {
+                    return this._stitkyTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1121,7 +1196,7 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._predmetTableAdapter != null)) {
+                if ((this._stitkyTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1133,14 +1208,14 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DatabaseUTBDataSet21 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DatabaseUTBDataSet28 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._predmetTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Predmet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._stitkyTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Stitky.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._predmetTableAdapter.Update(updatedRows));
+                    result = (result + this._stitkyTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1152,13 +1227,13 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DatabaseUTBDataSet21 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DatabaseUTBDataSet28 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._predmetTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Predmet.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._stitkyTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Stitky.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._predmetTableAdapter.Update(addedRows));
+                    result = (result + this._stitkyTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1170,13 +1245,13 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DatabaseUTBDataSet21 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DatabaseUTBDataSet28 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._predmetTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Predmet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._stitkyTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Stitky.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._predmetTableAdapter.Update(deletedRows));
+                    result = (result + this._stitkyTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1212,15 +1287,15 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DatabaseUTBDataSet21 dataSet) {
+        public virtual int UpdateAll(DatabaseUTBDataSet28 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._predmetTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._predmetTableAdapter.Connection) == false))) {
+            if (((this._stitkyTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._stitkyTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Všechny instance TableAdapters spravované komponentou TableAdapterManager musí po" +
                         "užívat stejný připojovací řetězec.");
             }
@@ -1257,13 +1332,13 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._predmetTableAdapter != null)) {
-                    revertConnections.Add(this._predmetTableAdapter, this._predmetTableAdapter.Connection);
-                    this._predmetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._predmetTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._predmetTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._predmetTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._predmetTableAdapter.Adapter);
+                if ((this._stitkyTableAdapter != null)) {
+                    revertConnections.Add(this._stitkyTableAdapter, this._stitkyTableAdapter.Connection);
+                    this._stitkyTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._stitkyTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._stitkyTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._stitkyTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._stitkyTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1324,9 +1399,9 @@ SELECT Id, zkratka, velikost_tridy, nazev_predmetu, pocet_kreditu FROM Predmet W
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._predmetTableAdapter != null)) {
-                    this._predmetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._predmetTableAdapter]));
-                    this._predmetTableAdapter.Transaction = null;
+                if ((this._stitkyTableAdapter != null)) {
+                    this._stitkyTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._stitkyTableAdapter]));
+                    this._stitkyTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
