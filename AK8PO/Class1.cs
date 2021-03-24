@@ -63,6 +63,23 @@ namespace UtilityLibraries
             c.DataSource = dt;
             c.SelectedValue = selectedValue;
          }
+        public static void GenerujIdComboKapacitaJmeno(ComboBox c, int selectedValue)
+        {
+
+            //SqlConnection con = new SqlConnection(StringLibrary.DatabazeRetezec());
+            SqlCommand cmd = new SqlCommand("select (prijmeni+' '+jmeno) as cele_jmeno,Id from Zamestnanci ORDER BY prijmeni COLLATE Latin1_General_CI_AS ASC", con);
+            DataTable dt = new DataTable();
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            dt.Load(sdr);
+            con.Close();
+
+            c.DisplayMember = "cele_jmeno";
+            c.ValueMember = "Id";
+            c.DataSource = dt;
+            //c.SelectedValue = selectedValue;
+            c.SelectedIndex = 0;
+        }
         public static void GenerujIdComboStitekPredmet(ComboBox c, int selectedValue)
         {
 
@@ -280,7 +297,7 @@ namespace UtilityLibraries
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             con.Open();
-            cmd.CommandText = prikaz;
+            cmd.CommandText = @prikaz;
             pocet = (int)cmd.ExecuteScalar();
             con.Close();
             return pocet;
@@ -320,6 +337,133 @@ namespace UtilityLibraries
             cmd.Parameters.AddWithValue("@VstupHodnota", Math.Round(b, 2));
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+        internal static void SmazatZaznam(string prikaz)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = prikaz;
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        internal static void ZapisZaznam(string prikaz)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = prikaz;
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        internal static void NactiPrimaVyuka(DataGridView dataPrimaVyuka, int idZamestnanec)
+        {
+            dataPrimaVyuka.Rows.Clear();
+            if (SpoctiPrvky("SELECT s.* FROM Stitky AS s WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC") > 0)
+            {
+                float p_cz = float.Parse(NactiHodnotuGlobal(1));
+                float c_cz = float.Parse(NactiHodnotuGlobal(2));
+                float s_cz = float.Parse(NactiHodnotuGlobal(3));
+                float p_ang = float.Parse(NactiHodnotuGlobal(4));
+                float c_ang = float.Parse(NactiHodnotuGlobal(5));
+                float s_ang = float.Parse(NactiHodnotuGlobal(6));
+               /* vstup07.Text = StringLibrary.NactiHodnotuGlobal(7);
+                vstup08.Text = StringLibrary.NactiHodnotuGlobal(8);
+                vstup09.Text = StringLibrary.NactiHodnotuGlobal(9);
+                vstup10.Text = StringLibrary.NactiHodnotuGlobal(10);
+                vstup11.Text = StringLibrary.NactiHodnotuGlobal(11);
+                vstup12.Text = StringLibrary.NactiHodnotuGlobal(12);*/
+
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandText = "SELECT s.* FROM Stitky AS s WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC";
+                SqlDataReader dataStitky = cmd.ExecuteReader();
+                int pZS = 0;
+                int pLS = 0;
+                int pPT = 0;
+                int pCT = 0;
+                int pST = 0;
+                int pPS = 0;
+                int pCS = 0;
+                int pSS = 0;
+                float pPC = 0;
+                float pCC = 0;
+                float pSC = 0;
+                int predmet = 0;
+                string druh = "";
+
+                while (dataStitky.Read())
+                {
+                    if (predmet == 0)
+                    {
+                        predmet = int.Parse(dataStitky["id_predmet"].ToString());
+                    }
+                    else
+                    {
+                        if (predmet != int.Parse(dataStitky["id_predmet"].ToString()))
+                        {
+                            dataPrimaVyuka.Rows.Add(predmet, druh, pZS.ToString(), pLS.ToString(), pPT.ToString(), pCT.ToString(), pST.ToString(), pPS.ToString(), pCS.ToString(), pSS.ToString(), Math.Round(pPC, 2).ToString(), Math.Round(pCC, 2).ToString(), Math.Round(pSC, 2).ToString());
+                            pZS = 0;
+                            pLS = 0;
+                            pPT = 0;
+                            pCT = 0;
+                            pST = 0;
+                            pPS = 0;
+                            pCS = 0;
+                            pSS = 0;
+                            pPC = 0;
+                            pCC = 0;
+                            pSC = 0;
+                            predmet = int.Parse(dataStitky["id_predmet"].ToString());
+                        }
+
+                    }
+
+                    pZS = int.Parse(dataStitky["pocet_tydnu"].ToString());
+                    if (int.Parse(dataStitky["jazyk"].ToString()) > 1) druh = "c";
+
+                    if (int.Parse(dataStitky["typ_stitku"].ToString()) == 4)
+                    { 
+                        pPT = int.Parse(dataStitky["pocet_hodin"].ToString());
+                        pPS++;
+                        pPC += float.Parse(dataStitky["pocet_bodu"].ToString());
+                    }
+                    if (int.Parse(dataStitky["typ_stitku"].ToString()) == 5)
+                    {
+                        pCT = int.Parse(dataStitky["pocet_hodin"].ToString());
+                        pCS++;
+                        pCC += float.Parse(dataStitky["pocet_bodu"].ToString());
+                    }
+                    if (int.Parse(dataStitky["typ_stitku"].ToString()) == 6)
+                    {
+                        pST = int.Parse(dataStitky["pocet_hodin"].ToString());
+                        pSS++;
+                        pSC += float.Parse(dataStitky["pocet_bodu"].ToString());
+                    }
+                }
+                dataPrimaVyuka.Rows.Add(predmet, druh, pZS.ToString(), pLS.ToString(), pPT.ToString(), pCT.ToString(), pST.ToString(), pPS.ToString(), pCS.ToString(), pSS.ToString(), Math.Round(pPC,2).ToString(), Math.Round(pCC,2).ToString(), Math.Round(pSC,2).ToString());
+                con.Close();
+            }
+
+        }
+        internal static void NactiZkouseni(DataGridView dataZkouseni, int idZamestnanec)
+        {
+            dataZkouseni.Rows.Clear();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = "SELECT id_predmet FROM Stitky WHERE id_zamestnanec=" + idZamestnanec.ToString() + " GROUP BY id_predmet";
+            SqlDataReader dataStitky = cmd.ExecuteReader();
+            while (dataStitky.Read())
+            {
+
+                dataZkouseni.Rows.Add(dataStitky["id_predmet"]);
+            }
+            con.Close();
+
         }
 
 

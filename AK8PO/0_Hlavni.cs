@@ -91,5 +91,15 @@ namespace AK8PO
             this.Show();
 
         }
+
+        private void Kapacita_Click(object sender, EventArgs e)
+        {
+            Kapacita kapacita = new Kapacita();
+            this.Hide();
+            kapacita.ShowDialog();
+
+            this.Show();
+
+        }
     }
 }

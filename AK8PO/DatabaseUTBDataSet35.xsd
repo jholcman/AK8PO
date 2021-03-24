@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DatabaseUTBDataSet6" targetNamespace="http://tempuri.org/DatabaseUTBDataSet6.xsd" xmlns:mstns="http://tempuri.org/DatabaseUTBDataSet6.xsd" xmlns="http://tempuri.org/DatabaseUTBDataSet6.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DatabaseUTBDataSet35" targetNamespace="http://tempuri.org/DatabaseUTBDataSet35.xsd" xmlns:mstns="http://tempuri.org/DatabaseUTBDataSet35.xsd" xmlns="http://tempuri.org/DatabaseUTBDataSet35.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -43,26 +43,17 @@ SELECT Id, zkratka FROM Predmet WHERE (Id = @Id)</CommandText>
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
               <Mapping SourceColumn="zkratka" DataSetColumn="zkratka" />
             </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="DatabaseUTBConnectionString (Settings)" DbObjectName="dbo.Predmet" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Id, zkratka FROM dbo.Predmet ORDER BY zkratka</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DatabaseUTBDataSet6" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseUTBDataSet6" msprop:Generator_UserDSName="DatabaseUTBDataSet6">
+  <xs:element name="DatabaseUTBDataSet35" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseUTBDataSet35" msprop:Generator_UserDSName="DatabaseUTBDataSet35">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Predmet" msprop:Generator_TableClassName="PredmetDataTable" msprop:Generator_TableVarName="tablePredmet" msprop:Generator_RowChangedName="PredmetRowChanged" msprop:Generator_TablePropName="Predmet" msprop:Generator_RowDeletingName="PredmetRowDeleting" msprop:Generator_RowChangingName="PredmetRowChanging" msprop:Generator_RowEvHandlerName="PredmetRowChangeEventHandler" msprop:Generator_RowDeletedName="PredmetRowDeleted" msprop:Generator_RowClassName="PredmetRow" msprop:Generator_UserTableName="Predmet" msprop:Generator_RowEvArgName="PredmetRowChangeEvent">
+        <xs:element name="Predmet" msprop:Generator_TableClassName="PredmetDataTable" msprop:Generator_TableVarName="tablePredmet" msprop:Generator_TablePropName="Predmet" msprop:Generator_RowDeletingName="PredmetRowDeleting" msprop:Generator_RowChangingName="PredmetRowChanging" msprop:Generator_RowEvHandlerName="PredmetRowChangeEventHandler" msprop:Generator_RowDeletedName="PredmetRowDeleted" msprop:Generator_UserTableName="Predmet" msprop:Generator_RowChangedName="PredmetRowChanged" msprop:Generator_RowEvArgName="PredmetRowChangeEvent" msprop:Generator_RowClassName="PredmetRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

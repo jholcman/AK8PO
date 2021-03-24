@@ -23,13 +23,8 @@ namespace AK8PO
 
         private void LoadForm()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * from Zamestnanci", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            zamestnanciView.DataSource = dt;
+            string dotaz = "SELECT * from Zamestnanci ORDER BY prijmeni";
+            zamestnanciView.DataSource = StringLibrary.NactiDataTabulku(dotaz);
         }
 
         private void VyberZaznamu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -75,20 +70,17 @@ namespace AK8PO
         private void NovyZaznam(object sender, EventArgs e)
         {
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open(); 
-            cmd.CommandText = "SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=@VstupPrijmeni AND jmeno=@VstupJmeno)";
-            cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
-            cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
-
-            int pocetZaznamu = (int)cmd.ExecuteScalar();
-             if (pocetZaznamu == 0)
+             if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=" + vstupPrijmeni.Text + " AND jmeno=" + vstupJmeno.Text + ")") == 0)
             {
-                cmd.CommandText = "INSERT INTO Zamestnanci (prijmeni, jmeno, titul_pred, titul_za, telefon_pracovni, telefon_soukromy, email_pracovni, email_soukromy, kancelar, uvazek, doktorant, pracovni_body_bez_ang, pracovni_body_s_ang) Values (@VstupPrijmeni, @VstupJmeno, @VstupTitul_pred, @VstupTitul_za, @VstupTelefon_pracovni, @VstupTelefon_soukromy, @VstupEmail_pracovni, @VstupEmail_soukromy, @VstupKancelar, @VstupUvazek, @VstupDoktorant, @VstupBodyBezAng, @VstupBodySAng)";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandText = "INSERT INTO Zamestnanci (prijmeni, jmeno, titul_pred, titul_za, telefon_pracovni, telefon_soukromy, email_pracovni, email_soukromy, kancelar, uvazek, doktorant, 0, 0) Values (@VstupPrijmeni, @VstupJmeno, @VstupTitul_pred, @VstupTitul_za, @VstupTelefon_pracovni, @VstupTelefon_soukromy, @VstupEmail_pracovni, @VstupEmail_soukromy, @VstupKancelar, @VstupUvazek, @VstupDoktorant, @VstupBodyBezAng, @VstupBodySAng)";
 
-                cmd.Parameters["@VstupPrijmeni"].Value = vstupPrijmeni.Text;
-                cmd.Parameters["@VstupJmeno"].Value = vstupJmeno.Text;
+                if (!float.TryParse(vstupUvazek.Text, out float uvazek)) { uvazek = 1; }
+
+                cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
+                cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
                 cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
                 cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
                 cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);
@@ -96,10 +88,8 @@ namespace AK8PO
                 cmd.Parameters.AddWithValue("@VstupEmail_pracovni", vstupEmail_pracovni.Text);
                 cmd.Parameters.AddWithValue("@VstupEmail_soukromy", vstupEmail_soukromy.Text);
                 cmd.Parameters.AddWithValue("@VstupKancelar", vstupKancelar.Text);
-                cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(float.Parse(vstupUvazek.Text), 2));
+                cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(uvazek, 2));
                 cmd.Parameters.AddWithValue("@VstupDoktorant", vstupDoktorant.Text);
-                cmd.Parameters.AddWithValue("@VstupBodyBezAng", vstupBodyBezAng.Text);
-                cmd.Parameters.AddWithValue("@VstupBodySAng", vstupBodySAng.Text);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -119,25 +109,24 @@ namespace AK8PO
         {
             if (vstupID.Text != "")
             {
-                var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
-
-                if (dotaz == DialogResult.Yes)
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Stitky WHERE id_zamestnanec=" + vstupID.Text) == 0)
                 {
+                    var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Question);
 
-                    SqlCommand cmd = new SqlCommand("DELETE FROM Zamestnanci WHERE Id = @VstupID", con);
-
-                    cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ResetForm();
-                    LoadForm();
-
+                    if (dotaz == DialogResult.Yes)
+                    {
+                        StringLibrary.SmazatZaznam("DELETE FROM Zamestnanci WHERE Id=" + vstupID.Text);
+                        MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ResetForm();
+                        LoadForm();
+                    }
                 }
-
+                else
+                {
+                    MessageBox.Show("Tohoto zaměstnance nelze smazat, má vystaveny štítky!!!", "Záznam nebyl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -150,21 +139,16 @@ namespace AK8PO
             if (vstupID.Text != "")
             {
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                con.Open();
-                cmd.CommandText = "SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=@VstupPrijmeni AND jmeno=@VstupJmeno AND Id<>@VstupID)";
-                cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
-                cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
-
-                int pocetZaznamu = (int)cmd.ExecuteScalar();
-                if (pocetZaznamu == 0)
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=" + vstupPrijmeni.Text + " AND jmeno=" + vstupJmeno.Text + " AND Id<>" + vstupID.Text + ")") == 0)
                 {
-                    cmd.CommandText = "UPDATE Zamestnanci SET prijmeni=@VstupPrijmeni, jmeno=@VstupJmeno, titul_pred=@VstupTitul_pred, titul_za=@VstupTitul_za, telefon_pracovni=@VstupTelefon_pracovni, telefon_soukromy=@VstupTelefon_soukromy, email_pracovni=@VstupEmail_pracovni, email_soukromy=@VstupEmail_soukromy, kancelar=@VstupKancelar, uvazek=@VstupUvazek, doktorant=@VstupDoktorant, pracovni_body_bez_ang=@VstupBodyBezAng, pracovni_body_s_ang=@VstupBodySAng WHERE Id = @VstupID";
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.CommandText = "UPDATE Zamestnanci SET prijmeni=@VstupPrijmeni, jmeno=@VstupJmeno, titul_pred=@VstupTitul_pred, titul_za=@VstupTitul_za, telefon_pracovni=@VstupTelefon_pracovni, telefon_soukromy=@VstupTelefon_soukromy, email_pracovni=@VstupEmail_pracovni, email_soukromy=@VstupEmail_soukromy, kancelar=@VstupKancelar, uvazek=@VstupUvazek, doktorant=@VstupDoktorant WHERE Id = @VstupID";
 
-                    //cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
-                    //cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
+                    cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
+                    cmd.Parameters.AddWithValue("@VstupPrijmeni", vstupPrijmeni.Text);
+                    cmd.Parameters.AddWithValue("@VstupJmeno", vstupJmeno.Text);
                     cmd.Parameters.AddWithValue("@VstupTitul_pred", vstupTitul_pred.Text);
                     cmd.Parameters.AddWithValue("@VstupTitul_za", vstupTitul_za.Text);
                     cmd.Parameters.AddWithValue("@VstupTelefon_pracovni", vstupTelefon_pracovni.Text);
@@ -174,8 +158,6 @@ namespace AK8PO
                     cmd.Parameters.AddWithValue("@VstupKancelar", vstupKancelar.Text);
                     cmd.Parameters.AddWithValue("@VstupUvazek", Math.Round(float.Parse(vstupUvazek.Text), 2));
                     cmd.Parameters.AddWithValue("@VstupDoktorant", vstupDoktorant.Text);
-                    cmd.Parameters.AddWithValue("@VstupBodyBezAng", vstupBodyBezAng.Text);
-                    cmd.Parameters.AddWithValue("@VstupBodySAng", vstupBodySAng.Text);
 
                     cmd.ExecuteNonQuery();
                     con.Close();

@@ -25,5 +25,12 @@ namespace AK8PO
             this.stitkyTableAdapter.Fill(this.databaseUTBDataSet32.Stitky);
 
         }
+
+        private void zobraz(object sender, EventArgs e)
+        {
+           if (!int.TryParse(textBox1.Text, out int cislo)) { cislo = 14; }
+
+            label1.Text = (cislo.ToString());
+        }
     }
 }

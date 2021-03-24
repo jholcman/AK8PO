@@ -44,13 +44,8 @@ namespace AK8PO
 
         private void LoadForm()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * from Studenti ORDER BY zkratka ASC,rocnik ASC,semestr DESC", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            studentiView.DataSource = dt;
+            string dotaz = "SELECT * from Studenti ORDER BY zkratka ASC,rocnik ASC,semestr DESC";
+            studentiView.DataSource = StringLibrary.NactiDataTabulku(dotaz);
         }
         private void VyberZaznamu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -87,23 +82,23 @@ namespace AK8PO
         {
             if (vstupID.Text != "")
             {
-                var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
-
-                if (dotaz == DialogResult.Yes)
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Rozvrh WHERE Id_studenti=" + vstupID.Text) == 0)
                 {
+                    var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Question);
 
-                    SqlCommand cmd = new SqlCommand("DELETE FROM Studenti WHERE Id = @VstupID", con);
-
-                    cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ResetForm();
-                    LoadForm();
-
+                    if (dotaz == DialogResult.Yes)
+                    {
+                        StringLibrary.SmazatZaznam("DELETE FROM Studenti WHERE Id=" + vstupID.Text);
+                        MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ResetForm();
+                        LoadForm();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tuto skupinu nelze smazat,je rozvrhována!!!", "Záznam nebyl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -118,25 +113,20 @@ namespace AK8PO
             if (vstupID.Text != "")
             {
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                con.Open();
-                cmd.CommandText = "SELECT COUNT(*) FROM Studenti WHERE (zkratka=@VstupZkratka AND rocnik=@VstupRocnik AND semestr=@VstupSemestr AND Id<>@VstupID)";
-                cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
-                cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
-
-                int pocetZaznamu = (int)cmd.ExecuteScalar();
-                if (pocetZaznamu == 0)
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Studenti WHERE (zkratka=" + vstupZkratka.Text + " AND rocnik=" + vstupRocnik.SelectedValue.ToString() + " AND semestr=" + vstupSemestr.SelectedValue.ToString() + " AND Id<>" + vstupID.Text + ")") == 0)
                 {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    con.Open();
                     cmd.CommandText = "UPDATE Studenti SET zkratka=@VstupZkratka, rocnik=@VstupRocnik, semestr=@VstupSemestr, pocet_studentu=@VstupPocetStudentu, forma_studia=@VstupForma_studia, typ_studia=@VstupTyp_studia, jazyk=@VstupJazyk, nazev_studia=@VstupNazev_studia WHERE Id = @VstupID";
 
-                    //cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                    //cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                    //cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
-                    //cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
-                    cmd.Parameters.AddWithValue("@VstupPocetStudentu", int.Parse(vstupPocetStudentu.Text));
+                    if (!int.TryParse(vstupPocetStudentu.Text, out int pocetS)) { pocetS = 0; }
+
+                    cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
+                    cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
+                    cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
+                    cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
+                    cmd.Parameters.AddWithValue("@VstupPocetStudentu", pocetS);
                     cmd.Parameters.AddWithValue("@VstupForma_studia", vstupForma_studia.SelectedValue);
                     cmd.Parameters.AddWithValue("@VstupTyp_studia", vstupTyp_studia.SelectedValue);
                     cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
@@ -163,26 +153,19 @@ namespace AK8PO
 
         private void NovyZaznam(object sender, EventArgs e)
         {
-
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open();
-            cmd.CommandText = "SELECT COUNT(*) FROM Studenti WHERE (zkratka=@VstupZkratka AND rocnik=@VstupRocnik AND semestr=@VstupSemestr)";
-            cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-            cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
-            cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
-
-            int pocetZaznamu = (int)cmd.ExecuteScalar();
-            if (pocetZaznamu == 0)
+            if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Studenti WHERE (zkratka=" + vstupZkratka.Text + " AND rocnik=" + vstupRocnik.SelectedValue.ToString() + " AND semestr=" + vstupSemestr.SelectedValue.ToString() + ")") == 0)
             {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
                 cmd.CommandText = "INSERT INTO Studenti(zkratka, rocnik, semestr, pocet_studentu, forma_studia, typ_studia, jazyk, nazev_studia) VALUES(@VstupZkratka, @VstupRocnik, @VstupSemestr, @VstupPocetStudentu, @VstupForma_studia, @VstupTyp_studia, @VstupJazyk, @VstupNazev_studia)";
 
-                //cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                //cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                //cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
-                //cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
-                cmd.Parameters.AddWithValue("@VstupPocetStudentu", int.Parse(vstupPocetStudentu.Text));
+                if (!int.TryParse(vstupPocetStudentu.Text, out int pocetS)) { pocetS = 0; }
+
+                cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
+                cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
+                cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
+                cmd.Parameters.AddWithValue("@VstupPocetStudentu", pocetS);
                 cmd.Parameters.AddWithValue("@VstupForma_studia", vstupForma_studia.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupTyp_studia", vstupTyp_studia.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);

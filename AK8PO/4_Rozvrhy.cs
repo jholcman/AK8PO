@@ -14,7 +14,6 @@ namespace AK8PO
 {
     public partial class Rozvrhy : Form
     {
-        SqlConnection con = new SqlConnection(StringLibrary.DatabazeRetezec());
         public Rozvrhy()
         {
             InitializeComponent();
@@ -33,59 +32,33 @@ namespace AK8PO
             this.rocnikTableAdapter.Fill(this.databaseUTBDataSet14.Rocnik);
 
             LoadSkupinka();
-            LoadPredmet();
+            //LoadPredmet(0);
         }
 
         private void LoadSkupinka()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Studenti ORDER BY zkratka ASC,rocnik ASC,semestr DESC", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            dataSkupinka.DataSource = dt;
+            dataSkupinka.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Studenti ORDER BY zkratka ASC,rocnik ASC,semestr DESC");
         }
-        private void LoadPredmet()
+        private void LoadPredmet(int forma)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Predmet ORDER BY zkratka ASC", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            dataPredmet.DataSource = dt;
+            switch (forma)
+            {
+                case 1:
+                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet WHERE pocet_tydnu<>1 ORDER BY zkratka ASC");
+                    break;
+                case 2:
+                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet WHERE pocet_tydnu=1 ORDER BY zkratka ASC");
+                    break;
+                default:
+                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet ORDER BY zkratka ASC");
+                    break;
+            }
         }
 
         private void ZpetNaHlavni(object sender, EventArgs e)
         {
             Close();
         }
-
-        private void ZobrazIdSkupinky(object sender, DataGridViewCellEventArgs e)
-        {
-            LoadVybranyPredmet();
-        }
-
-        private void ZobrazIdPredmetu(object sender, DataGridViewCellEventArgs e)
-        {
-            int idPredmet;
-            idPredmet = int.Parse(dataPredmet.SelectedRows[0].Cells[0].Value.ToString());
-            predmetId.Text = idPredmet.ToString();
-
-        }
-
-        private void ZobrazIdVybranehoPredmetu(object sender, DataGridViewCellEventArgs e)
-        {
-            int idVybranyPredmet;
-            int idRozvrh;
-            idRozvrh = int.Parse(dataPredmetVybran.SelectedRows[0].Cells[0].Value.ToString());
-            idVybranyPredmet = int.Parse(dataPredmetVybran.SelectedRows[0].Cells[1].Value.ToString());
-            predmetVybranyId.Text = idVybranyPredmet.ToString();
-            rozvrhId.Text = idRozvrh.ToString();
-
-        }
-
         private void SmazatVybranyPredmet(object sender, EventArgs e)
         {
             int idRozvrh;
@@ -100,14 +73,8 @@ namespace AK8PO
                 if (dotaz == DialogResult.Yes)
                 {
 
-                    SqlCommand cmd = new SqlCommand("DELETE FROM Rozvrh WHERE Id = @Id_rozvrh", con);
-
-                    cmd.Parameters.AddWithValue("@Id_rozvrh", int.Parse(dataPredmetVybran.SelectedRows[0].Cells[0].Value.ToString()));
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    StringLibrary.SmazatZaznam("DELETE FROM Rozvrh WHERE Id=" + idRozvrh.ToString());
                     MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     LoadVybranyPredmet();
                 }
 
@@ -125,25 +92,14 @@ namespace AK8PO
             int idPredmet;
             idStudent = int.Parse(dataSkupinka.SelectedRows[0].Cells[0].Value.ToString());
             idPredmet = int.Parse(dataPredmet.SelectedRows[0].Cells[0].Value.ToString());
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            con.Open();
+ 
             if ((idStudent > 0) && (idPredmet > 0))
             {
-
-                cmd.CommandText = "SELECT COUNT(*) FROM Rozvrh WHERE (Id_studenti=@IdStudent AND Id_predmet=@IdPredmet)";
-                cmd.Parameters.AddWithValue("@IdStudent", idStudent);
-                cmd.Parameters.AddWithValue("@IdPredmet", idPredmet);
-                int pocetZaznamu = (int)cmd.ExecuteScalar();
-                pocetVP.Text = pocetZaznamu.ToString();
+                int pocetZaznamu = StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Rozvrh WHERE (Id_studenti=" + idStudent.ToString() + " AND Id_predmet=" + idPredmet.ToString() + ")");
 
                 if (pocetZaznamu == 0)
                 {
-                    cmd.CommandText = "INSERT INTO Rozvrh (Id_predmet, Id_studenti) VALUES (@IdPredmet, @IdStudent)";
-                    //cmd.Parameters.AddWithValue("@IdStudent", idStudent);
-                    //cmd.Parameters.AddWithValue("@IdPredmet", idPredmet);
-                    cmd.ExecuteNonQuery();
-                    //MessageBox.Show("Tento Předmět byl přidán!", "Vše OK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    StringLibrary.ZapisZaznam("INSERT INTO Rozvrh (Id_predmet, Id_studenti) VALUES (" + idPredmet.ToString() + ", " + idStudent.ToString() + ")");
                 }
                 else
                 {
@@ -154,26 +110,19 @@ namespace AK8PO
             {
                 MessageBox.Show("Není vybrán žádná Skupinka nebo Předmět", "Vybrat záznam?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            con.Close();
             LoadVybranyPredmet();
         }
         private void LoadVybranyPredmet()
         {
             int idStudent;
             idStudent = int.Parse(dataSkupinka.SelectedRows[0].Cells[0].Value.ToString());
-            skupinkaId.Text = idStudent.ToString();
-
-            SqlCommand cmd = new SqlCommand("SELECT Rozvrh.Id,Rozvrh.Id_predmet,Predmet.zkratka FROM Rozvrh LEFT JOIN Predmet On Rozvrh.Id_predmet=Predmet.Id WHERE Rozvrh.Id_studenti=@IdStudent ORDER BY Predmet.zkratka", con);
-            cmd.Parameters.AddWithValue("@IdStudent", idStudent);
-
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-
-            dataPredmetVybran.DataSource = dt;
+            dataPredmetVybran.DataSource = StringLibrary.NactiDataTabulku("SELECT Rozvrh.Id, Rozvrh.Id_predmet, Predmet.zkratka FROM Rozvrh LEFT JOIN Predmet On Rozvrh.Id_predmet = Predmet.Id WHERE Rozvrh.Id_studenti = " + idStudent.ToString() + " ORDER BY Predmet.zkratka");
         }
 
+        private void NactiPredmety(object sender, DataGridViewCellEventArgs e)
+        {
+            LoadVybranyPredmet();
+            LoadPredmet(int.Parse(dataSkupinka.SelectedRows[0].Cells[4].Value.ToString()));
+        }
     }
 }

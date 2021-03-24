@@ -25,6 +25,8 @@ namespace AK8PO
 
         private void Predmet_Load(object sender, EventArgs e)
         {
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet38.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.predmetTableAdapter3.Fill(this.databaseUTBDataSet38.Predmet);
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet13.Zakonceni'. Můžete jej přesunout nebo jej odstranit podle potřeby.
             this.zakonceniTableAdapter.Fill(this.databaseUTBDataSet13.Zakonceni);
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet12.Jazyk'. Můžete jej přesunout nebo jej odstranit podle potřeby.
@@ -34,13 +36,9 @@ namespace AK8PO
         }
         private void LoadForm()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * from Predmet", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            predmetyView.DataSource = dt;
+            string dotaz = "SELECT * from Predmet ORDER BY zkratka ASC";
+            predmetyView.DataSource = StringLibrary.NactiDataTabulku(dotaz);
+
         }
         private void VyberZaznamu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -84,19 +82,27 @@ namespace AK8PO
             {
                 SqlCommand cmd = new SqlCommand("UPDATE Predmet SET zkratka=@VstupZkratka, pocet_tydnu=@VstupPocet_tydnu, prednasky=@VstupPrednasky, cviceni=@VstupCviceni, seminare=@VstupSeminare, zakonceni=@VstupZakonceni, jazyk=@VstupJazyk, velikost_tridy=@VstupVelikost_tridy, nazev_predmetu=@VstupNazev_predmetu, pocet_kreditu=@VstupPocet_kreditu, garant_ustav=@VstupGarant_ustav, garant_osoba=@VstupGarant_osoba WHERE Id = @VstupID", con);
 
+                if (!int.TryParse(vstupPocet_tydnu.Text, out int pocetTydnu)) { pocetTydnu = 14; }
+                if (!int.TryParse(vstupPrednasky.Text, out int pocetP)) { pocetP = 0; }
+                if (!int.TryParse(vstupCviceni.Text, out int pocetC)) { pocetC = 0; }
+                if (!int.TryParse(vstupSeminare.Text, out int pocetS)) { pocetS = 0; }
+                if (!int.TryParse(vstupVelikost_tridy.Text, out int trida)) { trida = 0; }
+                if (!int.TryParse(vstupPocet_kreditu.Text, out int kredit)) { kredit = 0; }
+
                 cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
                 cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                cmd.Parameters.AddWithValue("@VstupPocet_tydnu", int.Parse(vstupPocet_tydnu.Text));
-                cmd.Parameters.AddWithValue("@VstupPrednasky", int.Parse(vstupPrednasky.Text));
-                cmd.Parameters.AddWithValue("@VstupCviceni", int.Parse(vstupCviceni.Text));
-                cmd.Parameters.AddWithValue("@VstupSeminare", int.Parse(vstupSeminare.Text));
+                cmd.Parameters.AddWithValue("@VstupPocet_tydnu", pocetTydnu);
+                cmd.Parameters.AddWithValue("@VstupPrednasky", pocetP);
+                cmd.Parameters.AddWithValue("@VstupCviceni", pocetC);
+                cmd.Parameters.AddWithValue("@VstupSeminare", pocetS);
                 cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
-                cmd.Parameters.AddWithValue("@VstupVelikost_tridy", int.Parse(vstupVelikost_tridy.Text));
+                cmd.Parameters.AddWithValue("@VstupVelikost_tridy", trida);
                 cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
-                cmd.Parameters.AddWithValue("@VstupPocet_kreditu", int.Parse(vstupPocet_kreditu.Text));
+                cmd.Parameters.AddWithValue("@VstupPocet_kreditu", kredit);
                 cmd.Parameters.AddWithValue("@VstupGarant_ustav", vstupGarant_ustav.Text);
                 cmd.Parameters.AddWithValue("@VstupGarant_osoba", vstupGarant_osoba.Text);
+
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -113,59 +119,73 @@ namespace AK8PO
 
         private void NovyZaznam(object sender, EventArgs e)
         {
-            if (vstupID.Text != "")
+            if (vstupZkratka.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Predmet (zkratka, pocet_tydnu, prednasky, cviceni, seminare, zakonceni, jazyk, velikost_tridy, nazev_predmetu, pocet_kreditu, garant_ustav, garant_osoba) VALUES (@VstupZkratka, @VstupPocet_tydnu, @VstupPrednasky, @VstupCviceni, @VstupSeminare, @VstupZakonceni, @VstupJazyk, @VstupVelikost_tridy, @VstupNazev_predmetu, @VstupPocet_kreditu, @VstupGarant_ustav, @VstupGarant_osoba)", con);
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Predmet WHERE zkratka='" + vstupZkratka.Text + "'") == 0) 
+                { 
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Predmet (zkratka, pocet_tydnu, prednasky, cviceni, seminare, zakonceni, jazyk, velikost_tridy, nazev_predmetu, pocet_kreditu, garant_ustav, garant_osoba) VALUES (@VstupZkratka, @VstupPocet_tydnu, @VstupPrednasky, @VstupCviceni, @VstupSeminare, @VstupZakonceni, @VstupJazyk, @VstupVelikost_tridy, @VstupNazev_predmetu, @VstupPocet_kreditu, @VstupGarant_ustav, @VstupGarant_osoba)", con);
 
-                cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                cmd.Parameters.AddWithValue("@VstupPocet_tydnu", int.Parse(vstupPocet_tydnu.Text));
-                cmd.Parameters.AddWithValue("@VstupPrednasky", int.Parse(vstupPrednasky.Text));
-                cmd.Parameters.AddWithValue("@VstupCviceni", int.Parse(vstupCviceni.Text));
-                cmd.Parameters.AddWithValue("@VstupSeminare", int.Parse(vstupSeminare.Text));
-                cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
-                cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
-                cmd.Parameters.AddWithValue("@VstupVelikost_tridy", int.Parse(vstupVelikost_tridy.Text));
-                cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
-                cmd.Parameters.AddWithValue("@VstupPocet_kreditu", int.Parse(vstupPocet_kreditu.Text));
-                cmd.Parameters.AddWithValue("@VstupGarant_ustav", vstupGarant_ustav.Text);
-                cmd.Parameters.AddWithValue("@VstupGarant_osoba", vstupGarant_osoba.Text);
+                    if (!int.TryParse(vstupPocet_tydnu.Text, out int pocetTydnu)) { pocetTydnu = 14; }
+                    if (!int.TryParse(vstupPrednasky.Text, out int pocetP)) { pocetP = 0; }
+                    if (!int.TryParse(vstupCviceni.Text, out int pocetC)) { pocetC = 0; }
+                    if (!int.TryParse(vstupSeminare.Text, out int pocetS)) { pocetS = 0; }
+                    if (!int.TryParse(vstupVelikost_tridy.Text, out int trida)) { trida = 0; }
+                    if (!int.TryParse(vstupPocet_kreditu.Text, out int kredit)) { kredit = 0; }
 
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Záznam byl opraven", "Záznam byl opraven", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ResetForm();
-                LoadForm();
+                    cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
+                    cmd.Parameters.AddWithValue("@VstupPocet_tydnu", pocetTydnu);
+                    cmd.Parameters.AddWithValue("@VstupPrednasky", pocetP);
+                    cmd.Parameters.AddWithValue("@VstupCviceni", pocetC);
+                    cmd.Parameters.AddWithValue("@VstupSeminare", pocetS);
+                    cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
+                    cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
+                    cmd.Parameters.AddWithValue("@VstupVelikost_tridy", trida);
+                    cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
+                    cmd.Parameters.AddWithValue("@VstupPocet_kreditu", kredit);
+                    cmd.Parameters.AddWithValue("@VstupGarant_ustav", vstupGarant_ustav.Text);
+                    cmd.Parameters.AddWithValue("@VstupGarant_osoba", vstupGarant_osoba.Text);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Záznam byl vytvořen", "Záznam byl vytvořen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ResetForm();
+                    LoadForm();
+                }
+                else
+                {
+                    MessageBox.Show("Tento předmět již existuje, údaje nebyly zapsány!", "Opravit záznam?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Není vybrán žádný záznam pro opravu!", "Vybrat záznam?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nebylo možno vytvořit nový předmět bez názvu!", "Vybrat záznam?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void SmazatZaznam(object sender, EventArgs e)
         {
-            if (vstupID.Text != "")
+            
+           if (vstupID.Text != "")
             {
-                var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
-
-                if (dotaz == DialogResult.Yes)
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Rozvrh WHERE Id_predmet="+ vstupID.Text) == 0)
                 {
+                    var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Question);
 
-                    SqlCommand cmd = new SqlCommand("DELETE FROM Predmet WHERE Id = @VstupID", con);
-
-                    cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ResetForm();
-                    LoadForm();
-
+                    if (dotaz == DialogResult.Yes)
+                    {
+                        StringLibrary.SmazatZaznam("DELETE FROM Predmet WHERE Id=" + vstupID.Text);
+                        MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ResetForm();
+                        LoadForm();
+                    }
                 }
-
+                else
+                {
+                    MessageBox.Show("Tento předmět nelze smazat, je rozvrhován!!!", "Záznam nebyl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

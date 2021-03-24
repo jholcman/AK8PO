@@ -20,17 +20,17 @@ namespace AK8PO {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseUTBDataSet6")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DatabaseUTBDataSet33")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DatabaseUTBDataSet6 : global::System.Data.DataSet {
+    public partial class DatabaseUTBDataSet33 : global::System.Data.DataSet {
         
-        private PredmetDataTable tablePredmet;
+        private ZamestnanciDataTable tableZamestnanci;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DatabaseUTBDataSet6() {
+        public DatabaseUTBDataSet33() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace AK8PO {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DatabaseUTBDataSet6(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DatabaseUTBDataSet33(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace AK8PO {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Predmet"] != null)) {
-                    base.Tables.Add(new PredmetDataTable(ds.Tables["Predmet"]));
+                if ((ds.Tables["Zamestnanci"] != null)) {
+                    base.Tables.Add(new ZamestnanciDataTable(ds.Tables["Zamestnanci"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace AK8PO {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PredmetDataTable Predmet {
+        public ZamestnanciDataTable Zamestnanci {
             get {
-                return this.tablePredmet;
+                return this.tableZamestnanci;
             }
         }
         
@@ -127,7 +127,7 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DatabaseUTBDataSet6 cln = ((DatabaseUTBDataSet6)(base.Clone()));
+            DatabaseUTBDataSet33 cln = ((DatabaseUTBDataSet33)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace AK8PO {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Predmet"] != null)) {
-                    base.Tables.Add(new PredmetDataTable(ds.Tables["Predmet"]));
+                if ((ds.Tables["Zamestnanci"] != null)) {
+                    base.Tables.Add(new ZamestnanciDataTable(ds.Tables["Zamestnanci"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePredmet = ((PredmetDataTable)(base.Tables["Predmet"]));
+            this.tableZamestnanci = ((ZamestnanciDataTable)(base.Tables["Zamestnanci"]));
             if ((initTable == true)) {
-                if ((this.tablePredmet != null)) {
-                    this.tablePredmet.InitVars();
+                if ((this.tableZamestnanci != null)) {
+                    this.tableZamestnanci.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DatabaseUTBDataSet6";
+            this.DataSetName = "DatabaseUTBDataSet33";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DatabaseUTBDataSet6.xsd";
+            this.Namespace = "http://tempuri.org/DatabaseUTBDataSet33.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePredmet = new PredmetDataTable();
-            base.Tables.Add(this.tablePredmet);
+            this.tableZamestnanci = new ZamestnanciDataTable();
+            base.Tables.Add(this.tableZamestnanci);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializePredmet() {
+        private bool ShouldSerializeZamestnanci() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace AK8PO {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DatabaseUTBDataSet6 ds = new DatabaseUTBDataSet6();
+            DatabaseUTBDataSet33 ds = new DatabaseUTBDataSet33();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,25 @@ namespace AK8PO {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void PredmetRowChangeEventHandler(object sender, PredmetRowChangeEvent e);
+        public delegate void ZamestnanciRowChangeEventHandler(object sender, ZamestnanciRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PredmetDataTable : global::System.Data.TypedTableBase<PredmetRow> {
+        public partial class ZamestnanciDataTable : global::System.Data.TypedTableBase<ZamestnanciRow> {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnzkratka;
+            private global::System.Data.DataColumn columnprijmeni;
+            
+            private global::System.Data.DataColumn columnjmeno;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetDataTable() {
-                this.TableName = "Predmet";
+            public ZamestnanciDataTable() {
+                this.TableName = "Zamestnanci";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +296,7 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PredmetDataTable(global::System.Data.DataTable table) {
+            internal ZamestnanciDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,7 +313,7 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected PredmetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ZamestnanciDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -326,9 +328,17 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn zkratkaColumn {
+            public global::System.Data.DataColumn prijmeniColumn {
                 get {
-                    return this.columnzkratka;
+                    return this.columnprijmeni;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn jmenoColumn {
+                get {
+                    return this.columnjmeno;
                 }
             }
             
@@ -343,53 +353,54 @@ namespace AK8PO {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow this[int index] {
+            public ZamestnanciRow this[int index] {
                 get {
-                    return ((PredmetRow)(this.Rows[index]));
+                    return ((ZamestnanciRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowChanging;
+            public event ZamestnanciRowChangeEventHandler ZamestnanciRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowChanged;
+            public event ZamestnanciRowChangeEventHandler ZamestnanciRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowDeleting;
+            public event ZamestnanciRowChangeEventHandler ZamestnanciRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PredmetRowChangeEventHandler PredmetRowDeleted;
+            public event ZamestnanciRowChangeEventHandler ZamestnanciRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddPredmetRow(PredmetRow row) {
+            public void AddZamestnanciRow(ZamestnanciRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow AddPredmetRow(int Id, string zkratka) {
-                PredmetRow rowPredmetRow = ((PredmetRow)(this.NewRow()));
+            public ZamestnanciRow AddZamestnanciRow(string prijmeni, string jmeno) {
+                ZamestnanciRow rowZamestnanciRow = ((ZamestnanciRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
-                        zkratka};
-                rowPredmetRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPredmetRow);
-                return rowPredmetRow;
+                        null,
+                        prijmeni,
+                        jmeno};
+                rowZamestnanciRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowZamestnanciRow);
+                return rowZamestnanciRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow FindById(int Id) {
-                return ((PredmetRow)(this.Rows.Find(new object[] {
+            public ZamestnanciRow FindById(int Id) {
+                return ((ZamestnanciRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PredmetDataTable cln = ((PredmetDataTable)(base.Clone()));
+                ZamestnanciDataTable cln = ((ZamestnanciDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -397,14 +408,15 @@ namespace AK8PO {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PredmetDataTable();
+                return new ZamestnanciDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnzkratka = base.Columns["zkratka"];
+                this.columnprijmeni = base.Columns["prijmeni"];
+                this.columnjmeno = base.Columns["jmeno"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -412,40 +424,47 @@ namespace AK8PO {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnzkratka = new global::System.Data.DataColumn("zkratka", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnzkratka);
+                this.columnprijmeni = new global::System.Data.DataColumn("prijmeni", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprijmeni);
+                this.columnjmeno = new global::System.Data.DataColumn("jmeno", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnjmeno);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnzkratka.AllowDBNull = false;
-                this.columnzkratka.MaxLength = 20;
+                this.columnprijmeni.AllowDBNull = false;
+                this.columnprijmeni.MaxLength = 100;
+                this.columnjmeno.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow NewPredmetRow() {
-                return ((PredmetRow)(this.NewRow()));
+            public ZamestnanciRow NewZamestnanciRow() {
+                return ((ZamestnanciRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PredmetRow(builder);
+                return new ZamestnanciRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PredmetRow);
+                return typeof(ZamestnanciRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PredmetRowChanged != null)) {
-                    this.PredmetRowChanged(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.ZamestnanciRowChanged != null)) {
+                    this.ZamestnanciRowChanged(this, new ZamestnanciRowChangeEvent(((ZamestnanciRow)(e.Row)), e.Action));
                 }
             }
             
@@ -453,8 +472,8 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PredmetRowChanging != null)) {
-                    this.PredmetRowChanging(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.ZamestnanciRowChanging != null)) {
+                    this.ZamestnanciRowChanging(this, new ZamestnanciRowChangeEvent(((ZamestnanciRow)(e.Row)), e.Action));
                 }
             }
             
@@ -462,8 +481,8 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PredmetRowDeleted != null)) {
-                    this.PredmetRowDeleted(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.ZamestnanciRowDeleted != null)) {
+                    this.ZamestnanciRowDeleted(this, new ZamestnanciRowChangeEvent(((ZamestnanciRow)(e.Row)), e.Action));
                 }
             }
             
@@ -471,14 +490,14 @@ namespace AK8PO {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PredmetRowDeleting != null)) {
-                    this.PredmetRowDeleting(this, new PredmetRowChangeEvent(((PredmetRow)(e.Row)), e.Action));
+                if ((this.ZamestnanciRowDeleting != null)) {
+                    this.ZamestnanciRowDeleting(this, new ZamestnanciRowChangeEvent(((ZamestnanciRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovePredmetRow(PredmetRow row) {
+            public void RemoveZamestnanciRow(ZamestnanciRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -487,7 +506,7 @@ namespace AK8PO {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DatabaseUTBDataSet6 ds = new DatabaseUTBDataSet6();
+                DatabaseUTBDataSet33 ds = new DatabaseUTBDataSet33();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -505,7 +524,7 @@ namespace AK8PO {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PredmetDataTable";
+                attribute2.FixedValue = "ZamestnanciDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -549,37 +568,65 @@ namespace AK8PO {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PredmetRow : global::System.Data.DataRow {
+        public partial class ZamestnanciRow : global::System.Data.DataRow {
             
-            private PredmetDataTable tablePredmet;
+            private ZamestnanciDataTable tableZamestnanci;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PredmetRow(global::System.Data.DataRowBuilder rb) : 
+            internal ZamestnanciRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePredmet = ((PredmetDataTable)(this.Table));
+                this.tableZamestnanci = ((ZamestnanciDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tablePredmet.IdColumn]));
+                    return ((int)(this[this.tableZamestnanci.IdColumn]));
                 }
                 set {
-                    this[this.tablePredmet.IdColumn] = value;
+                    this[this.tableZamestnanci.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string zkratka {
+            public string prijmeni {
                 get {
-                    return ((string)(this[this.tablePredmet.zkratkaColumn]));
+                    return ((string)(this[this.tableZamestnanci.prijmeniColumn]));
                 }
                 set {
-                    this[this.tablePredmet.zkratkaColumn] = value;
+                    this[this.tableZamestnanci.prijmeniColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string jmeno {
+                get {
+                    try {
+                        return ((string)(this[this.tableZamestnanci.jmenoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Hodnota pro sloupec jmeno v tabulce Zamestnanci je rovna hodnotě DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZamestnanci.jmenoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsjmenoNull() {
+                return this.IsNull(this.tableZamestnanci.jmenoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetjmenoNull() {
+                this[this.tableZamestnanci.jmenoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -587,22 +634,22 @@ namespace AK8PO {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class PredmetRowChangeEvent : global::System.EventArgs {
+        public class ZamestnanciRowChangeEvent : global::System.EventArgs {
             
-            private PredmetRow eventRow;
+            private ZamestnanciRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRowChangeEvent(PredmetRow row, global::System.Data.DataRowAction action) {
+            public ZamestnanciRowChangeEvent(ZamestnanciRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PredmetRow Row {
+            public ZamestnanciRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -618,7 +665,7 @@ namespace AK8PO {
         }
     }
 }
-namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
+namespace AK8PO.DatabaseUTBDataSet33TableAdapters {
     
     
     /// <summary>
@@ -630,7 +677,7 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PredmetTableAdapter : global::System.ComponentModel.Component {
+    public partial class ZamestnanciTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -644,7 +691,7 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public PredmetTableAdapter() {
+        public ZamestnanciTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -741,27 +788,40 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Predmet";
+            tableMapping.DataSetTable = "Zamestnanci";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("zkratka", "zkratka");
+            tableMapping.ColumnMappings.Add("prijmeni", "prijmeni");
+            tableMapping.ColumnMappings.Add("jmeno", "jmeno");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Predmet] WHERE (([Id] = @Original_Id) AND ([zkratka] = @Origin" +
-                "al_zkratka))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Zamestnanci] WHERE (([Id] = @Original_Id) AND ([prijmeni] = @O" +
+                "riginal_prijmeni) AND ((@IsNull_jmeno = 1 AND [jmeno] IS NULL) OR ([jmeno] = @Or" +
+                "iginal_jmeno)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zkratka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zkratka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prijmeni", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prijmeni", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_jmeno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jmeno", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jmeno", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jmeno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Zamestnanci] ([prijmeni], [jmeno]) VALUES (@prijmeni, @jmeno);" +
+                "\r\nSELECT Id, prijmeni, jmeno FROM Zamestnanci WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prijmeni", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prijmeni", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jmeno", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jmeno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Predmet] SET [Id] = @Id, [zkratka] = @zkratka WHERE (([Id] = @Origi" +
-                "nal_Id) AND ([zkratka] = @Original_zkratka));\r\nSELECT Id, zkratka FROM Predmet W" +
-                "HERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Zamestnanci] SET [prijmeni] = @prijmeni, [jmeno] = @jmeno WHERE (([Id] = @Original_Id) AND ([prijmeni] = @Original_prijmeni) AND ((@IsNull_jmeno = 1 AND [jmeno] IS NULL) OR ([jmeno] = @Original_jmeno)));
+SELECT Id, prijmeni, jmeno FROM Zamestnanci WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zkratka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zkratka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@prijmeni", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prijmeni", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@jmeno", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jmeno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zkratka", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zkratka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_prijmeni", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "prijmeni", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_jmeno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jmeno", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_jmeno", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "jmeno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -774,22 +834,18 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, zkratka FROM dbo.Predmet";
+            this._commandCollection[0].CommandText = "SELECT Id, prijmeni, jmeno FROM dbo.Zamestnanci";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Id, zkratka FROM dbo.Predmet ORDER BY zkratka";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseUTBDataSet6.PredmetDataTable dataTable) {
+        public virtual int Fill(DatabaseUTBDataSet33.ZamestnanciDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -802,9 +858,9 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseUTBDataSet6.PredmetDataTable GetData() {
+        public virtual DatabaseUTBDataSet33.ZamestnanciDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DatabaseUTBDataSet6.PredmetDataTable dataTable = new DatabaseUTBDataSet6.PredmetDataTable();
+            DatabaseUTBDataSet33.ZamestnanciDataTable dataTable = new DatabaseUTBDataSet33.ZamestnanciDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -812,28 +868,15 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(DatabaseUTBDataSet6.PredmetDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseUTBDataSet6.PredmetDataTable dataTable) {
+        public virtual int Update(DatabaseUTBDataSet33.ZamestnanciDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DatabaseUTBDataSet6 dataSet) {
-            return this.Adapter.Update(dataSet, "Predmet");
+        public virtual int Update(DatabaseUTBDataSet33 dataSet) {
+            return this.Adapter.Update(dataSet, "Zamestnanci");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -855,13 +898,21 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_zkratka) {
+        public virtual int Delete(int Original_Id, string Original_prijmeni, string Original_jmeno) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_zkratka == null)) {
-                throw new global::System.ArgumentNullException("Original_zkratka");
+            if ((Original_prijmeni == null)) {
+                throw new global::System.ArgumentNullException("Original_prijmeni");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_zkratka));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_prijmeni));
+            }
+            if ((Original_jmeno == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_jmeno));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -882,22 +933,69 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, string zkratka, int Original_Id, string Original_zkratka) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
-            if ((zkratka == null)) {
-                throw new global::System.ArgumentNullException("zkratka");
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string prijmeni, string jmeno) {
+            if ((prijmeni == null)) {
+                throw new global::System.ArgumentNullException("prijmeni");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(zkratka));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(prijmeni));
+            }
+            if ((jmeno == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(jmeno));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string prijmeni, string jmeno, int Original_Id, string Original_prijmeni, string Original_jmeno, int Id) {
+            if ((prijmeni == null)) {
+                throw new global::System.ArgumentNullException("prijmeni");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(prijmeni));
+            }
+            if ((jmeno == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(jmeno));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_Id));
-            if ((Original_zkratka == null)) {
-                throw new global::System.ArgumentNullException("Original_zkratka");
+            if ((Original_prijmeni == null)) {
+                throw new global::System.ArgumentNullException("Original_prijmeni");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_zkratka));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_prijmeni));
             }
+            if ((Original_jmeno == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_jmeno));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -918,8 +1016,8 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string zkratka, int Original_Id, string Original_zkratka) {
-            return this.Update(Original_Id, zkratka, Original_Id, Original_zkratka);
+        public virtual int Update(string prijmeni, string jmeno, int Original_Id, string Original_prijmeni, string Original_jmeno) {
+            return this.Update(prijmeni, jmeno, Original_Id, Original_prijmeni, Original_jmeno, Original_Id);
         }
     }
     
@@ -935,7 +1033,7 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private PredmetTableAdapter _predmetTableAdapter;
+        private ZamestnanciTableAdapter _zamestnanciTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -957,12 +1055,12 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PredmetTableAdapter PredmetTableAdapter {
+        public ZamestnanciTableAdapter ZamestnanciTableAdapter {
             get {
-                return this._predmetTableAdapter;
+                return this._zamestnanciTableAdapter;
             }
             set {
-                this._predmetTableAdapter = value;
+                this._zamestnanciTableAdapter = value;
             }
         }
         
@@ -985,9 +1083,9 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._predmetTableAdapter != null) 
-                            && (this._predmetTableAdapter.Connection != null))) {
-                    return this._predmetTableAdapter.Connection;
+                if (((this._zamestnanciTableAdapter != null) 
+                            && (this._zamestnanciTableAdapter.Connection != null))) {
+                    return this._zamestnanciTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1002,7 +1100,7 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._predmetTableAdapter != null)) {
+                if ((this._zamestnanciTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1014,14 +1112,14 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DatabaseUTBDataSet6 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DatabaseUTBDataSet33 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._predmetTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Predmet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._zamestnanciTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Zamestnanci.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._predmetTableAdapter.Update(updatedRows));
+                    result = (result + this._zamestnanciTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1033,13 +1131,13 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DatabaseUTBDataSet6 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DatabaseUTBDataSet33 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._predmetTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Predmet.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._zamestnanciTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Zamestnanci.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._predmetTableAdapter.Update(addedRows));
+                    result = (result + this._zamestnanciTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1051,13 +1149,13 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DatabaseUTBDataSet6 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DatabaseUTBDataSet33 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._predmetTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Predmet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._zamestnanciTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Zamestnanci.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._predmetTableAdapter.Update(deletedRows));
+                    result = (result + this._zamestnanciTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1093,15 +1191,15 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DatabaseUTBDataSet6 dataSet) {
+        public virtual int UpdateAll(DatabaseUTBDataSet33 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._predmetTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._predmetTableAdapter.Connection) == false))) {
+            if (((this._zamestnanciTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._zamestnanciTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Všechny instance TableAdapters spravované komponentou TableAdapterManager musí po" +
                         "užívat stejný připojovací řetězec.");
             }
@@ -1138,13 +1236,13 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._predmetTableAdapter != null)) {
-                    revertConnections.Add(this._predmetTableAdapter, this._predmetTableAdapter.Connection);
-                    this._predmetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._predmetTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._predmetTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._predmetTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._predmetTableAdapter.Adapter);
+                if ((this._zamestnanciTableAdapter != null)) {
+                    revertConnections.Add(this._zamestnanciTableAdapter, this._zamestnanciTableAdapter.Connection);
+                    this._zamestnanciTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._zamestnanciTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._zamestnanciTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._zamestnanciTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._zamestnanciTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1205,9 +1303,9 @@ namespace AK8PO.DatabaseUTBDataSet6TableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._predmetTableAdapter != null)) {
-                    this._predmetTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._predmetTableAdapter]));
-                    this._predmetTableAdapter.Transaction = null;
+                if ((this._zamestnanciTableAdapter != null)) {
+                    this._zamestnanciTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._zamestnanciTableAdapter]));
+                    this._zamestnanciTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

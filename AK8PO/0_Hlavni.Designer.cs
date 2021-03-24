@@ -37,6 +37,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.test = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -108,7 +109,7 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button7.Location = new System.Drawing.Point(336, 264);
+            this.button7.Location = new System.Drawing.Point(225, 299);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(233, 45);
             this.button7.TabIndex = 9;
@@ -137,11 +138,23 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Zpracování pracovních štítků zaměstnanců UTB";
             // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button8.Location = new System.Drawing.Point(485, 299);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(233, 45);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "Kapacita ak. pracovníka";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Kapacita_Click);
+            // 
             // Hlavni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.test);
             this.Controls.Add(this.button7);
@@ -172,5 +185,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button test;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button8;
     }
 }
