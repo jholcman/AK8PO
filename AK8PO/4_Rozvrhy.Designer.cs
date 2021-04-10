@@ -64,7 +64,6 @@ namespace AK8PO
             this.Id_predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zkratka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pridatPredmet = new System.Windows.Forms.Button();
-            this.smazatVybranyPredmet = new System.Windows.Forms.Button();
             this.rocnikTableAdapter = new AK8PO.DatabaseUTBDataSet14TableAdapters.RocnikTableAdapter();
             this.semestrTableAdapter = new AK8PO.DatabaseUTBDataSet15TableAdapters.SemestrTableAdapter();
             this.formaTableAdapter = new AK8PO.DatabaseUTBDataSet16TableAdapters.FormaTableAdapter();
@@ -72,6 +71,7 @@ namespace AK8PO
             this.jazykTableAdapter = new AK8PO.DatabaseUTBDataSet18TableAdapters.JazykTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSkupinka)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rocnikBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet14)).BeginInit();
@@ -299,6 +299,7 @@ namespace AK8PO
             // 
             // dataPredmet
             // 
+            this.dataPredmet.AllowDrop = true;
             this.dataPredmet.AllowUserToAddRows = false;
             this.dataPredmet.AllowUserToDeleteRows = false;
             this.dataPredmet.AllowUserToResizeColumns = false;
@@ -317,8 +318,11 @@ namespace AK8PO
             this.dataPredmet.RowHeadersWidth = 20;
             this.dataPredmet.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataPredmet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataPredmet.Size = new System.Drawing.Size(215, 638);
+            this.dataPredmet.Size = new System.Drawing.Size(215, 545);
             this.dataPredmet.TabIndex = 6;
+            this.dataPredmet.DragDrop += new System.Windows.Forms.DragEventHandler(this.DataPredmetDragDrop);
+            this.dataPredmet.DragEnter += new System.Windows.Forms.DragEventHandler(this.DataPredmetDragEnter);
+            this.dataPredmet.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DataPredmetMouseDown);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -353,6 +357,7 @@ namespace AK8PO
             // 
             // dataPredmetVybran
             // 
+            this.dataPredmetVybran.AllowDrop = true;
             this.dataPredmetVybran.AllowUserToAddRows = false;
             this.dataPredmetVybran.AllowUserToDeleteRows = false;
             this.dataPredmetVybran.AllowUserToResizeColumns = false;
@@ -371,6 +376,9 @@ namespace AK8PO
             this.dataPredmetVybran.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataPredmetVybran.Size = new System.Drawing.Size(215, 545);
             this.dataPredmetVybran.TabIndex = 9;
+            this.dataPredmetVybran.DragDrop += new System.Windows.Forms.DragEventHandler(this.DataPredmetVybranDragDrop);
+            this.dataPredmetVybran.DragEnter += new System.Windows.Forms.DragEventHandler(this.DataPredmetVybranDragEnter);
+            this.dataPredmetVybran.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DataPredmetVybranMouseDown);
             // 
             // Id
             // 
@@ -399,24 +407,13 @@ namespace AK8PO
             // pridatPredmet
             // 
             this.pridatPredmet.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.pridatPredmet.Location = new System.Drawing.Point(844, 309);
+            this.pridatPredmet.Location = new System.Drawing.Point(844, 191);
             this.pridatPredmet.Name = "pridatPredmet";
             this.pridatPredmet.Size = new System.Drawing.Size(75, 23);
             this.pridatPredmet.TabIndex = 10;
             this.pridatPredmet.Text = "<<<<";
             this.pridatPredmet.UseVisualStyleBackColor = true;
             this.pridatPredmet.Click += new System.EventHandler(this.VyberPredmet);
-            // 
-            // smazatVybranyPredmet
-            // 
-            this.smazatVybranyPredmet.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.smazatVybranyPredmet.Location = new System.Drawing.Point(601, 670);
-            this.smazatVybranyPredmet.Name = "smazatVybranyPredmet";
-            this.smazatVybranyPredmet.Size = new System.Drawing.Size(215, 30);
-            this.smazatVybranyPredmet.TabIndex = 14;
-            this.smazatVybranyPredmet.Text = "Smazat vybraný předmět";
-            this.smazatVybranyPredmet.UseVisualStyleBackColor = true;
-            this.smazatVybranyPredmet.Click += new System.EventHandler(this.SmazatVybranyPredmet);
             // 
             // rocnikTableAdapter
             // 
@@ -458,14 +455,25 @@ namespace AK8PO
             this.label3.TabIndex = 17;
             this.label3.Text = "Všechny předměty UTB";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.Location = new System.Drawing.Point(844, 237);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = ">>>>";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.SmazatVybranyPredmet);
+            // 
             // Rozvrhy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.smazatVybranyPredmet);
             this.Controls.Add(this.pridatPredmet);
             this.Controls.Add(this.dataPredmetVybran);
             this.Controls.Add(this.dataPredmet);
@@ -517,7 +525,6 @@ namespace AK8PO
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_predmet;
         private System.Windows.Forms.DataGridViewTextBoxColumn zkratka;
-        private System.Windows.Forms.Button smazatVybranyPredmet;
         private DatabaseUTBDataSet14 databaseUTBDataSet14;
         private System.Windows.Forms.BindingSource rocnikBindingSource;
         private DatabaseUTBDataSet14TableAdapters.RocnikTableAdapter rocnikTableAdapter;
@@ -542,5 +549,6 @@ namespace AK8PO
         private System.Windows.Forms.DataGridViewComboBoxColumn jazykDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
     }
 }

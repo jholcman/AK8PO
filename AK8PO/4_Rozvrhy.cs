@@ -39,21 +39,6 @@ namespace AK8PO
         {
             dataSkupinka.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Studenti ORDER BY zkratka ASC,rocnik ASC,semestr DESC");
         }
-        private void LoadPredmet(int forma)
-        {
-            switch (forma)
-            {
-                case 1:
-                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet WHERE pocet_tydnu<>1 ORDER BY zkratka ASC");
-                    break;
-                case 2:
-                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet WHERE pocet_tydnu=1 ORDER BY zkratka ASC");
-                    break;
-                default:
-                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet ORDER BY zkratka ASC");
-                    break;
-            }
-        }
 
         private void ZpetNaHlavni(object sender, EventArgs e)
         {
@@ -66,18 +51,8 @@ namespace AK8PO
  
             if (idRozvrh > 0)
             {
-                var dotaz = MessageBox.Show("Opravdu vymazat tento záznam?", "Mazání záznamu",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
-
-                if (dotaz == DialogResult.Yes)
-                {
-
                     StringLibrary.SmazatZaznam("DELETE FROM Rozvrh WHERE Id=" + idRozvrh.ToString());
-                    MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoadVybranyPredmet();
-                }
-
+                    LoadPredmety();
             }
             else
             {
@@ -95,34 +70,119 @@ namespace AK8PO
  
             if ((idStudent > 0) && (idPredmet > 0))
             {
-                int pocetZaznamu = StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Rozvrh WHERE (Id_studenti=" + idStudent.ToString() + " AND Id_predmet=" + idPredmet.ToString() + ")");
-
-                if (pocetZaznamu == 0)
-                {
-                    StringLibrary.ZapisZaznam("INSERT INTO Rozvrh (Id_predmet, Id_studenti) VALUES (" + idPredmet.ToString() + ", " + idStudent.ToString() + ")");
-                }
-                else
-                {
-                    MessageBox.Show("Tento Předmět byl již vybrán!", "Vybrat jiný záznam?", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                StringLibrary.ZapisZaznam("INSERT INTO Rozvrh (Id_predmet, Id_studenti) VALUES (" + idPredmet.ToString() + ", " + idStudent.ToString() + ")");
             }
             else
             {
                 MessageBox.Show("Není vybrán žádná Skupinka nebo Předmět", "Vybrat záznam?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            LoadVybranyPredmet();
+            LoadPredmety();
         }
-        private void LoadVybranyPredmet()
+        private void LoadPredmety()
         {
-            int idStudent;
-            idStudent = int.Parse(dataSkupinka.SelectedRows[0].Cells[0].Value.ToString());
-            dataPredmetVybran.DataSource = StringLibrary.NactiDataTabulku("SELECT Rozvrh.Id, Rozvrh.Id_predmet, Predmet.zkratka FROM Rozvrh LEFT JOIN Predmet On Rozvrh.Id_predmet = Predmet.Id WHERE Rozvrh.Id_studenti = " + idStudent.ToString() + " ORDER BY Predmet.zkratka");
+             // vybrane predmety
+            int idStudent = int.Parse(dataSkupinka.SelectedRows[0].Cells[0].Value.ToString());
+            dataPredmetVybran.DataSource = StringLibrary.NactiDataTabulku("SELECT Rozvrh.Id, Rozvrh.Id_predmet, Predmet.zkratka FROM Rozvrh LEFT JOIN Predmet On Rozvrh.Id_predmet = Predmet.Id WHERE Rozvrh.Id_studenti=" + idStudent.ToString() + " ORDER BY Predmet.zkratka");
+
+            // predmety na vyber
+            int forma_studia = int.Parse(dataSkupinka.SelectedRows[0].Cells[4].Value.ToString());
+            int semestr = int.Parse(dataSkupinka.SelectedRows[0].Cells[3].Value.ToString());
+            switch (forma_studia)
+            {
+                case 1:
+                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet WHERE pocet_tydnu<>1 AND semestr=" + semestr.ToString() + " AND (SELECT COUNT(*) FROM Rozvrh WHERE Predmet.Id=Rozvrh.Id_predmet AND Rozvrh.Id_studenti=" + idStudent.ToString() + ")=0 ORDER BY zkratka ASC");
+                    break;
+                case 2:
+                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet WHERE pocet_tydnu=1 AND semestr=" + semestr.ToString() + " AND (SELECT COUNT(*) FROM Rozvrh WHERE Predmet.Id=Rozvrh.Id_predmet AND Rozvrh.Id_studenti=" + idStudent.ToString() + ")=0 ORDER BY zkratka ASC");
+                    break;
+                default:
+                    dataPredmet.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Predmet ORDER BY zkratka ASC");
+                    break;
+            }
+            dataPredmetVybran.AllowDrop = true;
+            dataPredmet.AllowDrop = true;
+
         }
 
         private void NactiPredmety(object sender, DataGridViewCellEventArgs e)
         {
-            LoadVybranyPredmet();
-            LoadPredmet(int.Parse(dataSkupinka.SelectedRows[0].Cells[4].Value.ToString()));
+            LoadPredmety();
+        }
+        //z prava do leva - vybrat předmět
+
+        private void DataPredmetMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dataPredmetVybran.AllowDrop = true;
+                dataPredmet.AllowDrop = false;
+                DataGridView.HitTestInfo info = dataPredmet.HitTest(e.X, e.Y);
+                if (info.RowIndex >= 0)
+                {
+                        string text = (String)dataPredmet.Rows[info.RowIndex].Cells[0].Value.ToString();
+                        if (text != null)
+                        {
+                            dataPredmet.DoDragDrop(text, DragDropEffects.Copy);
+                        }
+                }
+            }
+        }
+
+        private void DataPredmetVybranDragEnter(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void DataPredmetVybranDragDrop(object sender, DragEventArgs e)
+        {
+
+            int idStudent = int.Parse(dataSkupinka.SelectedRows[0].Cells[0].Value.ToString());
+            int idPredmet = int.Parse(e.Data.GetData(DataFormats.Text).ToString());
+            StringLibrary.ZapisZaznam("INSERT INTO Rozvrh (Id_predmet, Id_studenti) VALUES (" + idPredmet.ToString() + ", " + idStudent.ToString() + ")");
+            LoadPredmety();
+        }
+        //z leva do prava - zrušit vybraný předmět
+        private void DataPredmetVybranMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dataPredmetVybran.AllowDrop = false;
+                dataPredmet.AllowDrop = true;
+                DataGridView.HitTestInfo info = dataPredmetVybran.HitTest(e.X, e.Y);
+                if (info.RowIndex >= 0)
+                {
+                    string text = (String)dataPredmetVybran.Rows[info.RowIndex].Cells[0].Value.ToString();
+                    if (text != null)
+                    {
+                        dataPredmetVybran.DoDragDrop(text, DragDropEffects.Copy);
+                    }
+                }
+            }
+        }
+        private void DataPredmetDragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+        private void DataPredmetDragDrop(object sender, DragEventArgs e)
+        {
+            int idRozvrh;
+            idRozvrh = int.Parse(e.Data.GetData(DataFormats.Text).ToString());
+            StringLibrary.ZapisZaznam("DELETE FROM Rozvrh WHERE Id = " + idRozvrh.ToString());
+            LoadPredmety();
         }
     }
 }

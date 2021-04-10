@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="6_Kapacita-1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6_Kapacita-1.Designer.cs">
+      <DependentUpon>6_Kapacita-1.cs</DependentUpon>
+    </Compile>
     <Compile Include="6_Kapacita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,10 +241,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseUTBDataSet38.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseUTBDataSet39.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet39.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUTBDataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseUTBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet40.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet40.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseUTBDataSet41.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseUTBDataSet41.xsd</DependentUpon>
     </Compile>
     <Compile Include="DatabaseUTBDataSet5.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -342,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="4_Rozvrhy.resx">
       <DependentUpon>4_Rozvrhy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6_Kapacita-1.resx">
+      <DependentUpon>6_Kapacita-1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="6_Kapacita.resx">
       <DependentUpon>6_Kapacita.cs</DependentUpon>
@@ -733,6 +757,17 @@
     <None Include="DatabaseUTBDataSet38.xss">
       <DependentUpon>DatabaseUTBDataSet38.xsd</DependentUpon>
     </None>
+    <None Include="DatabaseUTBDataSet39.xsc">
+      <DependentUpon>DatabaseUTBDataSet39.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet39.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet39.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet39.xss">
+      <DependentUpon>DatabaseUTBDataSet39.xsd</DependentUpon>
+    </None>
     <None Include="DatabaseUTBDataSet4.xsc">
       <DependentUpon>DatabaseUTBDataSet4.xsd</DependentUpon>
     </None>
@@ -743,6 +778,28 @@
     </None>
     <None Include="DatabaseUTBDataSet4.xss">
       <DependentUpon>DatabaseUTBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet40.xsc">
+      <DependentUpon>DatabaseUTBDataSet40.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet40.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet40.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet40.xss">
+      <DependentUpon>DatabaseUTBDataSet40.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet41.xsc">
+      <DependentUpon>DatabaseUTBDataSet41.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseUTBDataSet41.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseUTBDataSet41.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseUTBDataSet41.xss">
+      <DependentUpon>DatabaseUTBDataSet41.xsd</DependentUpon>
     </None>
     <None Include="DatabaseUTBDataSet5.xsc">
       <DependentUpon>DatabaseUTBDataSet5.xsd</DependentUpon>

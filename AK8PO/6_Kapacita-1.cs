@@ -11,9 +11,9 @@ using UtilityLibraries;
 
 namespace AK8PO
 {
-    public partial class Kapacita : Form
+    public partial class _6_Kapacita1 : Form
     {
-        public Kapacita()
+        public _6_Kapacita1()
         {
             InitializeComponent();
         }
@@ -22,11 +22,11 @@ namespace AK8PO
         {
             Close();
         }
-
+/*
         private void Kapacita_Load(object sender, EventArgs e)
         {
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet41.Stitky'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-           // this.stitkyTableAdapter1.Fill(this.databaseUTBDataSet41.Stitky);
+            // this.stitkyTableAdapter1.Fill(this.databaseUTBDataSet41.Stitky);
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet36.TypStitku'. Můžete jej přesunout nebo jej odstranit podle potřeby.
             this.typStitkuTableAdapter.Fill(this.databaseUTBDataSet36.TypStitku);
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet35.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
@@ -63,18 +63,7 @@ namespace AK8PO
             uvazekPBLabel.Text = (uvazekZamestnance * 1000).ToString();
 
             dataPool.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Stitky WHERE id_zamestnanec=0 AND id_predmet<>0");
-            float celkemBodu = StringLibrary.NactiPrimaVyuka(dataPrimaVyuka, idZamestnanec);
-            celkemPBLabel.Text = celkemBodu.ToString();
-            double procento = Math.Ceiling(celkemBodu / float.Parse(uvazekPBLabel.Text) * 100);
-            if (procento > 100) {
-                celkemProcentoLabel.ForeColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                celkemProcentoLabel.ForeColor = System.Drawing.Color.Black;
-            }
-            celkemProcentoLabel.Text = procento.ToString() + " %";
-
+            StringLibrary.NactiPrimaVyuka(dataPrimaVyuka, dataZkouseni, idZamestnanec);
         }
 
         private void ZobrazDoleva_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -98,7 +87,7 @@ namespace AK8PO
             int predmet = int.Parse(dataPrimaVyuka.Rows[e.RowIndex].Cells[0].Value.ToString());
             int kliknutoNaCell = int.Parse(e.ColumnIndex.ToString());
             //MessageBox.Show(dataPrimaVyuka.SelectedCells[0].ColumnIndex.ToString(), "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (kliknutoNaCell == 7 || kliknutoNaCell == 8 || kliknutoNaCell == 9) 
+            if (kliknutoNaCell == 7 || kliknutoNaCell == 8 || kliknutoNaCell == 9)
             {
                 switch (kliknutoNaCell)
                 {
@@ -133,20 +122,8 @@ namespace AK8PO
                 int idZamestnanec = int.Parse(comboZamestnanec.SelectedValue.ToString());
                 StringLibrary.ZapisZaznam("UPDATE Stitky SET id_zamestnanec=" + idZamestnanec.ToString() + " WHERE Id=" + idStitek.ToString());
                 dataPool.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Stitky WHERE id_zamestnanec=0 AND id_predmet<>0");
-                float celkemBodu = StringLibrary.NactiPrimaVyuka(dataPrimaVyuka, idZamestnanec);
+                StringLibrary.NactiPrimaVyuka(dataPrimaVyuka, dataZkouseni, idZamestnanec);
                 vybraneStitky.DataSource = "";
-                celkemPBLabel.Text = celkemBodu.ToString();
-                double procento = Math.Ceiling(celkemBodu / float.Parse(uvazekPBLabel.Text) * 100);
-                if (procento > 100)
-                {
-                    celkemProcentoLabel.ForeColor = System.Drawing.Color.Red;
-                }
-                else
-                {
-                    celkemProcentoLabel.ForeColor = System.Drawing.Color.Black;
-                }
-                celkemProcentoLabel.Text = procento.ToString() + " %";
-
 
 
                 //MessageBox.Show(idStitek.ToString(), "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -158,29 +135,25 @@ namespace AK8PO
 
         private void StitekDoPooluClickButton(object sender, EventArgs e)
         {
-            pridatStitek.Visible = false;
-            ubratStitek.Visible = false;
-            vybraneStitky.Columns["idPrehled"].Visible = true;
-            int idStitekVybran = int.Parse(vybraneStitky.SelectedRows[0].Cells[0].Value.ToString());
-            //vybraneStitky.Columns["idPrehled"].Visible = false;
+            try
+            {
+                pridatStitek.Visible = false;
+                ubratStitek.Visible = false;
+                vybraneStitky.Columns["idPrehled"].Visible = true;
+                int idStitekVybran = int.Parse(vybraneStitky.SelectedRows[0].Cells[0].Value.ToString());
+                //vybraneStitky.Columns["idPrehled"].Visible = false;
 
-            int idZamestnanec = int.Parse(comboZamestnanec.SelectedValue.ToString());
-            StringLibrary.ZapisZaznam("UPDATE Stitky SET id_zamestnanec=0 WHERE Id=" + idStitekVybran.ToString());
-            dataPool.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Stitky WHERE id_zamestnanec=0 AND id_predmet<>0");
-            float celkemBodu = StringLibrary.NactiPrimaVyuka(dataPrimaVyuka, idZamestnanec);
-            vybraneStitky.DataSource = "";
-            celkemPBLabel.Text = celkemBodu.ToString();
-            double procento = Math.Ceiling(celkemBodu / float.Parse(uvazekPBLabel.Text) * 100);
-            if (procento > 100)
-            {
-                celkemProcentoLabel.ForeColor = System.Drawing.Color.Red;
+                int idZamestnanec = int.Parse(comboZamestnanec.SelectedValue.ToString());
+                StringLibrary.ZapisZaznam("UPDATE Stitky SET id_zamestnanec=0 WHERE Id=" + idStitekVybran.ToString());
+                dataPool.DataSource = StringLibrary.NactiDataTabulku("SELECT * FROM Stitky WHERE id_zamestnanec=0 AND id_predmet<>0");
+                StringLibrary.NactiPrimaVyuka(dataPrimaVyuka, dataZkouseni, idZamestnanec);
+                vybraneStitky.DataSource = "";
             }
-            else
+            catch
             {
-                celkemProcentoLabel.ForeColor = System.Drawing.Color.Black;
             }
-            celkemProcentoLabel.Text = procento.ToString() + " %";
 
         }
+*/
     }
 }

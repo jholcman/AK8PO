@@ -67,7 +67,7 @@ namespace UtilityLibraries
         {
 
             //SqlConnection con = new SqlConnection(StringLibrary.DatabazeRetezec());
-            SqlCommand cmd = new SqlCommand("select (prijmeni+' '+jmeno) as cele_jmeno,Id from Zamestnanci ORDER BY prijmeni COLLATE Latin1_General_CI_AS ASC", con);
+            SqlCommand cmd = new SqlCommand("select (prijmeni+' '+jmeno) as cele_jmeno,Id,uvazek from Zamestnanci ORDER BY prijmeni COLLATE Latin1_General_CI_AS ASC", con);
             DataTable dt = new DataTable();
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -79,6 +79,21 @@ namespace UtilityLibraries
             c.DataSource = dt;
             //c.SelectedValue = selectedValue;
             c.SelectedIndex = 0;
+        }
+        public static float NactiUvazekKapacita(int selectedValue)
+        {
+
+            float uvazek = 0;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = "SELECT uvazek FROM Zamestnanci WHERE Id=@idZamestnanec";
+            cmd.Parameters.AddWithValue("@idZamestnanec", selectedValue);
+            uvazek = float.Parse(cmd.ExecuteScalar().ToString());
+            con.Close();
+            return uvazek;
+
         }
         public static void GenerujIdComboStitekPredmet(ComboBox c, int selectedValue)
         {
@@ -165,6 +180,9 @@ namespace UtilityLibraries
             int pocetSeminaru = 0;
             int jazykVyuky = 0;
             int pocetTydnu = 0;
+            //int zakonceni = 0;
+            string poznamka = "";
+            string prikaz = "";
             pocetStudentu = SectiStudentyStitek(idPredmet, idZamestnanec);
 
             SqlCommand cmd = new SqlCommand();
@@ -180,38 +198,52 @@ namespace UtilityLibraries
             velikostTridy = int.Parse(data["velikost_tridy"].ToString());
             pocetTydnu = int.Parse(data["pocet_tydnu"].ToString());
             jazykVyuky = int.Parse(data["jazyk"].ToString());
+            //zakonceni = int.Parse(data["zakonceni"].ToString());
             con.Close();
 
             float pocetBodu = 0;
             float bodoveHodnoceniP = 0;
             float bodoveHodnoceniC = 0;
             float bodoveHodnoceniS = 0;
+            //float bodoveHodnoceniZA = 0;
+            //float bodoveHodnoceniKZ = 0;
+            //float bodoveHodnoceniZK = 0;
             if (jazykVyuky == 1)
             {
                 bodoveHodnoceniP = float.Parse(StringLibrary.NactiHodnotuGlobal(1));
                 bodoveHodnoceniC = float.Parse(StringLibrary.NactiHodnotuGlobal(2));
                 bodoveHodnoceniS = float.Parse(StringLibrary.NactiHodnotuGlobal(3));
+                //bodoveHodnoceniZA = float.Parse(StringLibrary.NactiHodnotuGlobal(7));
+                //bodoveHodnoceniKZ = float.Parse(StringLibrary.NactiHodnotuGlobal(8));
+                //bodoveHodnoceniZK = float.Parse(StringLibrary.NactiHodnotuGlobal(9));
             }
-            if (jazykVyuky == 2)
+            else
             {
                 bodoveHodnoceniP = float.Parse(StringLibrary.NactiHodnotuGlobal(4));
                 bodoveHodnoceniC = float.Parse(StringLibrary.NactiHodnotuGlobal(5));
                 bodoveHodnoceniS = float.Parse(StringLibrary.NactiHodnotuGlobal(6));
+                //bodoveHodnoceniZA = float.Parse(StringLibrary.NactiHodnotuGlobal(10));
+                //bodoveHodnoceniKZ = float.Parse(StringLibrary.NactiHodnotuGlobal(11));
+                //bodoveHodnoceniZK = float.Parse(StringLibrary.NactiHodnotuGlobal(12));
             }
 
-            string prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (@stitekCislo, @idZamestnanec, @idPredmet, @typStitku, @pocetStudentu, @pocetHodin, @pocetTydnu, @jazyk, @pocetBodu, @poznamka)";
+            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (@stitekCislo, @idZamestnanec, @idPredmet, @typStitku, @pocetStudentu, @pocetHodin, @pocetTydnu, @jazyk, @pocetBodu, @poznamka)";
 
-            pocetBodu = bodoveHodnoceniP * pocetPrednasek * pocetTydnu;
+            
             if (pocetPrednasek > 0)
             {
-
-                string poznamka = "Přednáška štítek č. 1";
+                pocetBodu = bodoveHodnoceniP * pocetPrednasek * pocetTydnu;
+                poznamka = "Přednáška štítek č. 1";
                 ZapisStitekDoDatabaze(prikaz, 1, idZamestnanec, idPredmet, 4, pocetStudentu, pocetPrednasek, pocetTydnu, jazykVyuky, pocetBodu, poznamka);
 
+                //pocetBodu = bodoveHodnoceniZK * pocetPrednasek * pocetStudentu; 
+                //poznamka = "Zkoušení štítek č. 1";
+                //ZapisStitekDoDatabaze(prikaz, 1, idZamestnanec, idPredmet, 3, pocetStudentu, pocetPrednasek, pocetTydnu, jazykVyuky, pocetBodu, poznamka);
             }
-            pocetBodu = bodoveHodnoceniC * pocetCviceni * pocetTydnu;
+            
             if (pocetCviceni > 0)
             {
+                pocetBodu = bodoveHodnoceniC * pocetCviceni * pocetTydnu;
                 if (pocetStudentu > velikostTridy) 
                 { 
                     int pracovniPocetStudentu = pocetStudentu;                              //počet studentů celkem
@@ -225,7 +257,7 @@ namespace UtilityLibraries
                     {
                         if (i == (int)citacPocetStitku) { citacObsahStitku = pracovniPocetStudentu; }
 
-                        string poznamka = "Cvičení štítek č." + i.ToString();
+                        poznamka = "Cvičení štítek č." + i.ToString();
                         ZapisStitekDoDatabaze(prikaz, i, idZamestnanec, idPredmet, 5, citacObsahStitku, pocetCviceni, pocetTydnu, jazykVyuky, pocetBodu, poznamka);
 
                         pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
@@ -238,9 +270,10 @@ namespace UtilityLibraries
                 }
 
             }
-            pocetBodu = bodoveHodnoceniS * pocetSeminaru * pocetTydnu;
+            
             if (pocetSeminaru > 0)
             {
+                pocetBodu = bodoveHodnoceniS * pocetSeminaru * pocetTydnu;
                 if (pocetStudentu > velikostTridy)
                 {
                     int pracovniPocetStudentu = pocetStudentu;                              //počet studentů celkem
@@ -254,7 +287,7 @@ namespace UtilityLibraries
                     {
                         if (i == citacPocetStitku) { citacObsahStitku = pracovniPocetStudentu; }
 
-                        string poznamka = "Seminář štítek č." + i.ToString();
+                        poznamka = "Seminář štítek č." + i.ToString();
                         ZapisStitekDoDatabaze(prikaz, i, idZamestnanec, idPredmet, 6, citacObsahStitku, pocetSeminaru, pocetTydnu, jazykVyuky, pocetBodu, poznamka);
 
                         pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
@@ -302,7 +335,7 @@ namespace UtilityLibraries
             con.Close();
             return pocet;
         }
-        internal static void BarvaNeprirazenych(DataGridView dataStitky, Color barva)
+      internal static void BarvaNeprirazenych(DataGridView dataStitky, Color barva)
         {
             foreach (DataGridViewRow radek in dataStitky.Rows)
             {
@@ -357,10 +390,11 @@ namespace UtilityLibraries
             con.Close();
         }
 
-        internal static void NactiPrimaVyuka(DataGridView dataPrimaVyuka, int idZamestnanec)
+        internal static float NactiPrimaVyuka(DataGridView dataPrimaVyuka, int idZamestnanec)
         {
             dataPrimaVyuka.Rows.Clear();
-            if (SpoctiPrvky("SELECT s.* FROM Stitky AS s WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC") > 0)
+            float celkemBodu = 0;
+            if (SpoctiPrvky("SELECT s.*,p.zakonceni FROM Stitky AS s LEFT JOIN Predmet AS p ON s.id_predmet=p.Id WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC") > 0)
             {
                 float p_cz = float.Parse(NactiHodnotuGlobal(1));
                 float c_cz = float.Parse(NactiHodnotuGlobal(2));
@@ -368,18 +402,18 @@ namespace UtilityLibraries
                 float p_ang = float.Parse(NactiHodnotuGlobal(4));
                 float c_ang = float.Parse(NactiHodnotuGlobal(5));
                 float s_ang = float.Parse(NactiHodnotuGlobal(6));
-               /* vstup07.Text = StringLibrary.NactiHodnotuGlobal(7);
-                vstup08.Text = StringLibrary.NactiHodnotuGlobal(8);
-                vstup09.Text = StringLibrary.NactiHodnotuGlobal(9);
-                vstup10.Text = StringLibrary.NactiHodnotuGlobal(10);
-                vstup11.Text = StringLibrary.NactiHodnotuGlobal(11);
-                vstup12.Text = StringLibrary.NactiHodnotuGlobal(12);*/
+                /*float za_cz = float.Parse(NactiHodnotuGlobal(7));
+                float kz_cz = float.Parse(NactiHodnotuGlobal(8));
+                float zk_cz = float.Parse(NactiHodnotuGlobal(9));
+                float za_ang = float.Parse(NactiHodnotuGlobal(10));
+                float kz_ang = float.Parse(NactiHodnotuGlobal(11));
+                float zk_ang = float.Parse(NactiHodnotuGlobal(12));*/
 
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 con.Open();
-                cmd.CommandText = "SELECT s.* FROM Stitky AS s WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC";
+                cmd.CommandText = "SELECT s.*,p.zakonceni,p.semestr FROM Stitky AS s LEFT JOIN Predmet AS p ON s.id_predmet=p.Id WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC";
                 SqlDataReader dataStitky = cmd.ExecuteReader();
                 int pZS = 0;
                 int pLS = 0;
@@ -392,20 +426,31 @@ namespace UtilityLibraries
                 float pPC = 0;
                 float pCC = 0;
                 float pSC = 0;
+                //int pZA = 0;
+                //int pKZ = 0;
+                //int pZK = 0;
+                //float pZAC = 0;
+                //float pKZC = 0;
+                //float pZKC = 0;
                 int predmet = 0;
                 string druh = "";
+                //int zakonceni = 0;
+                int semestr = 1;
 
                 while (dataStitky.Read())
                 {
                     if (predmet == 0)
                     {
                         predmet = int.Parse(dataStitky["id_predmet"].ToString());
+                        //zakonceni = int.Parse(dataStitky["zakonceni"].ToString());
+                        semestr = int.Parse(dataStitky["semestr"].ToString());
                     }
                     else
                     {
                         if (predmet != int.Parse(dataStitky["id_predmet"].ToString()))
                         {
                             dataPrimaVyuka.Rows.Add(predmet, druh, pZS.ToString(), pLS.ToString(), pPT.ToString(), pCT.ToString(), pST.ToString(), pPS.ToString(), pCS.ToString(), pSS.ToString(), Math.Round(pPC, 2).ToString(), Math.Round(pCC, 2).ToString(), Math.Round(pSC, 2).ToString());
+                            //dataZkouseni.Rows.Add(predmet, pKZ.ToString(), pZA.ToString(), pZK.ToString(), "", Math.Round(pKZC, 2).ToString(), Math.Round(pZAC, 2).ToString(), Math.Round(pZKC, 2).ToString(),"");
                             pZS = 0;
                             pLS = 0;
                             pPT = 0;
@@ -417,12 +462,22 @@ namespace UtilityLibraries
                             pPC = 0;
                             pCC = 0;
                             pSC = 0;
+                            /*pZA = 0;
+                            pKZ = 0;
+                            pZK = 0;
+                            pZAC = 0;
+                            pKZC = 0;
+                            pZKC = 0;*/
+
                             predmet = int.Parse(dataStitky["id_predmet"].ToString());
+                            //zakonceni = int.Parse(dataStitky["zakonceni"].ToString());
+                            semestr = int.Parse(dataStitky["semestr"].ToString());
                         }
 
                     }
 
-                    pZS = int.Parse(dataStitky["pocet_tydnu"].ToString());
+                    if (semestr == 1) pZS = int.Parse(dataStitky["pocet_tydnu"].ToString());
+                    if (semestr == 2) pLS = int.Parse(dataStitky["pocet_tydnu"].ToString());
                     if (int.Parse(dataStitky["jazyk"].ToString()) > 1) druh = "c";
 
                     if (int.Parse(dataStitky["typ_stitku"].ToString()) == 4)
@@ -430,24 +485,46 @@ namespace UtilityLibraries
                         pPT = int.Parse(dataStitky["pocet_hodin"].ToString());
                         pPS++;
                         pPC += float.Parse(dataStitky["pocet_bodu"].ToString());
+                        celkemBodu += float.Parse(dataStitky["pocet_bodu"].ToString());
+                        /*pZK += int.Parse(dataStitky["pocet_studentu"].ToString());
+                        if (int.Parse(dataStitky["jazyk"].ToString()) > 1)
+                        {
+                            pZKC += float.Parse(dataStitky["pocet_studentu"].ToString()) * zk_ang;
+                        }
+                        else
+                        {
+                            pZKC += float.Parse(dataStitky["pocet_studentu"].ToString()) * zk_cz;
+                        }*/
                     }
                     if (int.Parse(dataStitky["typ_stitku"].ToString()) == 5)
                     {
                         pCT = int.Parse(dataStitky["pocet_hodin"].ToString());
                         pCS++;
                         pCC += float.Parse(dataStitky["pocet_bodu"].ToString());
+                        celkemBodu += float.Parse(dataStitky["pocet_bodu"].ToString());
+                        /*pZK += int.Parse(dataStitky["pocet_studentu"].ToString());
+                        if (int.Parse(dataStitky["jazyk"].ToString()) > 1)
+                        {
+                            //pZKC += float.Parse(dataStitky["pocet_studentu"].ToString()) * zk_ang;
+                        }
+                        else
+                        {
+                            //pZKC += float.Parse(dataStitky["pocet_studentu"].ToString()) * zk_cz;
+                        }*/
                     }
                     if (int.Parse(dataStitky["typ_stitku"].ToString()) == 6)
                     {
                         pST = int.Parse(dataStitky["pocet_hodin"].ToString());
                         pSS++;
                         pSC += float.Parse(dataStitky["pocet_bodu"].ToString());
+                        celkemBodu += float.Parse(dataStitky["pocet_bodu"].ToString());
                     }
                 }
                 dataPrimaVyuka.Rows.Add(predmet, druh, pZS.ToString(), pLS.ToString(), pPT.ToString(), pCT.ToString(), pST.ToString(), pPS.ToString(), pCS.ToString(), pSS.ToString(), Math.Round(pPC,2).ToString(), Math.Round(pCC,2).ToString(), Math.Round(pSC,2).ToString());
+                //dataZkouseni.Rows.Add(predmet, pKZ.ToString(), pZA.ToString(), pZK.ToString(), "", Math.Round(pKZC, 2).ToString(), Math.Round(pZAC, 2).ToString(), Math.Round(pZKC, 2).ToString(), "");
                 con.Close();
             }
-
+            return celkemBodu;
         }
         internal static void NactiZkouseni(DataGridView dataZkouseni, int idZamestnanec)
         {
@@ -465,7 +542,6 @@ namespace UtilityLibraries
             con.Close();
 
         }
-
 
     }
 }

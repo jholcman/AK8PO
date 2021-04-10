@@ -21,10 +21,15 @@ namespace AK8PO
             InitializeComponent();
             StringLibrary.GenerujIdCombo(vstupZakonceni, "Zakonceni", "Zakonceni_text", 1);
             StringLibrary.GenerujIdCombo(vstupJazyk, "Jazyk", "Jazyk_text", 1);
+            StringLibrary.GenerujIdCombo(vstupSemestr, "Semestr", "Semestr_text", 1);
         }
 
         private void Predmet_Load(object sender, EventArgs e)
         {
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet40.Semestr'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.semestrTableAdapter.Fill(this.databaseUTBDataSet40.Semestr);
+            // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet39.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.predmetTableAdapter4.Fill(this.databaseUTBDataSet39.Predmet);
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet38.Predmet'. Můžete jej přesunout nebo jej odstranit podle potřeby.
             this.predmetTableAdapter3.Fill(this.databaseUTBDataSet38.Predmet);
             // TODO: Tento řádek načte data do tabulky 'databaseUTBDataSet13.Zakonceni'. Můžete jej přesunout nebo jej odstranit podle potřeby.
@@ -51,10 +56,11 @@ namespace AK8PO
             vstupZakonceni.SelectedValue = int.Parse(predmetyView.SelectedRows[0].Cells[6].Value.ToString());
             vstupJazyk.SelectedValue = int.Parse(predmetyView.SelectedRows[0].Cells[7].Value.ToString());
             vstupVelikost_tridy.Text = predmetyView.SelectedRows[0].Cells[8].Value.ToString();
-            vstupNazev_predmetu.Text = predmetyView.SelectedRows[0].Cells[9].Value.ToString();
-            vstupPocet_kreditu.Text = predmetyView.SelectedRows[0].Cells[10].Value.ToString();
-            vstupGarant_ustav.Text = predmetyView.SelectedRows[0].Cells[11].Value.ToString();
-            vstupGarant_osoba.Text = predmetyView.SelectedRows[0].Cells[12].Value.ToString();
+            vstupSemestr.SelectedValue = int.Parse(predmetyView.SelectedRows[0].Cells[9].Value.ToString());
+            vstupNazev_predmetu.Text = predmetyView.SelectedRows[0].Cells[10].Value.ToString();
+            vstupPocet_kreditu.Text = predmetyView.SelectedRows[0].Cells[11].Value.ToString();
+            vstupGarant_ustav.Text = predmetyView.SelectedRows[0].Cells[12].Value.ToString();
+            vstupGarant_osoba.Text = predmetyView.SelectedRows[0].Cells[13].Value.ToString();
         }
         private void ResetFormulare(object sender, EventArgs e)
         {
@@ -71,6 +77,7 @@ namespace AK8PO
             vstupZakonceni.SelectedValue = 1;
             vstupJazyk.SelectedValue = 1;
             vstupVelikost_tridy.Clear();
+            vstupSemestr.SelectedValue = 1;
             vstupNazev_predmetu.Clear();
             vstupPocet_kreditu.Clear();
             vstupGarant_ustav.Clear();
@@ -80,7 +87,7 @@ namespace AK8PO
         {
             if (vstupID.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("UPDATE Predmet SET zkratka=@VstupZkratka, pocet_tydnu=@VstupPocet_tydnu, prednasky=@VstupPrednasky, cviceni=@VstupCviceni, seminare=@VstupSeminare, zakonceni=@VstupZakonceni, jazyk=@VstupJazyk, velikost_tridy=@VstupVelikost_tridy, nazev_predmetu=@VstupNazev_predmetu, pocet_kreditu=@VstupPocet_kreditu, garant_ustav=@VstupGarant_ustav, garant_osoba=@VstupGarant_osoba WHERE Id = @VstupID", con);
+                SqlCommand cmd = new SqlCommand("UPDATE Predmet SET zkratka=@VstupZkratka, pocet_tydnu=@VstupPocet_tydnu, prednasky=@VstupPrednasky, cviceni=@VstupCviceni, seminare=@VstupSeminare, zakonceni=@VstupZakonceni, jazyk=@VstupJazyk, velikost_tridy=@VstupVelikost_tridy, semestr=@VstupSemestr, nazev_predmetu=@VstupNazev_predmetu, pocet_kreditu=@VstupPocet_kreditu, garant_ustav=@VstupGarant_ustav, garant_osoba=@VstupGarant_osoba WHERE Id = @VstupID", con);
 
                 if (!int.TryParse(vstupPocet_tydnu.Text, out int pocetTydnu)) { pocetTydnu = 14; }
                 if (!int.TryParse(vstupPrednasky.Text, out int pocetP)) { pocetP = 0; }
@@ -98,6 +105,7 @@ namespace AK8PO
                 cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupVelikost_tridy", trida);
+                cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
                 cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
                 cmd.Parameters.AddWithValue("@VstupPocet_kreditu", kredit);
                 cmd.Parameters.AddWithValue("@VstupGarant_ustav", vstupGarant_ustav.Text);
@@ -123,7 +131,7 @@ namespace AK8PO
             {
                 if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Predmet WHERE zkratka='" + vstupZkratka.Text + "'") == 0) 
                 { 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Predmet (zkratka, pocet_tydnu, prednasky, cviceni, seminare, zakonceni, jazyk, velikost_tridy, nazev_predmetu, pocet_kreditu, garant_ustav, garant_osoba) VALUES (@VstupZkratka, @VstupPocet_tydnu, @VstupPrednasky, @VstupCviceni, @VstupSeminare, @VstupZakonceni, @VstupJazyk, @VstupVelikost_tridy, @VstupNazev_predmetu, @VstupPocet_kreditu, @VstupGarant_ustav, @VstupGarant_osoba)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Predmet (zkratka, pocet_tydnu, prednasky, cviceni, seminare, zakonceni, jazyk, velikost_tridy, semestr, nazev_predmetu, pocet_kreditu, garant_ustav, garant_osoba) VALUES (@VstupZkratka, @VstupPocet_tydnu, @VstupPrednasky, @VstupCviceni, @VstupSeminare, @VstupZakonceni, @VstupJazyk, @VstupVelikost_tridy, @VstupSemestr, @VstupNazev_predmetu, @VstupPocet_kreditu, @VstupGarant_ustav, @VstupGarant_osoba)", con);
 
                     if (!int.TryParse(vstupPocet_tydnu.Text, out int pocetTydnu)) { pocetTydnu = 14; }
                     if (!int.TryParse(vstupPrednasky.Text, out int pocetP)) { pocetP = 0; }
@@ -131,6 +139,7 @@ namespace AK8PO
                     if (!int.TryParse(vstupSeminare.Text, out int pocetS)) { pocetS = 0; }
                     if (!int.TryParse(vstupVelikost_tridy.Text, out int trida)) { trida = 0; }
                     if (!int.TryParse(vstupPocet_kreditu.Text, out int kredit)) { kredit = 0; }
+                    if (pocetTydnu < 1) pocetTydnu = 14;
 
                     cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
                     cmd.Parameters.AddWithValue("@VstupPocet_tydnu", pocetTydnu);
@@ -140,6 +149,7 @@ namespace AK8PO
                     cmd.Parameters.AddWithValue("@VstupZakonceni", vstupZakonceni.SelectedValue);
                     cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
                     cmd.Parameters.AddWithValue("@VstupVelikost_tridy", trida);
+                    cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
                     cmd.Parameters.AddWithValue("@VstupNazev_predmetu", vstupNazev_predmetu.Text);
                     cmd.Parameters.AddWithValue("@VstupPocet_kreditu", kredit);
                     cmd.Parameters.AddWithValue("@VstupGarant_ustav", vstupGarant_ustav.Text);

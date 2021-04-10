@@ -53,6 +53,8 @@ namespace AK8PO
             this.databaseUTBDataSet13 = new AK8PO.DatabaseUTBDataSet13();
             this.jazykBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.databaseUTBDataSet12 = new AK8PO.DatabaseUTBDataSet12();
+            this.predmetBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseUTBDataSet38 = new AK8PO.DatabaseUTBDataSet38();
             this.predmetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.databaseUTBDataSet4 = new AK8PO.DatabaseUTBDataSet4();
             this.predmetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -79,9 +81,15 @@ namespace AK8PO
             this.jazykTableAdapter = new AK8PO.DatabaseUTBDataSet12TableAdapters.JazykTableAdapter();
             this.zakonceniTableAdapter = new AK8PO.DatabaseUTBDataSet13TableAdapters.ZakonceniTableAdapter();
             this.label14 = new System.Windows.Forms.Label();
-            this.databaseUTBDataSet38 = new AK8PO.DatabaseUTBDataSet38();
-            this.predmetBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.predmetTableAdapter3 = new AK8PO.DatabaseUTBDataSet38TableAdapters.PredmetTableAdapter();
+            this.vstupSemestr = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.databaseUTBDataSet39 = new AK8PO.DatabaseUTBDataSet39();
+            this.predmetBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.predmetTableAdapter4 = new AK8PO.DatabaseUTBDataSet39TableAdapters.PredmetTableAdapter();
+            this.databaseUTBDataSet40 = new AK8PO.DatabaseUTBDataSet40();
+            this.semestrBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.semestrTableAdapter = new AK8PO.DatabaseUTBDataSet40TableAdapters.SemestrTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zkratkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pocet_tydnu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +99,7 @@ namespace AK8PO
             this.zakonceniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.jazykDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.velikosttridyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semestr = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.nazevpredmetuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pocet_kreditu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.garantustavDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,14 +109,18 @@ namespace AK8PO
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet_Predmet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet38)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semestrBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -141,7 +154,7 @@ namespace AK8PO
             "CZ",
             "ENG",
             "DE"});
-            this.vstupJazyk.Location = new System.Drawing.Point(802, 369);
+            this.vstupJazyk.Location = new System.Drawing.Point(802, 339);
             this.vstupJazyk.Name = "vstupJazyk";
             this.vstupJazyk.Size = new System.Drawing.Size(101, 24);
             this.vstupJazyk.TabIndex = 86;
@@ -150,7 +163,7 @@ namespace AK8PO
             // 
             this.vstupID.Enabled = false;
             this.vstupID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupID.Location = new System.Drawing.Point(802, 115);
+            this.vstupID.Location = new System.Drawing.Point(802, 85);
             this.vstupID.Name = "vstupID";
             this.vstupID.ReadOnly = true;
             this.vstupID.Size = new System.Drawing.Size(101, 22);
@@ -160,7 +173,7 @@ namespace AK8PO
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.Location = new System.Drawing.Point(770, 120);
+            this.label15.Location = new System.Drawing.Point(770, 90);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(21, 16);
             this.label15.TabIndex = 80;
@@ -170,7 +183,7 @@ namespace AK8PO
             // vstupNazev_predmetu
             // 
             this.vstupNazev_predmetu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupNazev_predmetu.Location = new System.Drawing.Point(802, 443);
+            this.vstupNazev_predmetu.Location = new System.Drawing.Point(802, 450);
             this.vstupNazev_predmetu.MaxLength = 50;
             this.vstupNazev_predmetu.Name = "vstupNazev_predmetu";
             this.vstupNazev_predmetu.Size = new System.Drawing.Size(361, 22);
@@ -180,7 +193,7 @@ namespace AK8PO
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(658, 444);
+            this.label9.Location = new System.Drawing.Point(658, 453);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 16);
             this.label9.TabIndex = 78;
@@ -191,7 +204,7 @@ namespace AK8PO
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(709, 372);
+            this.label10.Location = new System.Drawing.Point(709, 342);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 16);
             this.label10.TabIndex = 77;
@@ -201,7 +214,7 @@ namespace AK8PO
             // vstupVelikost_tridy
             // 
             this.vstupVelikost_tridy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupVelikost_tridy.Location = new System.Drawing.Point(802, 407);
+            this.vstupVelikost_tridy.Location = new System.Drawing.Point(802, 377);
             this.vstupVelikost_tridy.MaxLength = 4;
             this.vstupVelikost_tridy.Name = "vstupVelikost_tridy";
             this.vstupVelikost_tridy.Size = new System.Drawing.Size(101, 22);
@@ -211,7 +224,7 @@ namespace AK8PO
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(707, 408);
+            this.label7.Location = new System.Drawing.Point(707, 378);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 16);
             this.label7.TabIndex = 73;
@@ -222,7 +235,7 @@ namespace AK8PO
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(687, 228);
+            this.label4.Location = new System.Drawing.Point(687, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 16);
             this.label4.TabIndex = 72;
@@ -233,7 +246,7 @@ namespace AK8PO
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(713, 192);
+            this.label3.Location = new System.Drawing.Point(713, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 71;
@@ -243,7 +256,7 @@ namespace AK8PO
             // vstupZkratka
             // 
             this.vstupZkratka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupZkratka.Location = new System.Drawing.Point(802, 151);
+            this.vstupZkratka.Location = new System.Drawing.Point(802, 121);
             this.vstupZkratka.MaxLength = 20;
             this.vstupZkratka.Name = "vstupZkratka";
             this.vstupZkratka.Size = new System.Drawing.Size(172, 22);
@@ -253,7 +266,7 @@ namespace AK8PO
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(678, 156);
+            this.label2.Location = new System.Drawing.Point(678, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 69;
@@ -320,11 +333,12 @@ namespace AK8PO
             this.zakonceniDataGridViewTextBoxColumn,
             this.jazykDataGridViewTextBoxColumn,
             this.velikosttridyDataGridViewTextBoxColumn,
+            this.semestr,
             this.nazevpredmetuDataGridViewTextBoxColumn,
             this.pocet_kreditu,
             this.garantustavDataGridViewTextBoxColumn,
             this.garantosobaDataGridViewTextBoxColumn});
-            this.predmetyView.DataSource = this.predmetBindingSource3;
+            this.predmetyView.DataSource = this.predmetBindingSource4;
             this.predmetyView.Location = new System.Drawing.Point(17, 80);
             this.predmetyView.Name = "predmetyView";
             this.predmetyView.ReadOnly = true;
@@ -354,6 +368,16 @@ namespace AK8PO
             this.databaseUTBDataSet12.DataSetName = "DatabaseUTBDataSet12";
             this.databaseUTBDataSet12.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // predmetBindingSource3
+            // 
+            this.predmetBindingSource3.DataMember = "Predmet";
+            this.predmetBindingSource3.DataSource = this.databaseUTBDataSet38;
+            // 
+            // databaseUTBDataSet38
+            // 
+            this.databaseUTBDataSet38.DataSetName = "DatabaseUTBDataSet38";
+            this.databaseUTBDataSet38.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // predmetBindingSource2
             // 
             this.predmetBindingSource2.DataMember = "Predmet";
@@ -382,7 +406,7 @@ namespace AK8PO
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(689, 300);
+            this.label8.Location = new System.Drawing.Point(689, 270);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 16);
             this.label8.TabIndex = 88;
@@ -393,7 +417,7 @@ namespace AK8PO
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.Location = new System.Drawing.Point(702, 264);
+            this.label11.Location = new System.Drawing.Point(702, 234);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 16);
             this.label11.TabIndex = 87;
@@ -404,7 +428,7 @@ namespace AK8PO
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(660, 336);
+            this.label12.Location = new System.Drawing.Point(660, 306);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(131, 16);
             this.label12.TabIndex = 89;
@@ -414,7 +438,7 @@ namespace AK8PO
             // vstupPocet_tydnu
             // 
             this.vstupPocet_tydnu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupPocet_tydnu.Location = new System.Drawing.Point(802, 187);
+            this.vstupPocet_tydnu.Location = new System.Drawing.Point(802, 157);
             this.vstupPocet_tydnu.MaxLength = 4;
             this.vstupPocet_tydnu.Name = "vstupPocet_tydnu";
             this.vstupPocet_tydnu.Size = new System.Drawing.Size(101, 22);
@@ -423,7 +447,7 @@ namespace AK8PO
             // vstupPrednasky
             // 
             this.vstupPrednasky.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupPrednasky.Location = new System.Drawing.Point(802, 223);
+            this.vstupPrednasky.Location = new System.Drawing.Point(802, 193);
             this.vstupPrednasky.MaxLength = 4;
             this.vstupPrednasky.Name = "vstupPrednasky";
             this.vstupPrednasky.Size = new System.Drawing.Size(101, 22);
@@ -432,7 +456,7 @@ namespace AK8PO
             // vstupSeminare
             // 
             this.vstupSeminare.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupSeminare.Location = new System.Drawing.Point(802, 295);
+            this.vstupSeminare.Location = new System.Drawing.Point(802, 265);
             this.vstupSeminare.MaxLength = 4;
             this.vstupSeminare.Name = "vstupSeminare";
             this.vstupSeminare.Size = new System.Drawing.Size(101, 22);
@@ -441,7 +465,7 @@ namespace AK8PO
             // vstupCviceni
             // 
             this.vstupCviceni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupCviceni.Location = new System.Drawing.Point(802, 259);
+            this.vstupCviceni.Location = new System.Drawing.Point(802, 229);
             this.vstupCviceni.MaxLength = 4;
             this.vstupCviceni.Name = "vstupCviceni";
             this.vstupCviceni.Size = new System.Drawing.Size(101, 22);
@@ -457,7 +481,7 @@ namespace AK8PO
             "z",
             "zk",
             "kz"});
-            this.vstupZakonceni.Location = new System.Drawing.Point(802, 331);
+            this.vstupZakonceni.Location = new System.Drawing.Point(802, 301);
             this.vstupZakonceni.Name = "vstupZakonceni";
             this.vstupZakonceni.Size = new System.Drawing.Size(101, 24);
             this.vstupZakonceni.TabIndex = 94;
@@ -465,7 +489,7 @@ namespace AK8PO
             // vstupPocet_kreditu
             // 
             this.vstupPocet_kreditu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupPocet_kreditu.Location = new System.Drawing.Point(802, 479);
+            this.vstupPocet_kreditu.Location = new System.Drawing.Point(802, 486);
             this.vstupPocet_kreditu.MaxLength = 4;
             this.vstupPocet_kreditu.Name = "vstupPocet_kreditu";
             this.vstupPocet_kreditu.Size = new System.Drawing.Size(101, 22);
@@ -475,7 +499,7 @@ namespace AK8PO
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(705, 480);
+            this.label13.Location = new System.Drawing.Point(705, 487);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 16);
             this.label13.TabIndex = 95;
@@ -485,7 +509,7 @@ namespace AK8PO
             // vstupGarant_ustav
             // 
             this.vstupGarant_ustav.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupGarant_ustav.Location = new System.Drawing.Point(801, 542);
+            this.vstupGarant_ustav.Location = new System.Drawing.Point(801, 556);
             this.vstupGarant_ustav.MaxLength = 20;
             this.vstupGarant_ustav.Name = "vstupGarant_ustav";
             this.vstupGarant_ustav.Size = new System.Drawing.Size(102, 22);
@@ -495,7 +519,7 @@ namespace AK8PO
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(685, 543);
+            this.label5.Location = new System.Drawing.Point(685, 557);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 16);
             this.label5.TabIndex = 97;
@@ -505,7 +529,7 @@ namespace AK8PO
             // vstupGarant_osoba
             // 
             this.vstupGarant_osoba.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vstupGarant_osoba.Location = new System.Drawing.Point(801, 573);
+            this.vstupGarant_osoba.Location = new System.Drawing.Point(801, 587);
             this.vstupGarant_osoba.MaxLength = 100;
             this.vstupGarant_osoba.Name = "vstupGarant_osoba";
             this.vstupGarant_osoba.Size = new System.Drawing.Size(361, 22);
@@ -515,7 +539,7 @@ namespace AK8PO
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(683, 574);
+            this.label6.Location = new System.Drawing.Point(683, 588);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 16);
             this.label6.TabIndex = 99;
@@ -552,26 +576,65 @@ namespace AK8PO
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label14.Location = new System.Drawing.Point(926, 192);
+            this.label14.Location = new System.Drawing.Point(926, 162);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(146, 15);
             this.label14.TabIndex = 101;
             this.label14.Text = "1 - kombinované studium";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // databaseUTBDataSet38
-            // 
-            this.databaseUTBDataSet38.DataSetName = "DatabaseUTBDataSet38";
-            this.databaseUTBDataSet38.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // predmetBindingSource3
-            // 
-            this.predmetBindingSource3.DataMember = "Predmet";
-            this.predmetBindingSource3.DataSource = this.databaseUTBDataSet38;
-            // 
             // predmetTableAdapter3
             // 
             this.predmetTableAdapter3.ClearBeforeFill = true;
+            // 
+            // vstupSemestr
+            // 
+            this.vstupSemestr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.vstupSemestr.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupSemestr.FormattingEnabled = true;
+            this.vstupSemestr.Location = new System.Drawing.Point(802, 411);
+            this.vstupSemestr.Name = "vstupSemestr";
+            this.vstupSemestr.Size = new System.Drawing.Size(101, 24);
+            this.vstupSemestr.TabIndex = 102;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label16.Location = new System.Drawing.Point(733, 414);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 16);
+            this.label16.TabIndex = 103;
+            this.label16.Text = "Semestr";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // databaseUTBDataSet39
+            // 
+            this.databaseUTBDataSet39.DataSetName = "DatabaseUTBDataSet39";
+            this.databaseUTBDataSet39.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // predmetBindingSource4
+            // 
+            this.predmetBindingSource4.DataMember = "Predmet";
+            this.predmetBindingSource4.DataSource = this.databaseUTBDataSet39;
+            // 
+            // predmetTableAdapter4
+            // 
+            this.predmetTableAdapter4.ClearBeforeFill = true;
+            // 
+            // databaseUTBDataSet40
+            // 
+            this.databaseUTBDataSet40.DataSetName = "DatabaseUTBDataSet40";
+            this.databaseUTBDataSet40.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // semestrBindingSource
+            // 
+            this.semestrBindingSource.DataMember = "Semestr";
+            this.semestrBindingSource.DataSource = this.databaseUTBDataSet40;
+            // 
+            // semestrTableAdapter
+            // 
+            this.semestrTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -657,6 +720,16 @@ namespace AK8PO
             this.velikosttridyDataGridViewTextBoxColumn.ReadOnly = true;
             this.velikosttridyDataGridViewTextBoxColumn.Width = 60;
             // 
+            // semestr
+            // 
+            this.semestr.DataPropertyName = "semestr";
+            this.semestr.DataSource = this.semestrBindingSource;
+            this.semestr.DisplayMember = "Semestr_text";
+            this.semestr.HeaderText = "Semestr";
+            this.semestr.Name = "semestr";
+            this.semestr.ReadOnly = true;
+            this.semestr.ValueMember = "Id";
+            // 
             // nazevpredmetuDataGridViewTextBoxColumn
             // 
             this.nazevpredmetuDataGridViewTextBoxColumn.DataPropertyName = "nazev_predmetu";
@@ -690,6 +763,8 @@ namespace AK8PO
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.vstupSemestr);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.vstupGarant_osoba);
             this.Controls.Add(this.label6);
@@ -733,14 +808,18 @@ namespace AK8PO
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jazykBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet_Predmet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.predmetBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.semestrBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -802,6 +881,14 @@ namespace AK8PO
         private DatabaseUTBDataSet38 databaseUTBDataSet38;
         private System.Windows.Forms.BindingSource predmetBindingSource3;
         private DatabaseUTBDataSet38TableAdapters.PredmetTableAdapter predmetTableAdapter3;
+        private System.Windows.Forms.ComboBox vstupSemestr;
+        private System.Windows.Forms.Label label16;
+        private DatabaseUTBDataSet39 databaseUTBDataSet39;
+        private System.Windows.Forms.BindingSource predmetBindingSource4;
+        private DatabaseUTBDataSet39TableAdapters.PredmetTableAdapter predmetTableAdapter4;
+        private DatabaseUTBDataSet40 databaseUTBDataSet40;
+        private System.Windows.Forms.BindingSource semestrBindingSource;
+        private DatabaseUTBDataSet40TableAdapters.SemestrTableAdapter semestrTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn zkratkaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pocet_tydnu;
@@ -811,6 +898,7 @@ namespace AK8PO
         private System.Windows.Forms.DataGridViewComboBoxColumn zakonceniDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn jazykDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn velikosttridyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn semestr;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazevpredmetuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pocet_kreditu;
         private System.Windows.Forms.DataGridViewTextBoxColumn garantustavDataGridViewTextBoxColumn;
