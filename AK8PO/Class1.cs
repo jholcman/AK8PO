@@ -166,7 +166,7 @@ namespace UtilityLibraries
             con.Open();
             cmd.CommandText = "select SUM(Studenti.pocet_studentu) FROM Studenti,Rozvrh WHERE Rozvrh.Id_predmet=@idStudenti AND Rozvrh.Id_studenti=Studenti.Id";
             cmd.Parameters.AddWithValue("@idStudenti", idPredmet);
-            pocetStudentu = (int)cmd.ExecuteScalar();
+            pocetStudentu = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
             return pocetStudentu;
         }
@@ -368,9 +368,8 @@ namespace UtilityLibraries
             {
                 int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 4)");
                 pocetBodu = bodoveHodnoceniP * pocetPrednasek * pocetTydnu;
-                prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu  + ") WHERE Id="+id_zaznam;
-                UpdateStitekDoDatabazePrednasky(prikaz);
-
+                prikaz = "UPDATE Stitky SET pocet_studentu=@pocetStudentu, pocet_bodu=@pocetBodu WHERE Id=@IdStitku";
+                StringLibrary.UpdateStitekId(prikaz, pocetStudentu, pocetBodu, id_zaznam);
             }
 
             if (pocetCviceni > 0)
@@ -381,8 +380,8 @@ namespace UtilityLibraries
                 if (pocetStitkuDatabaze == 1 && pocetStudentu <= velikostTridy)
                 {
                     int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 5)");
-                    prikaz = "UPDATE Stitky SET pocet_studentu=" + pocetStudentu.ToString() + ", pocet_bodu=" + pocetBodu.ToString() + " WHERE Id=" + id_zaznam.ToString();
-                    UpdateStitekDoDatabazePrednasky(prikaz);
+                    prikaz = "UPDATE Stitky SET pocet_studentu=@pocetStudentu, pocet_bodu=@pocetBodu WHERE Id=@IdStitku";
+                    StringLibrary.UpdateStitekId(prikaz, pocetStudentu, pocetBodu, id_zaznam);
                 }
                 else 
                 {
@@ -396,10 +395,10 @@ namespace UtilityLibraries
                     int j = 0;
                     while (data1.Read())
                     {
-                        poleIndexuDB[j] = Convert.ToInt32(data1[j]);
+                        poleIndexuDB[j] = Convert.ToInt32(data1["Id"]);
                         j++;
                     }
-                    data1.Close();
+                    con.Close();
                     /////////////////
                     int pocetStitekNaZapis = 0;
                     int indexNaZapis = 0;
@@ -416,29 +415,28 @@ namespace UtilityLibraries
                     for (int i = 1; i <= pocetPruchodu; i++)
                     {
                         indexNaZapis = 0;
+                        if (pracovniPocetStudentu > citacObsahStitku)
+                        {
+                            pocetStitekNaZapis = citacObsahStitku;
+                            pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
+                        }
+                        else
+                        {
+                            pocetStitekNaZapis = pracovniPocetStudentu;
+                            pracovniPocetStudentu = 0;
+                        }
                         if (i <= pocetStitkuDatabaze) 
                         {
-                           if (pracovniPocetStudentu > citacObsahStitku)
-                            {
-                                pocetStitekNaZapis = citacObsahStitku;
-                                pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
-                            }
-                           else
-                            {
-                                pocetStitekNaZapis = pracovniPocetStudentu;
-                                pracovniPocetStudentu = 0;
-                            }
-                            indexNaZapis = poleIndexuDB[i - 1];
-                            prikaz = "UPDATE Stitky SET pocet_studentu=" + pocetStudentu.ToString() + ", pocet_bodu=" + pocetBodu.ToString() + " WHERE Id=" + indexNaZapis.ToString();
+                           indexNaZapis = poleIndexuDB[i - 1];
+                            prikaz = "UPDATE Stitky SET pocet_studentu=@pocetStudentu, pocet_bodu=@pocetBodu WHERE Id=@IdStitku";
+                            StringLibrary.UpdateStitekId(prikaz, pocetStitekNaZapis, pocetBodu, indexNaZapis);
                         }
                         else
                         {
                             poznamka = "Cvičení štítek č." + i.ToString();
-                            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 5, " + pocetStudentu.ToString() + ", " + pocetCviceni.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", '" + poznamka + "') WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (@stitekCislo, @idZamestnanec, @idPredmet, @typStitku, @pocetStudentu, @pocetHodin, @pocetTydnu, @jazyk, @pocetBodu, @poznamka)";
+                            ZapisStitekDoDatabaze(prikaz, i, 0, idPredmet, 5, pocetStitekNaZapis, pocetCviceni, pocetTydnu, jazykVyuky, pocetBodu, poznamka);
                         }
-                        UpdateStitekDoDatabazePrednasky(prikaz);
-
-
                     }
                     ////////////// konec cyklus
 
@@ -454,8 +452,8 @@ namespace UtilityLibraries
                 if (pocetStitkuDatabaze == 1 && pocetStudentu <= velikostTridy)
                 {
                     int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 6)");
-                    prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + id_zaznam.ToString();
-                    UpdateStitekDoDatabazePrednasky(prikaz);
+                    prikaz = "UPDATE Stitky SET pocet_studentu=@pocetStudentu, pocet_bodu=@pocetBodu WHERE Id=@IdStitku";
+                    StringLibrary.UpdateStitekId(prikaz, pocetStudentu, pocetBodu, id_zaznam);
                 }
                 else
                 {
@@ -469,10 +467,10 @@ namespace UtilityLibraries
                     int j = 0;
                     while (data1.Read())
                     {
-                        poleIndexuDB1[j] = Convert.ToInt32(data1[j]);
+                        poleIndexuDB1[j] = Convert.ToInt32(data1["Id"]);
                         j++;
                     }
-                    data1.Close();
+                    con.Close();
                     /////////////////
                     int pocetStitekNaZapis = 0;
                     int indexNaZapis = 0;
@@ -488,36 +486,32 @@ namespace UtilityLibraries
 
                     for (int i = 1; i <= pocetPruchodu; i++)
                     {
+                        if (pracovniPocetStudentu > citacObsahStitku)
+                        {
+                            pocetStitekNaZapis = citacObsahStitku;
+                            pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
+                        }
+                        else
+                        {
+                            pocetStitekNaZapis = pracovniPocetStudentu;
+                            pracovniPocetStudentu = 0;
+                        }
                         indexNaZapis = 0;
                         if (i <= pocetStitkuDatabaze)
                         {
-                            if (pracovniPocetStudentu > citacObsahStitku)
-                            {
-                                pocetStitekNaZapis = citacObsahStitku;
-                                pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
-                            }
-                            else
-                            {
-                                pocetStitekNaZapis = pracovniPocetStudentu;
-                                pracovniPocetStudentu = 0;
-                            }
                             indexNaZapis = poleIndexuDB1[i - 1];
-                            prikaz = "UPDATE Stitky SET pocet_studentu=" + pocetStudentu.ToString() + ", pocet_bodu=" + pocetBodu.ToString() + " WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "UPDATE Stitky SET pocet_studentu=@pocetStudentu, pocet_bodu=@pocetBodu WHERE Id=@IdStitku";
+                            StringLibrary.UpdateStitekId(prikaz, pocetStitekNaZapis, pocetBodu, indexNaZapis);
                         }
                         else
                         {
                             poznamka = "Seminář štítek č." + i.ToString();
-                            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 6, " + pocetStudentu.ToString() + ", " + pocetSeminaru.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", '" + poznamka + "') WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (@stitekCislo, @idZamestnanec, @idPredmet, @typStitku, @pocetStudentu, @pocetHodin, @pocetTydnu, @jazyk, @pocetBodu, @poznamka)";
+                            ZapisStitekDoDatabaze(prikaz, i, 0, idPredmet, 6, pocetStitekNaZapis, pocetSeminaru, pocetTydnu, jazykVyuky, pocetBodu, poznamka);
                         }
-                        UpdateStitekDoDatabazePrednasky(prikaz);
-
-
                     }
                     ////////////// konec cyklus
-
-
                 }
-
             }
         }
 
@@ -543,13 +537,18 @@ namespace UtilityLibraries
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        private static void UpdateStitekDoDatabazePrednasky(string prikaz)
+
+        private static void UpdateStitekId(string prikaz, int pocetStudentu, float pocetBodu, int IdStitku)
         {
             SqlCommand cmd = new SqlCommand();
 
             cmd.Connection = con;
             con.Open();
             cmd.CommandText = prikaz;
+
+            cmd.Parameters.AddWithValue("@IdStitku", IdStitku);
+            cmd.Parameters.AddWithValue("@pocetStudentu", pocetStudentu);
+            cmd.Parameters.AddWithValue("@pocetBodu", Math.Round(pocetBodu, 2));
 
             cmd.ExecuteNonQuery();
             con.Close();
@@ -563,20 +562,31 @@ namespace UtilityLibraries
             {
 
                 int pocetPredmetuOprava;
-                pocetPredmetuOprava = SpoctiPrvky("select COUNT(*) from Stitky where (id_predmet IN (select Id_predmet from rozvrh where Id_studenti = " + id_studenta.ToString() + ")) group by id_predmet");
-                int[] polePredmetu = new int[pocetPredmetuOprava];
+
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 con.Open();
                 cmd.CommandText = "select id_predmet from Stitky where (id_predmet IN (select Id_predmet from rozvrh where Id_studenti = " + id_studenta.ToString() + ")) group by id_predmet";
                 SqlDataReader data1 = cmd.ExecuteReader();
+                pocetPredmetuOprava = 0;
+                while (data1.Read())
+                {
+                    pocetPredmetuOprava++;
+                }
+                con.Close();
+
+                int[] polePredmetu = new int[pocetPredmetuOprava];
+                
+                con.Open();
+                cmd.CommandText = "select id_predmet from Stitky where (id_predmet IN (select Id_predmet from rozvrh where Id_studenti = " + id_studenta.ToString() + ")) group by id_predmet";
+                data1 = cmd.ExecuteReader();
                 int j = 0;
                 while (data1.Read())
                 {
-                    polePredmetu[j] = Convert.ToInt32(data1[j]);
+                    polePredmetu[j] = Convert.ToInt32(data1["id_predmet"]);
                     j++;
                 }
-                data1.Close();
+                con.Close();
                 foreach (int k in polePredmetu)
                 {
                     StringLibrary.UpdateStitky(k);
