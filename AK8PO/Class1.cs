@@ -381,7 +381,7 @@ namespace UtilityLibraries
                 if (pocetStitkuDatabaze == 1 && pocetStudentu <= velikostTridy)
                 {
                     int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 5)");
-                    prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + id_zaznam.ToString();
+                    prikaz = "UPDATE Stitky SET pocet_studentu=" + pocetStudentu.ToString() + ", pocet_bodu=" + pocetBodu.ToString() + " WHERE Id=" + id_zaznam.ToString();
                     UpdateStitekDoDatabazePrednasky(prikaz);
                 }
                 else 
@@ -429,12 +429,12 @@ namespace UtilityLibraries
                                 pracovniPocetStudentu = 0;
                             }
                             indexNaZapis = poleIndexuDB[i - 1];
-                            prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "UPDATE Stitky SET pocet_studentu=" + pocetStudentu.ToString() + ", pocet_bodu=" + pocetBodu.ToString() + " WHERE Id=" + indexNaZapis.ToString();
                         }
                         else
                         {
                             poznamka = "Cvičení štítek č." + i.ToString();
-                            prikaz = "INSERT INTO Stitky SET (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 5, " + pocetStudentu.ToString() + ", " + pocetCviceni.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", " + poznamka + ") WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 5, " + pocetStudentu.ToString() + ", " + pocetCviceni.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", '" + poznamka + "') WHERE Id=" + indexNaZapis.ToString();
                         }
                         UpdateStitekDoDatabazePrednasky(prikaz);
 
@@ -502,12 +502,12 @@ namespace UtilityLibraries
                                 pracovniPocetStudentu = 0;
                             }
                             indexNaZapis = poleIndexuDB1[i - 1];
-                            prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "UPDATE Stitky SET pocet_studentu=" + pocetStudentu.ToString() + ", pocet_bodu=" + pocetBodu.ToString() + " WHERE Id=" + indexNaZapis.ToString();
                         }
                         else
                         {
                             poznamka = "Seminář štítek č." + i.ToString();
-                            prikaz = "INSERT INTO Stitky SET (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 6, " + pocetStudentu.ToString() + ", " + pocetSeminaru.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", " + poznamka + ") WHERE Id=" + indexNaZapis.ToString();
+                            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 6, " + pocetStudentu.ToString() + ", " + pocetSeminaru.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", '" + poznamka + "') WHERE Id=" + indexNaZapis.ToString();
                         }
                         UpdateStitekDoDatabazePrednasky(prikaz);
 
@@ -561,6 +561,26 @@ namespace UtilityLibraries
             
             if (pocetStitkuOprava > 0)
             {
+
+                int pocetPredmetuOprava;
+                pocetPredmetuOprava = SpoctiPrvky("select COUNT(*) from Stitky where (id_predmet IN (select Id_predmet from rozvrh where Id_studenti = " + id_studenta.ToString() + ")) group by id_predmet");
+                int[] polePredmetu = new int[pocetPredmetuOprava];
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+                cmd.CommandText = "select id_predmet from Stitky where (id_predmet IN (select Id_predmet from rozvrh where Id_studenti = " + id_studenta.ToString() + ")) group by id_predmet";
+                SqlDataReader data1 = cmd.ExecuteReader();
+                int j = 0;
+                while (data1.Read())
+                {
+                    polePredmetu[j] = Convert.ToInt32(data1[j]);
+                    j++;
+                }
+                data1.Close();
+                foreach (int k in polePredmetu)
+                {
+                    StringLibrary.UpdateStitky(k);
+                }
 
                 MessageBox.Show("Přepočet štítků proveden! Záznam byl opraven", "Zadat jinou skupinu?", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
