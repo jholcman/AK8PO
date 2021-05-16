@@ -42,7 +42,7 @@ namespace AK8PO
             vybraneStitky.DataSource = "";
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        private void FillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace AK8PO
             {
                 pridatStitek.Visible = false;
                 ubratStitek.Visible = false;
-                dataPool.Columns["idPool"].Visible = true;
+                //dataPool.Columns["idPool"].Visible = true;
                 int idStitek = int.Parse(dataPool.SelectedRows[0].Cells[0].Value.ToString());
                 //dataPool.Columns["idPool"].Visible = false;
 
@@ -160,7 +160,7 @@ namespace AK8PO
         {
             pridatStitek.Visible = false;
             ubratStitek.Visible = false;
-            vybraneStitky.Columns["idPrehled"].Visible = true;
+            //vybraneStitky.Columns["idPrehled"].Visible = true;
             int idStitekVybran = int.Parse(vybraneStitky.SelectedRows[0].Cells[0].Value.ToString());
             //vybraneStitky.Columns["idPrehled"].Visible = false;
 

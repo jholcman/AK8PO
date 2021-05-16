@@ -30,19 +30,19 @@ namespace AK8PO
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboZamestnanec = new System.Windows.Forms.ComboBox();
@@ -106,6 +106,8 @@ namespace AK8PO
             this.label16 = new System.Windows.Forms.Label();
             this.celkemProcentoLabel = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zamestnanciBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataPool)).BeginInit();
@@ -118,6 +120,7 @@ namespace AK8PO
             ((System.ComponentModel.ISupportInitialize)(this.dataPrimaVyuka)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vybraneStitky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -382,8 +385,8 @@ namespace AK8PO
             // zkratka
             // 
             this.zkratka.DataSource = this.predmetBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.zkratka.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.zkratka.DefaultCellStyle = dataGridViewCellStyle27;
             this.zkratka.DisplayMember = "zkratka";
             this.zkratka.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.zkratka.HeaderText = "Predmet";
@@ -396,8 +399,8 @@ namespace AK8PO
             // 
             // druh
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.druh.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.druh.DefaultCellStyle = dataGridViewCellStyle28;
             this.druh.HeaderText = "Druh";
             this.druh.Name = "druh";
             this.druh.ReadOnly = true;
@@ -405,8 +408,8 @@ namespace AK8PO
             // 
             // tydnyZS
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.tydnyZS.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tydnyZS.DefaultCellStyle = dataGridViewCellStyle29;
             this.tydnyZS.HeaderText = "ZS";
             this.tydnyZS.Name = "tydnyZS";
             this.tydnyZS.ReadOnly = true;
@@ -414,8 +417,8 @@ namespace AK8PO
             // 
             // tydnyLS
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.tydnyLS.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tydnyLS.DefaultCellStyle = dataGridViewCellStyle30;
             this.tydnyLS.HeaderText = "LS";
             this.tydnyLS.Name = "tydnyLS";
             this.tydnyLS.ReadOnly = true;
@@ -423,8 +426,8 @@ namespace AK8PO
             // 
             // prednaskaTyden
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.prednaskaTyden.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.prednaskaTyden.DefaultCellStyle = dataGridViewCellStyle31;
             this.prednaskaTyden.HeaderText = "Př.";
             this.prednaskaTyden.Name = "prednaskaTyden";
             this.prednaskaTyden.ReadOnly = true;
@@ -432,8 +435,8 @@ namespace AK8PO
             // 
             // cviceniTyden
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cviceniTyden.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cviceniTyden.DefaultCellStyle = dataGridViewCellStyle32;
             this.cviceniTyden.HeaderText = "Cv.";
             this.cviceniTyden.Name = "cviceniTyden";
             this.cviceniTyden.ReadOnly = true;
@@ -441,8 +444,8 @@ namespace AK8PO
             // 
             // seminarTyden
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.seminarTyden.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.seminarTyden.DefaultCellStyle = dataGridViewCellStyle33;
             this.seminarTyden.HeaderText = "Sem.";
             this.seminarTyden.Name = "seminarTyden";
             this.seminarTyden.ReadOnly = true;
@@ -450,8 +453,8 @@ namespace AK8PO
             // 
             // prednaskaSkupina
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.prednaskaSkupina.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.prednaskaSkupina.DefaultCellStyle = dataGridViewCellStyle34;
             this.prednaskaSkupina.HeaderText = "Př.";
             this.prednaskaSkupina.Name = "prednaskaSkupina";
             this.prednaskaSkupina.ReadOnly = true;
@@ -459,8 +462,8 @@ namespace AK8PO
             // 
             // cviceniSkupina
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cviceniSkupina.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cviceniSkupina.DefaultCellStyle = dataGridViewCellStyle35;
             this.cviceniSkupina.HeaderText = "Cv.";
             this.cviceniSkupina.Name = "cviceniSkupina";
             this.cviceniSkupina.ReadOnly = true;
@@ -468,8 +471,8 @@ namespace AK8PO
             // 
             // seminarSkupina
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.seminarSkupina.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.seminarSkupina.DefaultCellStyle = dataGridViewCellStyle36;
             this.seminarSkupina.HeaderText = "Sem.";
             this.seminarSkupina.Name = "seminarSkupina";
             this.seminarSkupina.ReadOnly = true;
@@ -477,9 +480,9 @@ namespace AK8PO
             // 
             // prednaskaCelkem
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.prednaskaCelkem.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.prednaskaCelkem.DefaultCellStyle = dataGridViewCellStyle37;
             this.prednaskaCelkem.HeaderText = "Před.";
             this.prednaskaCelkem.Name = "prednaskaCelkem";
             this.prednaskaCelkem.ReadOnly = true;
@@ -487,9 +490,9 @@ namespace AK8PO
             // 
             // cviceniCelkem
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cviceniCelkem.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cviceniCelkem.DefaultCellStyle = dataGridViewCellStyle38;
             this.cviceniCelkem.HeaderText = "Cv.";
             this.cviceniCelkem.Name = "cviceniCelkem";
             this.cviceniCelkem.ReadOnly = true;
@@ -497,9 +500,9 @@ namespace AK8PO
             // 
             // seminarCelkem
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.seminarCelkem.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.seminarCelkem.DefaultCellStyle = dataGridViewCellStyle39;
             this.seminarCelkem.HeaderText = "Sem.";
             this.seminarCelkem.Name = "seminarCelkem";
             this.seminarCelkem.ReadOnly = true;
@@ -724,11 +727,34 @@ namespace AK8PO
             this.label18.TabIndex = 34;
             this.label18.Text = "Celkem naplnění [%]:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(17, 526);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(591, 207);
+            this.dataGridView1.TabIndex = 36;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(14, 496);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 18);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Nulové štítky";
+            // 
             // Kapacita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 761);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.celkemProcentoLabel);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.celkemPBLabel);
@@ -768,6 +794,7 @@ namespace AK8PO
             ((System.ComponentModel.ISupportInitialize)(this.dataPrimaVyuka)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vybraneStitky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -838,5 +865,7 @@ namespace AK8PO
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label celkemProcentoLabel;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label8;
     }
 }
