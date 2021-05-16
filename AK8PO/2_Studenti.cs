@@ -112,35 +112,53 @@ namespace AK8PO
         {
             if (vstupID.Text != "")
             {
+                if (!int.TryParse(vstupPocetStudentu.Text, out int pocetS)) { pocetS = 0; }
 
-                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Studenti WHERE (zkratka=" + vstupZkratka.Text + " AND rocnik=" + vstupRocnik.SelectedValue.ToString() + " AND semestr=" + vstupSemestr.SelectedValue.ToString() + " AND Id<>" + vstupID.Text + ")") == 0)
+                if (pocetS > 0)
                 {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.CommandText = "UPDATE Studenti SET zkratka=@VstupZkratka, rocnik=@VstupRocnik, semestr=@VstupSemestr, pocet_studentu=@VstupPocetStudentu, forma_studia=@VstupForma_studia, typ_studia=@VstupTyp_studia, jazyk=@VstupJazyk, nazev_studia=@VstupNazev_studia WHERE Id = @VstupID";
 
-                    if (!int.TryParse(vstupPocetStudentu.Text, out int pocetS)) { pocetS = 0; }
+                    if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Studenti WHERE (zkratka='" + vstupZkratka.Text + "' AND rocnik=" + vstupRocnik.SelectedValue.ToString() + " AND semestr=" + vstupSemestr.SelectedValue.ToString() + " AND Id<>" + vstupID.Text + ")") == 0)
+                    {
 
-                    cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
-                    cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
-                    cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
-                    cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
-                    cmd.Parameters.AddWithValue("@VstupPocetStudentu", pocetS);
-                    cmd.Parameters.AddWithValue("@VstupForma_studia", vstupForma_studia.SelectedValue);
-                    cmd.Parameters.AddWithValue("@VstupTyp_studia", vstupTyp_studia.SelectedValue);
-                    cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
-                    cmd.Parameters.AddWithValue("@VstupNazev_studia", vstupNazev_studia.Text);
+                        int puvodníPocet = StringLibrary.NactiHodnotuIntDB("SELECT pocet_studentu FROM Studenti WHERE Id = " + vstupID.Text);
 
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Záznam byl opraven", "Záznam byl opraven", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ResetForm();
-                    LoadForm();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.CommandText = "UPDATE Studenti SET zkratka=@VstupZkratka, rocnik=@VstupRocnik, semestr=@VstupSemestr, pocet_studentu=@VstupPocetStudentu, forma_studia=@VstupForma_studia, typ_studia=@VstupTyp_studia, jazyk=@VstupJazyk, nazev_studia=@VstupNazev_studia WHERE Id = @VstupID";
+
+                        cmd.Parameters.AddWithValue("@VstupID", int.Parse(vstupID.Text));
+                        cmd.Parameters.AddWithValue("@VstupZkratka", vstupZkratka.Text);
+                        cmd.Parameters.AddWithValue("@VstupRocnik", vstupRocnik.SelectedValue);
+                        cmd.Parameters.AddWithValue("@VstupSemestr", vstupSemestr.SelectedValue);
+                        cmd.Parameters.AddWithValue("@VstupPocetStudentu", pocetS);
+                        cmd.Parameters.AddWithValue("@VstupForma_studia", vstupForma_studia.SelectedValue);
+                        cmd.Parameters.AddWithValue("@VstupTyp_studia", vstupTyp_studia.SelectedValue);
+                        cmd.Parameters.AddWithValue("@VstupJazyk", vstupJazyk.SelectedValue);
+                        cmd.Parameters.AddWithValue("@VstupNazev_studia", vstupNazev_studia.Text);
+
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                        if (puvodníPocet == pocetS)
+                        {
+                            MessageBox.Show("Záznam byl opraven", "Záznam byl opraven", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            StringLibrary.PrepoctiStitkyZmenaPocetStudentu(int.Parse(vstupID.Text), pocetS);
+                        }
+                        ResetForm();
+                        LoadForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tato SKUPINA pro zadaný ROČNÍK a SEMESTR již existuje, záznam nebyl opraven!", "Zadat jinou skupinu?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Tato SKUPINA pro zadaný ROČNÍK a SEMESTR již existuje, záznam nebyl opraven!", "Zadat jinou skupinu?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Hodnota počtu studentů musí být větší než 0 !!!, záznam nebyl opraven!", "Zadat jý počet studentůu?", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 con.Close();
 
@@ -153,7 +171,7 @@ namespace AK8PO
 
         private void NovyZaznam(object sender, EventArgs e)
         {
-            if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Studenti WHERE (zkratka=" + vstupZkratka.Text + " AND rocnik=" + vstupRocnik.SelectedValue.ToString() + " AND semestr=" + vstupSemestr.SelectedValue.ToString() + ")") == 0)
+            if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Studenti WHERE (zkratka='" + vstupZkratka.Text + "' AND rocnik=" + vstupRocnik.SelectedValue.ToString() + " AND semestr=" + vstupSemestr.SelectedValue.ToString() + ")") == 0)
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;

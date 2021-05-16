@@ -301,6 +301,226 @@ namespace UtilityLibraries
             }
         }
 
+        internal static void UpdateStitky(int idPredmet)
+        {
+            int idZamestnanec = 0;
+            int pocetStudentu = 0;
+            int velikostTridy = 0;
+            int pocetPrednasek = 0;
+            int pocetCviceni = 0;
+            int pocetSeminaru = 0;
+            int jazykVyuky = 0;
+            int pocetTydnu = 0;
+            //int zakonceni = 0;
+            string poznamka = "";
+            string prikaz = "";
+            int pocetStitkuDatabaze;
+            int pocetPruchodu;
+
+            pocetStudentu = SectiStudentyStitek(idPredmet, 0);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = "select * FROM Predmet WHERE Predmet.Id=@idPredmet";
+            cmd.Parameters.AddWithValue("@idPredmet", idPredmet);
+            SqlDataReader data = cmd.ExecuteReader();
+            data.Read();
+            pocetPrednasek = int.Parse(data["prednasky"].ToString());
+            pocetCviceni = int.Parse(data["cviceni"].ToString());
+            pocetSeminaru = int.Parse(data["seminare"].ToString());
+            velikostTridy = int.Parse(data["velikost_tridy"].ToString());
+            pocetTydnu = int.Parse(data["pocet_tydnu"].ToString());
+            jazykVyuky = int.Parse(data["jazyk"].ToString());
+            //zakonceni = int.Parse(data["zakonceni"].ToString());
+            con.Close();
+
+            float pocetBodu = 0;
+            float bodoveHodnoceniP = 0;
+            float bodoveHodnoceniC = 0;
+            float bodoveHodnoceniS = 0;
+            //float bodoveHodnoceniZA = 0;
+            //float bodoveHodnoceniKZ = 0;
+            //float bodoveHodnoceniZK = 0;
+            if (jazykVyuky == 1)
+            {
+                bodoveHodnoceniP = float.Parse(StringLibrary.NactiHodnotuGlobal(1));
+                bodoveHodnoceniC = float.Parse(StringLibrary.NactiHodnotuGlobal(2));
+                bodoveHodnoceniS = float.Parse(StringLibrary.NactiHodnotuGlobal(3));
+                //bodoveHodnoceniZA = float.Parse(StringLibrary.NactiHodnotuGlobal(7));
+                //bodoveHodnoceniKZ = float.Parse(StringLibrary.NactiHodnotuGlobal(8));
+                //bodoveHodnoceniZK = float.Parse(StringLibrary.NactiHodnotuGlobal(9));
+            }
+            else
+            {
+                bodoveHodnoceniP = float.Parse(StringLibrary.NactiHodnotuGlobal(4));
+                bodoveHodnoceniC = float.Parse(StringLibrary.NactiHodnotuGlobal(5));
+                bodoveHodnoceniS = float.Parse(StringLibrary.NactiHodnotuGlobal(6));
+                //bodoveHodnoceniZA = float.Parse(StringLibrary.NactiHodnotuGlobal(10));
+                //bodoveHodnoceniKZ = float.Parse(StringLibrary.NactiHodnotuGlobal(11));
+                //bodoveHodnoceniZK = float.Parse(StringLibrary.NactiHodnotuGlobal(12));
+            }
+
+            prikaz = "INSERT INTO Stitky (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (@stitekCislo, @idZamestnanec, @idPredmet, @typStitku, @pocetStudentu, @pocetHodin, @pocetTydnu, @jazyk, @pocetBodu, @poznamka)";
+
+
+            if (pocetPrednasek > 0)
+            {
+                int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 4)");
+                pocetBodu = bodoveHodnoceniP * pocetPrednasek * pocetTydnu;
+                prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu  + ") WHERE Id="+id_zaznam;
+                UpdateStitekDoDatabazePrednasky(prikaz);
+
+            }
+
+            if (pocetCviceni > 0)
+            {
+                pocetStitkuDatabaze = SpoctiPrvky("select COUNT(*) from Stitky where (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 5)");
+                pocetBodu = bodoveHodnoceniC * pocetCviceni * pocetTydnu;
+
+                if (pocetStitkuDatabaze == 1 && pocetStudentu <= velikostTridy)
+                {
+                    int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 5)");
+                    prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + id_zaznam.ToString();
+                    UpdateStitekDoDatabazePrednasky(prikaz);
+                }
+                else 
+                {
+                    int[] poleIndexuDB = new int[pocetStitkuDatabaze];
+                    //////////////////// načtení indexů z DB
+                    //SqlCommand cmd1 = new SqlCommand();
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.CommandText = "select Id from Stitky where (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 5)";
+                    SqlDataReader data1 = cmd.ExecuteReader();
+                    int j = 0;
+                    while (data1.Read())
+                    {
+                        poleIndexuDB[j] = Convert.ToInt32(data1[j]);
+                        j++;
+                    }
+                    data1.Close();
+                    /////////////////
+                    int pocetStitekNaZapis = 0;
+                    int indexNaZapis = 0;
+                    int pracovniPocetStudentu = pocetStudentu;                              //počet studentů celkem
+                    Decimal cPS = Math.Ceiling((Decimal)pocetStudentu / velikostTridy); //počet štítku pro generování
+                    Decimal cOS = Math.Ceiling((Decimal)pocetStudentu / (int)cPS);          //počet studentů v jednom štítku
+                    int citacPocetStitku = (int)cPS;     //počet štítku pro generování
+                    int citacObsahStitku = (int)cOS;   //počet studentů v jednom štítku
+                    pocetPruchodu = pocetStitkuDatabaze;
+                    if (pocetPruchodu < citacPocetStitku) { pocetPruchodu = citacPocetStitku; }
+
+                    ////////////// cyklus
+
+                    for (int i = 1; i <= pocetPruchodu; i++)
+                    {
+                        indexNaZapis = 0;
+                        if (i <= pocetStitkuDatabaze) 
+                        {
+                           if (pracovniPocetStudentu > citacObsahStitku)
+                            {
+                                pocetStitekNaZapis = citacObsahStitku;
+                                pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
+                            }
+                           else
+                            {
+                                pocetStitekNaZapis = pracovniPocetStudentu;
+                                pracovniPocetStudentu = 0;
+                            }
+                            indexNaZapis = poleIndexuDB[i - 1];
+                            prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + indexNaZapis.ToString();
+                        }
+                        else
+                        {
+                            poznamka = "Cvičení štítek č." + i.ToString();
+                            prikaz = "INSERT INTO Stitky SET (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 5, " + pocetStudentu.ToString() + ", " + pocetCviceni.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", " + poznamka + ") WHERE Id=" + indexNaZapis.ToString();
+                        }
+                        UpdateStitekDoDatabazePrednasky(prikaz);
+
+
+                    }
+                    ////////////// konec cyklus
+
+                        
+                }
+            }
+
+            if (pocetSeminaru > 0)
+            {
+                pocetStitkuDatabaze = SpoctiPrvky("select COUNT(*) from Stitky where (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 6)");
+                pocetBodu = bodoveHodnoceniS * pocetSeminaru * pocetTydnu;
+
+                if (pocetStitkuDatabaze == 1 && pocetStudentu <= velikostTridy)
+                {
+                    int id_zaznam = StringLibrary.NactiHodnotuIntDB("SELECT Id FROM Stitky WHERE (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 6)");
+                    prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + id_zaznam.ToString();
+                    UpdateStitekDoDatabazePrednasky(prikaz);
+                }
+                else
+                {
+                    int[] poleIndexuDB1 = new int[pocetStitkuDatabaze];
+                    //////////////////// načtení indexů z DB
+                    //SqlCommand cmd1 = new SqlCommand();
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.CommandText = "select Id from Stitky where (id_predmet = " + idPredmet.ToString() + " AND typ_stitku = 6)";
+                    SqlDataReader data1 = cmd.ExecuteReader();
+                    int j = 0;
+                    while (data1.Read())
+                    {
+                        poleIndexuDB1[j] = Convert.ToInt32(data1[j]);
+                        j++;
+                    }
+                    data1.Close();
+                    /////////////////
+                    int pocetStitekNaZapis = 0;
+                    int indexNaZapis = 0;
+                    int pracovniPocetStudentu = pocetStudentu;                              //počet studentů celkem
+                    Decimal cPS = Math.Ceiling((Decimal)pocetStudentu / velikostTridy); //počet štítku pro generování
+                    Decimal cOS = Math.Ceiling((Decimal)pocetStudentu / (int)cPS);          //počet studentů v jednom štítku
+                    int citacPocetStitku = (int)cPS;     //počet štítku pro generování
+                    int citacObsahStitku = (int)cOS;   //počet studentů v jednom štítku
+                    pocetPruchodu = pocetStitkuDatabaze;
+                    if (pocetPruchodu < citacPocetStitku) { pocetPruchodu = citacPocetStitku; }
+
+                    ////////////// cyklus
+
+                    for (int i = 1; i <= pocetPruchodu; i++)
+                    {
+                        indexNaZapis = 0;
+                        if (i <= pocetStitkuDatabaze)
+                        {
+                            if (pracovniPocetStudentu > citacObsahStitku)
+                            {
+                                pocetStitekNaZapis = citacObsahStitku;
+                                pracovniPocetStudentu = pracovniPocetStudentu - citacObsahStitku;
+                            }
+                            else
+                            {
+                                pocetStitekNaZapis = pracovniPocetStudentu;
+                                pracovniPocetStudentu = 0;
+                            }
+                            indexNaZapis = poleIndexuDB1[i - 1];
+                            prikaz = "UPDATE Stitky SET (pocet_studentu, pocet_bodu) VALUES (" + pocetStudentu + ", " + pocetBodu + ") WHERE Id=" + indexNaZapis.ToString();
+                        }
+                        else
+                        {
+                            poznamka = "Seminář štítek č." + i.ToString();
+                            prikaz = "INSERT INTO Stitky SET (stitek_cislo, id_zamestnanec, id_predmet, typ_stitku, pocet_studentu, pocet_hodin, pocet_tydnu, jazyk, pocet_bodu, poznamka) VALUES (" + i.ToString() + ", 0, " + idPredmet.ToString() + ", 6, " + pocetStudentu.ToString() + ", " + pocetSeminaru.ToString() + ", " + pocetTydnu.ToString() + ", " + jazykVyuky.ToString() + ", " + pocetBodu.ToString() + ", " + poznamka + ") WHERE Id=" + indexNaZapis.ToString();
+                        }
+                        UpdateStitekDoDatabazePrednasky(prikaz);
+
+
+                    }
+                    ////////////// konec cyklus
+
+
+                }
+
+            }
+        }
+
         private static void ZapisStitekDoDatabaze(string prikaz, int stitekCislo, int idZamestnanec, int idPredmet, int typStitku, int pocetStudentu, int pocetHodin, int pocetTydnu, int jazykVyuky, float pocetBodu, string poznamka)
         {
             SqlCommand cmd = new SqlCommand();
@@ -323,6 +543,34 @@ namespace UtilityLibraries
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        private static void UpdateStitekDoDatabazePrednasky(string prikaz)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = prikaz;
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        internal static void PrepoctiStitkyZmenaPocetStudentu(int id_studenta, int pocetS)
+        {
+            int pocetStitkuOprava;
+            pocetStitkuOprava = SpoctiPrvky("select COUNT(*) from Stitky where (id_predmet IN (select Id_predmet from rozvrh where Id_studenti = " + id_studenta.ToString() + "))");
+            
+            if (pocetStitkuOprava > 0)
+            {
+
+                MessageBox.Show("Přepočet štítků proveden! Záznam byl opraven", "Zadat jinou skupinu?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Záznam byl opraven", "Zadat jinou skupinu?", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            //MessageBox.Show("ID studenta: " + id_studenta.ToString() + "   Pocet stitku k opravě: " + pocetStitkuOprava.ToString(), "aa", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+        }
         internal static int SpoctiPrvky(string prikaz)
         {
             int pocet;
@@ -335,7 +583,19 @@ namespace UtilityLibraries
             con.Close();
             return pocet;
         }
-      internal static void BarvaNeprirazenych(DataGridView dataStitky, Color barva)
+        internal static int NactiHodnotuIntDB(string prikaz1)
+        {
+            int hodnota1;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = @prikaz1;
+            hodnota1 = (int)cmd.ExecuteScalar();
+            con.Close();
+            return hodnota1;
+        }
+
+        internal static void BarvaNeprirazenych(DataGridView dataStitky, Color barva)
         {
             foreach (DataGridViewRow radek in dataStitky.Rows)
             {
@@ -394,7 +654,7 @@ namespace UtilityLibraries
         {
             dataPrimaVyuka.Rows.Clear();
             float celkemBodu = 0;
-            if (SpoctiPrvky("SELECT s.*,p.zakonceni FROM Stitky AS s LEFT JOIN Predmet AS p ON s.id_predmet=p.Id WHERE s.id_zamestnanec=" + idZamestnanec.ToString() + " ORDER BY s.id_predmet ASC,s.typ_stitku ASC,s.pocet_studentu DESC") > 0)
+            if (SpoctiPrvky("SELECT COUNT(*) FROM Stitky AS s LEFT JOIN Predmet AS p ON s.id_predmet=p.Id WHERE s.id_zamestnanec=" + idZamestnanec.ToString()) > 0)
             {
                 float p_cz = float.Parse(NactiHodnotuGlobal(1));
                 float c_cz = float.Parse(NactiHodnotuGlobal(2));

@@ -70,7 +70,7 @@ namespace AK8PO
         private void NovyZaznam(object sender, EventArgs e)
         {
 
-             if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=" + vstupPrijmeni.Text + " AND jmeno=" + vstupJmeno.Text + ")") == 0)
+             if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni='" + vstupPrijmeni.Text + "' AND jmeno='" + vstupJmeno.Text + "')") == 0)
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
@@ -139,7 +139,7 @@ namespace AK8PO
             if (vstupID.Text != "")
             {
 
-                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni=" + vstupPrijmeni.Text + " AND jmeno=" + vstupJmeno.Text + " AND Id<>" + vstupID.Text + ")") == 0)
+                if (StringLibrary.SpoctiPrvky("SELECT COUNT(*) FROM Zamestnanci WHERE (prijmeni='" + vstupPrijmeni.Text + "' AND jmeno='" + vstupJmeno.Text + "' AND Id<>" + vstupID.Text + ")") == 0)
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
