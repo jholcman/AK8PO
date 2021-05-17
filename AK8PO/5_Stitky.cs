@@ -115,5 +115,37 @@ namespace AK8PO
         {
             StringLibrary.BarvaNeprirazenych(dataStitky, Color.Yellow);
         }
+
+        private void SmazatStitek(object sender, EventArgs e)
+        {
+            StringLibrary.SmazatZaznam("DELETE FROM Stitky WHERE Id=" + vstupID.Text);
+            MessageBox.Show("Záznam byl smazán", "Záznam byl smazán.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            textID.Visible = false;
+            vstupID.Visible = false;
+            vstupID.Text = "0";
+            buttonSmazatID.Visible = false;
+
+            AktualizujTable();
+            StringLibrary.BarvaNeprirazenych(dataStitky, Color.Yellow);
+        }
+
+        private void VyberZaznam_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (int.Parse(dataStitky.SelectedRows[0].Cells[2].Value.ToString()) == 0)
+            {
+                textID.Visible = true;
+                vstupID.Visible = true;
+                vstupID.Text = dataStitky.SelectedRows[0].Cells[0].Value.ToString();
+                buttonSmazatID.Visible = true;
+            }
+            else
+            {
+                textID.Visible = false;
+                vstupID.Visible = false;
+                vstupID.Text = dataStitky.SelectedRows[0].Cells[0].Value.ToString();
+                buttonSmazatID.Visible = false;
+
+            }
+        }
     }
 }

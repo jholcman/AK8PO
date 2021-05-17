@@ -65,6 +65,9 @@ namespace AK8PO
             this.predmetTableAdapter = new AK8PO.DatabaseUTBDataSet25TableAdapters.PredmetTableAdapter();
             this.typStitkuTableAdapter = new AK8PO.DatabaseUTBDataSet26TableAdapters.TypStitkuTableAdapter();
             this.jazykTableAdapter = new AK8PO.DatabaseUTBDataSet27TableAdapters.JazykTableAdapter();
+            this.buttonSmazatID = new System.Windows.Forms.Button();
+            this.textID = new System.Windows.Forms.Label();
+            this.vstupID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataStitky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stitkyBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseUTBDataSet32BindingSource)).BeginInit();
@@ -188,6 +191,7 @@ namespace AK8PO
             this.dataStitky.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataStitky.Size = new System.Drawing.Size(1147, 468);
             this.dataStitky.TabIndex = 22;
+            this.dataStitky.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VyberZaznam_CellClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -352,11 +356,46 @@ namespace AK8PO
             // 
             this.jazykTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonSmazatID
+            // 
+            this.buttonSmazatID.Location = new System.Drawing.Point(205, 217);
+            this.buttonSmazatID.Name = "buttonSmazatID";
+            this.buttonSmazatID.Size = new System.Drawing.Size(152, 39);
+            this.buttonSmazatID.TabIndex = 23;
+            this.buttonSmazatID.Text = "Smazat vybraný štítek";
+            this.buttonSmazatID.UseVisualStyleBackColor = true;
+            this.buttonSmazatID.Visible = false;
+            this.buttonSmazatID.Click += new System.EventHandler(this.SmazatStitek);
+            // 
+            // textID
+            // 
+            this.textID.AutoSize = true;
+            this.textID.Location = new System.Drawing.Point(36, 230);
+            this.textID.Name = "textID";
+            this.textID.Size = new System.Drawing.Size(53, 13);
+            this.textID.TabIndex = 24;
+            this.textID.Text = "Štítek ID:";
+            this.textID.Visible = false;
+            // 
+            // vstupID
+            // 
+            this.vstupID.AutoSize = true;
+            this.vstupID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vstupID.Location = new System.Drawing.Point(95, 226);
+            this.vstupID.Name = "vstupID";
+            this.vstupID.Size = new System.Drawing.Size(18, 19);
+            this.vstupID.TabIndex = 25;
+            this.vstupID.Text = "0";
+            this.vstupID.Visible = false;
+            // 
             // Stitky
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.vstupID);
+            this.Controls.Add(this.textID);
+            this.Controls.Add(this.buttonSmazatID);
             this.Controls.Add(this.dataStitky);
             this.Controls.Add(this.generujStitkyPopis);
             this.Controls.Add(this.generujStitkyButton);
@@ -426,5 +465,8 @@ namespace AK8PO
         private System.Windows.Forms.BindingSource stitkyBindingSource1;
         private System.Windows.Forms.BindingSource databaseUTBDataSet32BindingSource;
         private DatabaseUTBDataSet32 databaseUTBDataSet32;
+        private System.Windows.Forms.Button buttonSmazatID;
+        private System.Windows.Forms.Label textID;
+        private System.Windows.Forms.Label vstupID;
     }
 }
